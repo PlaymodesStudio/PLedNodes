@@ -315,6 +315,7 @@ ofTexture& oscillatorTexture::computeBank(float phasor){
     swap(fbo, fboBuffer);
     
     ofPushStyle();
+    ofDisableAlphaBlending();
     ofSetColor(255, 255);
     fboBuffer.begin();
     ofClear(0, 0, 0, 255);

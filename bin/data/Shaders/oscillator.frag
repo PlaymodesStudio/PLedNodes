@@ -267,18 +267,8 @@ void main(){
     vec4 r_info = texelFetch(randomInfo, ivec2(xVal, yVal), 0);
     float oldValue = r_info.r;
     float oldPhasor = r_info.g;
-//    float pastNewRandom = r_info.b;
-//    int pastNewRandomInt = int(pastNewRandom * 512.0);
-//
-//
-//    int pastRandomInt = pastNewRandomInt >> 8;
-//    int newRandomInt = (pastNewRandomInt & 0xFF);
-    
-//    float pastRandom = float(pastRandomInt) / 256.0;
-//    float newRandom = float(newRandomInt) / 256.0;
-    
     float pastRandom = r_info.b;
-    float newRandom = r_info.b;
+    float newRandom = r_info.a;
     
     
     
@@ -337,7 +327,7 @@ void main(){
         val2 = linPhase;
     }
     if(waveformParam > 5 && waveformParam < 7){ //Random
-        if(linPhase < (oldPhasor - 0.1)){
+        if(linPhase < oldPhasor){
             val1 = rrrand(vec2((xVal) + time, (yVal) + time));
         }
         else{
@@ -345,14 +335,13 @@ void main(){
         }
     }
     if(waveformParam > 6 && waveformParam <= 7){
-        if(linPhase < (oldPhasor - 0.1)){
+        if(linPhase < oldPhasor){
             pastRandom = newRandom;
             newRandom = rrrand(vec2((xVal) + time, (yVal) + time));
             val2 = pastRandom;
         }
         else{
             val2 = (pastRandom*(1-linPhase)) + (newRandom*linPhase);
-//            val2 = pastRandom;
         }
     }
     
@@ -365,10 +354,5 @@ void main(){
         val = val1 * waveInterp + val2 * (1-waveInterp);
     }
     
-//    pastRandomInt = int(pastRandom * 256.0);
-//    newRandomInt = int(newRandom * 256.0);
-//    pastNewRandomInt = (pastRandomInt << 8) | newRandomInt;
-//    pastNewRandom = float(pastNewRandomInt) / 512.0;
-    
-    out_color = vec4(val, linPhase, newRandom, 1.0);
+    out_color = vec4(val, linPhase, pastRandom, newRandom);
 }
