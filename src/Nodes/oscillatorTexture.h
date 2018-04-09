@@ -19,11 +19,6 @@ public:
     
     ofTexture&  computeBank(float phasor);
 private:
-    void draw(ofEventArgs &e){
-        ofSetColor(255);
-        fboBuffer.draw(0,0);
-    }
-    
     template<typename T>
     void changeMinMaxOfVecParameter(ofParameter<vector<T>> &param, T min = -1, T max = -1, bool scaleValue = false){
         float valueNormalized;

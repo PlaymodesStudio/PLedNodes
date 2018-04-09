@@ -73,14 +73,14 @@ oscillatorTexture::oscillatorTexture() : ofxOceanodeNodeModel("Oscillator Textur
     setAndBindXYParamsVecFloat(skew, "Skew", 0, -1, 1);
     setAndBindXYParamsVecFloat(fader, "Fader", 1, 0, 1);
     setAndBindXYParamsVecFloat(invert, "Invert", 0, 0, 1);
-    setAndBindXYParamsVecFloat(waveform, "WaveForm", 0, 0, 7);
+    setAndBindXYParamsVecFloat(waveform, "WaveForm", 0, 0, 8);
     
 
     ofParameterGroup waveDropDown;
     waveDropDown.setName("Wave Select");
-    ofParameter<string> tempStrParam("Options", "sin-|-cos-|-tri-|-square-|-saw-|-inverted saw-|-rand1-|-rand2");
+    ofParameter<string> tempStrParam("Options", "sin-|-cos-|-tri-|-square-|-saw-|-inverted saw-|-rand1-|-rand2-|-rand3");
     waveDropDown.add(tempStrParam);
-    waveDropDown.add(waveSelect_Param.set("Wave Select", 0, 0, 7));
+    waveDropDown.add(waveSelect_Param.set("Wave Select", 0, 0, 8));
     parameters->add(waveDropDown);
     
     parameters->add(oscillatorOut.set("Oscillator Out", nullptr));

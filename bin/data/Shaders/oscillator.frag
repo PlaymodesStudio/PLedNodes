@@ -334,7 +334,7 @@ void main(){
             val1 = oldValue;
         }
     }
-    if(waveformParam > 6 && waveformParam <= 7){
+    if(waveformParam > 6 && waveformParam < 8){
         if(linPhase < oldPhasor){
             pastRandom = newRandom;
             newRandom = rrrand(vec2((xVal) + time, (yVal) + time));
@@ -342,6 +342,17 @@ void main(){
         }
         else{
             val2 = (pastRandom*(1-linPhase)) + (newRandom*linPhase);
+        }
+    }
+    if(waveformParam > 7 && waveformParam <= 8){
+        if(linPhase < oldPhasor){
+            pastRandom = newRandom;
+            newRandom = rrrand(vec2((xVal) + time, (yVal) + time));
+            val1 = pastRandom;
+        }
+        else{
+            float smoothPhase = 1 - (cos(w/2) + 1)/ 2;
+            val1 = (pastRandom*(1-smoothPhase)) + (newRandom*smoothPhase);
         }
     }
     
