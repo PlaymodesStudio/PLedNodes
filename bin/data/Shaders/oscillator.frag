@@ -264,10 +264,7 @@ void main(){
     
     
     //randon Info
-    double xTex = (double(xVal)+0.5) / double(textureSize(randomInfo, 0).x);
-    double yTex = (double(yVal)+0.5) / double(textureSize(randomInfo, 0).y);
-
-    vec4 r_info = texture(randomInfo, vec2(xTex, yTex));
+    vec4 r_info = texelFetch(randomInfo, ivec2(xVal, yVal), 0);
     float oldValue = r_info.r;
     float oldPhasor = r_info.g;
 //    float pastNewRandom = r_info.b;
