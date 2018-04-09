@@ -21,7 +21,10 @@ public:
 private:
     void drawInExternalWindow(ofEventArgs &e) override;
     
-    void inputListener(ofAbstractParameter &abs);
+    void inputListener(int index);
+    
+    map<string, ofEventListener> listeners;
+    vector<bool> ifNewCreatedCheker;
     
     vector<ofParameter<ofTexture*>>     texturesInput;
     
