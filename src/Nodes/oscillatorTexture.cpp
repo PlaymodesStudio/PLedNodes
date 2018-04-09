@@ -153,7 +153,6 @@ oscillatorTexture::oscillatorTexture() : ofxOceanodeNodeModel("Oscillator Textur
     indexRandomValuesTexture.allocateAsBufferTexture(indexRandomValuesBuffer, GL_R32F);
     
     
-    
     //Phase offset
     phaseOffsetBuffer.allocate();
     phaseOffsetBuffer.bind(GL_TEXTURE_BUFFER);
@@ -219,7 +218,6 @@ oscillatorTexture::oscillatorTexture() : ofxOceanodeNodeModel("Oscillator Textur
     invertBuffer.bind(GL_TEXTURE_BUFFER);
     invertBuffer.setData(vector<float>(width + height, invert[0].get()[0]), GL_STREAM_DRAW);
     invertTexture.allocateAsBufferTexture(invertBuffer, GL_R32F);
-    
     
     //Waveform
     waveformBuffer.allocate();
@@ -726,24 +724,68 @@ void oscillatorTexture::newWaveSelectParam(int &i){
 }
 
 void oscillatorTexture::sizeChanged(int &i){
+    bool sizeChanged = false;
     if(&i == &width.get()){
         if(width != previousWidth){
             changeMinMaxOfVecParameter(indexNumWaves[0], -1.0f, float(width), false);
-            changeMinMaxOfVecParameter(indexSymmetry[0], -1, width/2, true);
+            changeMinMaxOfVecParameter(indexSymmetry[0], -1, width/2, false);
             changeMinMaxOfVecParameter(indexOffset[0], float(-width/2), float(width/2), true);
             changeMinMaxOfVecParameter(indexQuantization[0], -1, width.get(), true);
             changeMinMaxOfVecParameter(indexModulo[0], -1, width.get(), true);
+            sizeChanged = true;
         }
         previousWidth = width;
     }else{
         if(height != previousHeight){
             changeMinMaxOfVecParameter(indexNumWaves[1], -1.0f, float(height), false);
-            changeMinMaxOfVecParameter(indexSymmetry[1], -1, height/2, true);
+            changeMinMaxOfVecParameter(indexSymmetry[1], -1, height/2, false);
             changeMinMaxOfVecParameter(indexOffset[1], float(-height/2), float(height/2), true);
             changeMinMaxOfVecParameter(indexQuantization[1], -1, height.get(), true);
             changeMinMaxOfVecParameter(indexModulo[1], -1, height.get(), true);
+            sizeChanged = true;
         }
         previousHeight = height;
+    }
+    
+    if(sizeChanged){
+        fbo.allocate(width, height, GL_RGBA32F);
+        fbo.begin();
+        ofClear(255, 255, 255, 0);
+        fbo.end();
+        fboBuffer.allocate(width, height, GL_RGBA16);
+        fboBuffer.begin();
+        ofClear(255, 255, 255, 0);
+        fboBuffer.end();
+        fbo.getTexture().setTextureMinMagFilter(GL_NEAREST, GL_NEAREST);
+        
+        randomInfoTexture.allocate(width, height, GL_RGBA32F);
+        randomInfoFbo.allocate(width, height, GL_RGBA32F);
+        randomInfoFbo.begin();
+        ofClear(255, 255, 255, 0);
+        randomInfoFbo.end();
+    
+        updateTBOWidthNewSizeFromParameters(indexNumWaves, indexNumWavesBuffer);
+        updateTBOWidthNewSizeFromParameters(indexInvert, indexInvertBuffer);
+        updateTBOWidthNewSizeFromParameters(indexSymmetry, indexSymmetryBuffer);
+        updateTBOWidthNewSizeFromParameters(indexRandom, indexRandomBuffer);
+        updateTBOWidthNewSizeFromParameters(indexOffset, indexOffsetBuffer);
+        updateTBOWidthNewSizeFromParameters(indexQuantization, indexQuantizationBuffer);
+        updateTBOWidthNewSizeFromParameters(indexCombination, indexCombinationBuffer);
+        updateTBOWidthNewSizeFromParameters(indexModulo, indexModuloBuffer);
+        updateTBOWidthNewSizeFromParameters(phaseOffset, phaseOffsetBuffer);
+        updateTBOWidthNewSizeFromParameters(randomAddition, randomAdditionBuffer);
+        updateTBOWidthNewSizeFromParameters(scale, scaleBuffer);
+        updateTBOWidthNewSizeFromParameters(offset, offsetBuffer);
+        updateTBOWidthNewSizeFromParameters(pow, powBuffer);
+        updateTBOWidthNewSizeFromParameters(bipow, bipowBuffer);
+        updateTBOWidthNewSizeFromParameters(quantization, quantizationBuffer);
+        updateTBOWidthNewSizeFromParameters(pulseWidth, pulseWidthBuffer);
+        updateTBOWidthNewSizeFromParameters(skew, skewBuffer);
+        updateTBOWidthNewSizeFromParameters(fader, faderBuffer);
+        updateTBOWidthNewSizeFromParameters(invert, invertBuffer);
+        updateTBOWidthNewSizeFromParameters(waveform, waveformBuffer);
+        
+        indexRandomValuesBuffer.setData(newRandomValuesVector(), GL_STREAM_DRAW);
     }
 }
 
