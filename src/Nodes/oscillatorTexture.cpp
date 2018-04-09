@@ -12,8 +12,16 @@
 oscillatorTexture::oscillatorTexture() : ofxOceanodeNodeModel("Oscillator Texture"){
     resources = &sharedResources::getInstance();
     
-    width = 128;
-    height = 128;
+    parameters->add(phasorIn.set("Phasor In", 0, 0, 1));
+    addParameterToGroupAndInfo(width.set("Tex Width", 100, 1, 5120)).acceptInConnection = false;
+    addParameterToGroupAndInfo(height.set("Tex Height", 100, 1, 2880)).acceptInConnection = false;
+    
+    previousWidth = width;
+    previousHeight = height;
+    
+    width.addListener(this, &oscillatorTexture::sizeChanged);
+    height.addListener(this, &oscillatorTexture::sizeChanged);
+    
     
     fbo.allocate(width, height, GL_RGBA32F);
     fbo.begin();
@@ -30,13 +38,6 @@ oscillatorTexture::oscillatorTexture() : ofxOceanodeNodeModel("Oscillator Textur
     randomInfoFbo.begin();
     ofClear(255, 255, 255, 0);
     randomInfoFbo.end();
-
-    
-    //parameters->add(reloadShaderParam.set("Reload Shader", false));
-//    reloadShaderParam.addListener(this, &oscillatorTexture::reloadShader);
-    
-//    ofParameter<string> strlbl;
-//    parameters->add(strlbl.set(dimensionStr + " Dim_label", " "));
     
     auto setAndBindXYParamsVecFloat = [this](ofParameter<vector<float>> *p, string name, float val, float min, float max) -> void{
         parameters->add(p[0].set(name + " X", vector<float>(1, val), vector<float>(1, min), vector<float>(1, max)));
@@ -47,8 +48,6 @@ oscillatorTexture::oscillatorTexture() : ofxOceanodeNodeModel("Oscillator Textur
         parameters->add(p[0].set(name + " X", vector<int>(1, val), vector<int>(1, min), vector<int>(1, max)));
         parameters->add(p[1].set(name + " Y", vector<int>(1, val), vector<int>(1, min), vector<int>(1, max)));
     };
-    
-    parameters->add(phasorIn.set("Phasor In", 0, 0, 1));
     
     parameters->add(indexNumWaves[0].set("Num Waves X", vector<float>(1, 1), vector<float>(1, 0), vector<float>(1, width)));
     parameters->add(indexNumWaves[1].set("Num Waves Y", vector<float>(1, 1), vector<float>(1, 0), vector<float>(1, height)));
@@ -231,7 +230,7 @@ oscillatorTexture::oscillatorTexture() : ofxOceanodeNodeModel("Oscillator Textur
     
     //LoadShader
     bool b = true;
-    reloadShader(b);
+    loadShader(b);
     
     phasorIn.addListener(this, &oscillatorTexture::newPhasorIn);
     
@@ -280,7 +279,7 @@ oscillatorTexture::oscillatorTexture() : ofxOceanodeNodeModel("Oscillator Textur
 
 }
 
-void oscillatorTexture::reloadShader(bool &b){
+void oscillatorTexture::loadShader(bool &b){
     shaderOscillator.load("Shaders/oscillator.vert", "Shaders/oscillator.frag");
     shaderOscillator.begin();
     
@@ -724,6 +723,28 @@ void oscillatorTexture::waveformListener(vector<float> &vf){
 
 void oscillatorTexture::newWaveSelectParam(int &i){
     waveform[0] = vector<float>(1, i);
+}
+
+void oscillatorTexture::sizeChanged(int &i){
+    if(&i == &width.get()){
+        if(width != previousWidth){
+            changeMinMaxOfVecParameter(indexNumWaves[0], -1.0f, float(width), false);
+            changeMinMaxOfVecParameter(indexSymmetry[0], -1, width/2, true);
+            changeMinMaxOfVecParameter(indexOffset[0], float(-width/2), float(width/2), true);
+            changeMinMaxOfVecParameter(indexQuantization[0], -1, width.get(), true);
+            changeMinMaxOfVecParameter(indexModulo[0], -1, width.get(), true);
+        }
+        previousWidth = width;
+    }else{
+        if(height != previousHeight){
+            changeMinMaxOfVecParameter(indexNumWaves[1], -1.0f, float(height), false);
+            changeMinMaxOfVecParameter(indexSymmetry[1], -1, height/2, true);
+            changeMinMaxOfVecParameter(indexOffset[1], float(-height/2), float(height/2), true);
+            changeMinMaxOfVecParameter(indexQuantization[1], -1, height.get(), true);
+            changeMinMaxOfVecParameter(indexModulo[1], -1, height.get(), true);
+        }
+        previousHeight = height;
+    }
 }
 
 

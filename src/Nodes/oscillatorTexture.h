@@ -22,15 +22,35 @@ private:
     void draw(ofEventArgs &e){
         ofSetColor(255);
         fboBuffer.draw(0,0);
-//        ofDrawRectangle(100, 0, width, height);
+    }
+    
+    template<typename T>
+    void changeMinMaxOfVecParameter(ofParameter<vector<T>> &param, T min = -1, T max = -1, bool scaleValue = false){
+        float valueNormalized;
+        if(param.get().size() == 1 && scaleValue)
+            valueNormalized = ofMap(param.get()[0], param.getMin()[0], param.getMax()[0], 0, 1, true);
+        if(min != -1)
+            param.setMin(vector<T>(1, min));
+        if(max != -1)
+            param.setMax(vector<T>(1, max));
+        string name = param.getName();
+        ofNotifyEvent(parameterChangedMinMax, name);
+        if(param.get().size() == 1){
+            if(scaleValue){
+                param = vector<T>(1, ofMap(valueNormalized, 0, 1, param.getMin()[0], param.getMax()[0]));
+            }else{
+                param = vector<T>(1, ofClamp(param.get()[0], param.getMin()[0], param.getMax()[0]));
+            }
+        }
     }
 
     
     vector<float> newRandomValuesVector();
     
-    void reloadShader(bool &b);
+    void loadShader(bool &b);
     
     void newPhasorIn(float &f);
+    void sizeChanged(int &i);
     
     void indexNumWavesListener(vector<float> &vf);
     void indexInvertListener(vector<float> &vf);
@@ -69,6 +89,10 @@ private:
     ofParameter<bool>       reloadShaderParam;
     ofParameter<float>    phasorIn;
     
+    ofParameter<int> width;
+    ofParameter<int> height;
+    int previousWidth, previousHeight;
+    
     ofParameter<vector<float>>   indexNumWaves[2];
     ofParameter<vector<float>>   indexInvert[2];
     ofParameter<vector<int>>   indexSymmetry[2];
@@ -100,9 +124,6 @@ private:
     sharedResources* resources;
     uint randomInfoOscillatorShaderTextureLocation;
     uint randomInfoScalingShaderTextureLocation;
-
-    
-    int width, height;
     
     ofShader shaderOscillator;
     ofShader shaderScaling;
