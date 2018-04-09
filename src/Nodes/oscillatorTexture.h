@@ -137,8 +137,6 @@ private:
     ofShader shaderScaling;
     ofFbo   fbo;
     ofFbo   fboBuffer;
-    ofTexture   randomInfoTexture;
-    ofFbo       randomInfoFbo;
     
     //TBOs
     

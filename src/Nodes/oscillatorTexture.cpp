@@ -27,17 +27,15 @@ oscillatorTexture::oscillatorTexture() : ofxOceanodeNodeModel("Oscillator Textur
     fbo.begin();
     ofClear(255, 255, 255, 0);
     fbo.end();
-    fboBuffer.allocate(width, height, GL_RGBA16);
+    fbo.getTexture().setTextureMinMagFilter(GL_NEAREST, GL_NEAREST);
+    
+    fboBuffer.allocate(width, height, GL_RGBA32F);
     fboBuffer.begin();
     ofClear(255, 255, 255, 0);
     fboBuffer.end();
-    fbo.getTexture().setTextureMinMagFilter(GL_NEAREST, GL_NEAREST);
+    fboBuffer.getTexture().setTextureMinMagFilter(GL_NEAREST, GL_NEAREST);
+
     
-    randomInfoTexture.allocate(width, height, GL_RGBA32F);
-    randomInfoFbo.allocate(width, height, GL_RGBA32F);
-    randomInfoFbo.begin();
-    ofClear(255, 255, 255, 0);
-    randomInfoFbo.end();
     
     auto setAndBindXYParamsVecFloat = [this](ofParameter<vector<float>> *p, string name, float val, float min, float max) -> void{
         parameters->add(p[0].set(name + " X", vector<float>(1, val), vector<float>(1, min), vector<float>(1, max)));
@@ -314,31 +312,26 @@ void oscillatorTexture::loadShader(bool &b){
 }
 
 ofTexture& oscillatorTexture::computeBank(float phasor){
+    swap(fbo, fboBuffer);
+    
     ofPushStyle();
     ofSetColor(255, 255);
     fboBuffer.begin();
-    ofClear(0, 255, 0, 255);
-    fboBuffer.end();
-    fboBuffer.begin();
+    ofClear(0, 0, 0, 255);
     shaderOscillator.begin();
     shaderOscillator.setUniform1f("phase", phasor);
     shaderOscillator.setUniform1f("time", ofGetElapsedTimef());
-    shaderOscillator.setUniformTexture("randomInfo", randomInfoTexture, randomInfoOscillatorShaderTextureLocation);
+    shaderOscillator.setUniformTexture("randomInfo", fbo.getTexture(), randomInfoOscillatorShaderTextureLocation);
     ofDrawRectangle(0, 0, width, height);
     shaderOscillator.end();
     fboBuffer.end();
     
-    randomInfoFbo.begin();
-    ofClear(0, 0, 0, 255);
-    fboBuffer.draw(0,0);
-    randomInfoFbo.end();
-    randomInfoTexture = randomInfoFbo.getTexture();
-    
     fbo.begin();
+    ofClear(0, 0, 0, 255);
     shaderScaling.begin();
     shaderScaling.setUniform1f("phase", phasor);
     shaderScaling.setUniform1f("time", ofGetElapsedTimef());
-    shaderScaling.setUniformTexture("randomInfo", randomInfoTexture, randomInfoScalingShaderTextureLocation);
+    shaderScaling.setUniformTexture("randomInfo", fboBuffer.getTexture(), randomInfoScalingShaderTextureLocation);
     ofDrawRectangle(0, 0, width, height);
     shaderScaling.end();
     fbo.end();
@@ -752,17 +745,13 @@ void oscillatorTexture::sizeChanged(int &i){
         fbo.begin();
         ofClear(255, 255, 255, 0);
         fbo.end();
-        fboBuffer.allocate(width, height, GL_RGBA16);
+        fbo.getTexture().setTextureMinMagFilter(GL_NEAREST, GL_NEAREST);
+        
+        fboBuffer.allocate(width, height, GL_RGBA32F);
         fboBuffer.begin();
         ofClear(255, 255, 255, 0);
         fboBuffer.end();
-        fbo.getTexture().setTextureMinMagFilter(GL_NEAREST, GL_NEAREST);
-        
-        randomInfoTexture.allocate(width, height, GL_RGBA32F);
-        randomInfoFbo.allocate(width, height, GL_RGBA32F);
-        randomInfoFbo.begin();
-        ofClear(255, 255, 255, 0);
-        randomInfoFbo.end();
+        fboBuffer.getTexture().setTextureMinMagFilter(GL_NEAREST, GL_NEAREST);
     
         updateTBOWidthNewSizeFromParameters(indexNumWaves, indexNumWavesBuffer);
         updateTBOWidthNewSizeFromParameters(indexInvert, indexInvertBuffer);
