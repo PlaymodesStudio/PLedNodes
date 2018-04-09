@@ -117,6 +117,25 @@ float map(float value, float istart, float istop, float ostart, float ostop) {
     return ostart + (ostop - ostart) * ((value - istart) / (istop - istart));
 }
 
+// *** Change these to suit your range of random numbers..
+
+// *** Use this for integer stepped ranges, ie Value-Noise/Perlin noise functions.
+#define HASHSCALE1 .1031
+
+// For smaller input rangers like audio tick or 0-1 UVs use these...
+//#define HASHSCALE1 443.8975
+
+
+
+//----------------------------------------------------------------------------------------
+//  1 out, 3 in...
+float hash13(vec3 p3)
+{
+    p3  = fract(p3 * HASHSCALE1);
+    p3 += dot(p3, p3.yzx + 19.19);
+    return fract((p3.x + p3.y) * p3.z);
+}
+
 void main(){
     
     //we grab the x and y and store them in an int
@@ -141,7 +160,7 @@ void main(){
     
     //random Add
     if(randomAdditionParam != 0){
-        value = value + randomAdditionParam*rrrand(vec2((xVal) + time, (yVal) + time));
+        value = value + randomAdditionParam*hash13(vec3(xVal, yVal, time));
     }
     
     value = clamp(value, 0.0, 1.0);

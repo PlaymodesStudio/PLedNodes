@@ -112,7 +112,7 @@ float map(float value, float istart, float istop, float ostart, float ostop) {
     return ostart + (ostop - ostart) * ((value - istart) / (istop - istart));
 }
 
-highp float rrrand(vec2 co)
+highp float rrrand(vec2 co, float time)
 {
     highp float a = 12.9898;
     highp float b = 78.233;
@@ -120,6 +120,26 @@ highp float rrrand(vec2 co)
     highp float dt= dot(co.xy ,vec2(a,b));
     highp float sn= mod(dt,3.14);
     return fract(sin(sn) * c);
+}
+
+
+// *** Change these to suit your range of random numbers..
+
+// *** Use this for integer stepped ranges, ie Value-Noise/Perlin noise functions.
+#define HASHSCALE1 .1031
+
+// For smaller input rangers like audio tick or 0-1 UVs use these...
+//#define HASHSCALE1 443.8975
+
+
+
+//----------------------------------------------------------------------------------------
+//  1 out, 3 in...
+float hash13(vec3 p3)
+{
+    p3  = fract(p3 * HASHSCALE1);
+    p3 += dot(p3, p3.yzx + 19.19);
+    return fract((p3.x + p3.y) * p3.z);
 }
 
 void main(){
@@ -328,7 +348,7 @@ void main(){
     }
     if(waveformParam > 5 && waveformParam < 7){ //Random
         if(linPhase < oldPhasor){
-            val1 = rrrand(vec2((xVal) + time, (yVal) + time));
+            val1 = hash13(vec3(xVal, yVal, time));
         }
         else{
             val1 = oldValue;
@@ -337,7 +357,7 @@ void main(){
     if(waveformParam > 6 && waveformParam < 8){
         if(linPhase < oldPhasor){
             pastRandom = newRandom;
-            newRandom = rrrand(vec2((xVal) + time, (yVal) + time));
+            newRandom = hash13(vec3(xVal, yVal, time));
             val2 = pastRandom;
         }
         else{
@@ -347,7 +367,7 @@ void main(){
     if(waveformParam > 7 && waveformParam <= 8){
         if(linPhase < oldPhasor){
             pastRandom = newRandom;
-            newRandom = rrrand(vec2((xVal) + time, (yVal) + time));
+            newRandom = hash13(vec3(xVal, yVal, time));
             val1 = pastRandom;
         }
         else{
