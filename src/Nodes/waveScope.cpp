@@ -93,10 +93,3 @@ void waveScope::drawInExternalWindow(ofEventArgs &e){
     ofSetColor(255, 0,0);
     ofDrawBitmapString(ofToString(ofGetFrameRate()), 20, ofGetHeight()-10);
 }
-
-ofxOceanodeAbstractConnection* waveScope::createConnectionFromCustomType(ofxOceanodeContainer& c, ofAbstractParameter& source, ofAbstractParameter& sink){
-    if(source.type() == typeid(ofParameter<ofTexture*>).name()){
-        return c.connectConnection(source.cast<ofTexture*>(), sink.cast<ofTexture*>());
-    }
-    return nullptr;
-}

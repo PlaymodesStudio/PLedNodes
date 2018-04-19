@@ -5,15 +5,17 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     ofDisableArbTex();
-    //ofSetVerticalSync(false);
+    ofSetVerticalSync(true);
     ofSetFrameRate(60);
     
     auto reg = make_shared<ofxOceanodeNodeRegistry>();
+    auto treg = make_shared<ofxOceanodeTypesRegistry>();
     reg->registerModel<oscillatorTexture>("LedNodes");
     reg->registerModel<waveScope>("LedNodes");
+    treg->registerType<ofTexture*>();
     
     
-    container = make_shared<ofxOceanodeContainer>(reg);
+    container = make_shared<ofxOceanodeContainer>(reg, treg);
     canvas.setContainer(container);
     canvas.setup();
     

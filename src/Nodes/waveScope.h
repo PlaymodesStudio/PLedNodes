@@ -15,9 +15,7 @@ class waveScope : public ofxOceanodeNodeModelExternalWindow{
 public:
     waveScope();
     ~waveScope(){};
-    
-    ofxOceanodeAbstractConnection* createConnectionFromCustomType(ofxOceanodeContainer& c, ofAbstractParameter& source, ofAbstractParameter& sink) override;
-    
+
 private:
     void drawInExternalWindow(ofEventArgs &e) override;
     
