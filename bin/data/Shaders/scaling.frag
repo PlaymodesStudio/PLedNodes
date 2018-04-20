@@ -191,7 +191,7 @@ void main(){
 
     //Quantization
     if(quantizationParam < 255)
-        value = (1/float(quantizationParam))*round(value*quantizationParam);
+        value = (1/float(quantizationParam-1))*floor(value*quantizationParam);
     
     value = clamp(value, 0, 1);
 

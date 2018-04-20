@@ -68,7 +68,7 @@ oscillatorTexture::oscillatorTexture() : ofxOceanodeNodeModel("Oscillator Textur
     setAndBindXYParamsVecFloat(offset, "Offset", 0, -1, 1);
     setAndBindXYParamsVecFloat(pow, "Pow", 0, -40, 40);
     setAndBindXYParamsVecFloat(bipow, "Bi Pow", 0, -40, 40);
-    setAndBindXYParamsVecInt(quantization, "Quantize", 255, 1, 255);
+    setAndBindXYParamsVecInt(quantization, "Quantize", 255, 2, 255);
     setAndBindXYParamsVecFloat(pulseWidth, "Pulse Width", 1, 0, 1);
     setAndBindXYParamsVecFloat(skew, "Skew", 0, -1, 1);
     setAndBindXYParamsVecFloat(fader, "Fader", 1, 0, 1);
