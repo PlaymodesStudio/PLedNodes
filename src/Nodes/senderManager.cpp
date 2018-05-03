@@ -16,9 +16,8 @@ senderManager::senderManager() : ofxOceanodeNodeModel("Sender Manager"){
     
     listeners.push(textureIn.newListener(this, &senderManager::sendTexture));
     
-    listeners.push(enable.newListener(this, &senderManager::enableSyphonListener));
-    
-    enable = true;
+    bool tempEnable = true;
+    enableSyphonListener(tempEnable);
 }
 
 
@@ -29,7 +28,10 @@ void senderManager::sendTexture(ofTexture *&info){
         }
         colorFbo.begin();
         ofClear(0, 0, 0, 255);
+        ofPushStyle();
+        ofSetColor(masterFader * 255);
         info->draw(0, 0);
+        ofPopStyle();
         colorFbo.end();
         syphonServer->publishTexture(&colorFbo.getTexture());
     }
@@ -45,7 +47,7 @@ void senderManager::enableSyphonListener(bool &b){
         
         listeners.push(syphonName.newListener(this, &senderManager::syphonNameListener));
     }else{
-        syphonName.removeListener(this, &senderManager::syphonNameListener);
+        listeners.unsubscribe(1);
         delete syphonServer;
     }
 }
