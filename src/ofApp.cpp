@@ -2,6 +2,7 @@
 #include "oscillatorTexture.h"
 #include "waveScope.h"
 #include "senderManager.h"
+#include "colorApplier.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -14,6 +15,7 @@ void ofApp::setup(){
     reg->registerModel<oscillatorTexture>("LedNodes");
     reg->registerModel<waveScope>("LedNodes");
     reg->registerModel<senderManager>("LedNodes");
+    reg->registerModel<colorApplier>("LedNodes");
     treg->registerType<ofTexture*>();
     
     
