@@ -1,2 +1,3 @@
 ofxDatGui_PM
 ofxOceanode
+ofxSyphon
