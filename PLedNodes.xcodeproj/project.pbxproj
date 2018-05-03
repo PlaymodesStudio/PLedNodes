@@ -447,6 +447,57 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
+			<key>C1A3EDCC30D80C890BF10EC5</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>localPresetController.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Controllers/localPresetController.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>550B846BFF2680933EE8B745</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>D9EC5C75C9CA92B4EFB78CFF</string>
+					<string>C1A3EDCC30D80C890BF10EC5</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>Controllers</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>124BB55C818D1F89450ED005</key>
+			<dict>
+				<key>fileRef</key>
+				<string>D9EC5C75C9CA92B4EFB78CFF</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>D9EC5C75C9CA92B4EFB78CFF</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.cpp</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>localPresetController.cpp</string>
+				<key>path</key>
+				<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Controllers/localPresetController.cpp</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
 			<key>C76BA1A770D742397939F7A7</key>
 			<dict>
 				<key>explicitFileType</key>
@@ -559,6 +610,7 @@
 				<key>children</key>
 				<array>
 					<string>7122898CC63A863AD1DC1535</string>
+					<string>550B846BFF2680933EE8B745</string>
 					<string>60A061F8C47B5624AE6C450E</string>
 					<string>86C08C13FA71904D23256B02</string>
 					<string>C9E0C4F6A9698E8F0EF5E14C</string>
@@ -592,6 +644,43 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
+			<key>027F095A0217A890F2B21761</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxOceanodeNodeModelLocalPreset.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxOceanode/src/Nodes/Base_Nodes/ofxOceanodeNodeModelLocalPreset.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>4B0881C0E4F3D037FA83C3E3</key>
+			<dict>
+				<key>fileRef</key>
+				<string>8AC0F166599AAFFA99CD14EF</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>8AC0F166599AAFFA99CD14EF</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.cpp</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxOceanodeNodeModelLocalPreset.cpp</string>
+				<key>path</key>
+				<string>../../../addons/ofxOceanode/src/Nodes/Base_Nodes/ofxOceanodeNodeModelLocalPreset.cpp</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
 			<key>16D50E04676F5AF6D586DD9B</key>
 			<dict>
 				<key>explicitFileType</key>
@@ -613,6 +702,8 @@
 				<array>
 					<string>03E42CA654A61594B6D8167F</string>
 					<string>16D50E04676F5AF6D586DD9B</string>
+					<string>8AC0F166599AAFFA99CD14EF</string>
+					<string>027F095A0217A890F2B21761</string>
 				</array>
 				<key>isa</key>
 				<string>PBXGroup</string>
@@ -1865,6 +1956,7 @@ fi
 						<string>../../../addons/ofxOceanode/src/Nodes/Base_Nodes</string>
 						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes</string>
 						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Base</string>
+						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Controllers</string>
 						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Generators</string>
 						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Modifiers</string>
 					</array>
@@ -1942,6 +2034,7 @@ fi
 						<string>../../../addons/ofxOceanode/src/Nodes/Base_Nodes</string>
 						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes</string>
 						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Base</string>
+						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Controllers</string>
 						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Generators</string>
 						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Modifiers</string>
 					</array>
@@ -1950,7 +2043,9 @@ fi
 					<key>COPY_PHASE_STRIP</key>
 					<string>YES</string>
 					<key>FRAMEWORK_SEARCH_PATHS</key>
-					<string>$(inherited)</string>
+					<array>
+						<string>$(inherited)</string>
+					</array>
 					<key>GCC_GENERATE_DEBUGGING_SYMBOLS</key>
 					<string>YES</string>
 					<key>GCC_MODEL_TUNING</key>
@@ -2155,6 +2250,7 @@ fi
 						<string>../../../addons/ofxOceanode/src/Nodes/Base_Nodes</string>
 						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes</string>
 						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Base</string>
+						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Controllers</string>
 						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Generators</string>
 						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Modifiers</string>
 					</array>
@@ -2230,6 +2326,7 @@ fi
 						<string>../../../addons/ofxOceanode/src/Nodes/Base_Nodes</string>
 						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes</string>
 						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Base</string>
+						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Controllers</string>
 						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Generators</string>
 						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Modifiers</string>
 					</array>
@@ -2304,9 +2401,11 @@ fi
 					<string>B7559FEE382DBA7FB094D5E7</string>
 					<string>102C0035698294FDB36E6899</string>
 					<string>7CC1A4D669C6C1B3786CD384</string>
+					<string>4B0881C0E4F3D037FA83C3E3</string>
 					<string>D925621F7F6146497318658A</string>
 					<string>9150F94721FE0E44D16DA0CC</string>
 					<string>BFBE6AEF801BA1F820867405</string>
+					<string>124BB55C818D1F89450ED005</string>
 					<string>842D4B1559D16CD55B1CF6DD</string>
 					<string>4C3192DB1EAE1CFF29580749</string>
 					<string>7416EB8AFDAB615D36EC3137</string>
@@ -2418,6 +2517,7 @@ fi
 						<string>../../../addons/ofxOceanode/src/Nodes/Base_Nodes</string>
 						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes</string>
 						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Base</string>
+						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Controllers</string>
 						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Generators</string>
 						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Modifiers</string>
 					</array>
@@ -2426,7 +2526,9 @@ fi
 					<key>COPY_PHASE_STRIP</key>
 					<string>NO</string>
 					<key>FRAMEWORK_SEARCH_PATHS</key>
-					<string>$(inherited)</string>
+					<array>
+						<string>$(inherited)</string>
+					</array>
 					<key>GCC_DYNAMIC_NO_PIC</key>
 					<string>NO</string>
 					<key>GCC_GENERATE_DEBUGGING_SYMBOLS</key>
@@ -2478,6 +2580,7 @@ fi
 						<string>../../../addons/ofxOceanode/src/Nodes/Base_Nodes</string>
 						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes</string>
 						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Base</string>
+						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Controllers</string>
 						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Generators</string>
 						<string>../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Modifiers</string>
 					</array>
@@ -2486,7 +2589,9 @@ fi
 					<key>COPY_PHASE_STRIP</key>
 					<string>YES</string>
 					<key>FRAMEWORK_SEARCH_PATHS</key>
-					<string>$(inherited)</string>
+					<array>
+						<string>$(inherited)</string>
+					</array>
 					<key>GCC_GENERATE_DEBUGGING_SYMBOLS</key>
 					<string>YES</string>
 					<key>GCC_MODEL_TUNING</key>
