@@ -306,6 +306,15 @@ void oscillatorTexture::loadShader(bool &b){
     randomInfoScalingShaderTextureLocation = resources->getNextAvailableShaderTextureLocation();
 }
 
+void oscillatorTexture::presetRecallBeforeSettingParameters(ofJson &json){
+    if(json.count(width.getEscapedName()) == 1){
+        ofDeserialize(json, width);
+    }
+    if(json.count(height.getEscapedName()) == 1){
+        ofDeserialize(json, height);
+    }
+}
+
 ofTexture& oscillatorTexture::computeBank(float phasor){
     swap(fbo, fboBuffer);
     
