@@ -166,6 +166,10 @@ void main(){
     uint xIndexModulo = texelFetch(indexModulo, xVal).r;
     uint yIndexModulo = texelFetch(indexModulo, yVal + width).r;
 
+    //Offset
+    xIndex = int(mod(round(xIndex - xIndexOffset), width));
+    yIndex = int(mod(round(yIndex - yIndexOffset), height));
+    
     //Quantization
     xIndex = int(floor(float(xIndex)/(float(width)/float(xQuantization))));
     yIndex = int(floor(float(yIndex)/(float(height)/float(yQuantization))));
