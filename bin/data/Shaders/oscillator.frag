@@ -167,8 +167,8 @@ void main(){
     uint yIndexModulo = texelFetch(indexModulo, yVal + width).r;
 
     //Offset
-    xIndex = int(mod(round(xIndex - xIndexOffset), width));
-    yIndex = int(mod(round(yIndex - yIndexOffset), height));
+    xIndex = int(mod((xIndex - round(xIndexOffset)), width));
+    yIndex = int(mod((yIndex - round(yIndexOffset)), height));
     
     //Quantization
     xIndex = int(floor(float(xIndex)/(float(width)/float(xQuantization))));
@@ -192,7 +192,7 @@ void main(){
     }
 
     if(abs(xIndexOffset) - int(abs(xIndexOffset)) > 0.5){
-        odd = !odd;
+        //odd = !odd;
     }
     
     int veusSym = int(xQuantization)/int(xSymmetry+1);
@@ -214,7 +214,7 @@ void main(){
     }
     
     if(abs(yIndexOffset) - int(abs(yIndexOffset)) > 0.5){
-        odd = !odd;
+        //odd = !odd;
     }
 
     veusSym = int(yQuantization)/int(ySymmetry+1);
