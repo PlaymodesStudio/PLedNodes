@@ -42,6 +42,14 @@ private:
     }
     
     template<typename T>
+    void updateTBOWidthNewSizeFromParametersInvertedSize(ofParameter<vector<T>> params[], ofBufferObject &tbo){
+        vector<T> xModVec(height, params[0].get()[0]);
+        vector<T> yModtVec(width, params[1].get()[0]);
+        xModVec.insert(xModVec.end(), yModtVec.begin(), yModtVec.end());
+        tbo.setData(xModVec, GL_STREAM_DRAW);
+    }
+    
+    template<typename T>
     void updateTBOWidthNewSizeFromParameters(ofParameter<vector<T>> params[], ofBufferObject &tbo){
         vector<T> xModVec(width, params[0].get()[0]);
         vector<T> yModtVec(height, params[1].get()[0]);

@@ -374,16 +374,16 @@ vector<float> oscillatorTexture::newRandomValuesVector(){
 void oscillatorTexture::indexNumWavesListener(vector<float> &vf){
     if(&vf == &indexNumWaves[0].get()){
         if(vf.size() == 1){
-            indexNumWavesBuffer.updateData(0, vector<float>(width, vf[0]));
-        }else if(vf.size() == width){
+            indexNumWavesBuffer.updateData(0, vector<float>(height, vf[0]));
+        }else if(vf.size() == height){
             indexNumWavesBuffer.updateData(0, vf);
         }
     }
     if(&vf == &indexNumWaves[1].get()){
         if(vf.size() == 1){
-            indexNumWavesBuffer.updateData(width*4, vector<float>(height, vf[0]));
-        }else if(vf.size() == height){
-            indexNumWavesBuffer.updateData(width*4, vf);
+            indexNumWavesBuffer.updateData(height*4, vector<float>(width, vf[0]));
+        }else if(vf.size() == width){
+            indexNumWavesBuffer.updateData(height*4, vf);
         }
     }
 }
@@ -391,16 +391,16 @@ void oscillatorTexture::indexNumWavesListener(vector<float> &vf){
 void oscillatorTexture::indexInvertListener(vector<float> &vf){
     if(&vf == &indexInvert[0].get()){
         if(vf.size() == 1){
-            indexInvertBuffer.updateData(0, vector<float>(width, vf[0]));
-        }else if(vf.size() == width){
+            indexInvertBuffer.updateData(0, vector<float>(height, vf[0]));
+        }else if(vf.size() == height){
             indexInvertBuffer.updateData(0, vf);
         }
     }
     if(&vf == &indexInvert[1].get()){
         if(vf.size() == 1){
-            indexInvertBuffer.updateData(width*4, vector<float>(height, vf[0]));
-        }else if(vf.size() == height){
-            indexInvertBuffer.updateData(width*4, vf);
+            indexInvertBuffer.updateData(height*4, vector<float>(width, vf[0]));
+        }else if(vf.size() == width){
+            indexInvertBuffer.updateData(height*4, vf);
         }
     }
 }
@@ -408,16 +408,16 @@ void oscillatorTexture::indexInvertListener(vector<float> &vf){
 void oscillatorTexture::indexSymmetryListener(vector<int> &vi){
     if(&vi == &indexSymmetry[0].get()){
         if(vi.size() == 1){
-            indexSymmetryBuffer.updateData(0, vector<int>(width, vi[0]));
-        }else if(vi.size() == width){
+            indexSymmetryBuffer.updateData(0, vector<int>(height, vi[0]));
+        }else if(vi.size() == height){
             indexSymmetryBuffer.updateData(0, vi);
         }
     }
     if(&vi == &indexSymmetry[1].get()){
         if(vi.size() == 1){
-            indexSymmetryBuffer.updateData(width*4, vector<int>(height, vi[0]));
-        }else if(vi.size() == height){
-            indexSymmetryBuffer.updateData(width*4, vi);
+            indexSymmetryBuffer.updateData(height*4, vector<int>(width, vi[0]));
+        }else if(vi.size() == width){
+            indexSymmetryBuffer.updateData(height*4, vi);
         }
     }
 }
@@ -428,16 +428,16 @@ void oscillatorTexture::indexRandomListener(vector<float> &vf){
     }
     if(&vf == &indexRandom[0].get()){
         if(vf.size() == 1){
-            indexRandomBuffer.updateData(0, vector<float>(width, vf[0]));
-        }else if(vf.size() == width){
+            indexRandomBuffer.updateData(0, vector<float>(height, vf[0]));
+        }else if(vf.size() == height){
             indexRandomBuffer.updateData(0, vf);
         }
     }
     if(&vf == &indexRandom[1].get()){
         if(vf.size() == 1){
-            indexRandomBuffer.updateData(width*4, vector<float>(height, vf[0]));
-        }else if(vf.size() == height){
-            indexRandomBuffer.updateData(width*4, vf);
+            indexRandomBuffer.updateData(height*4, vector<float>(width, vf[0]));
+        }else if(vf.size() == width){
+            indexRandomBuffer.updateData(height*4, vf);
         }
     }
 }
@@ -445,16 +445,16 @@ void oscillatorTexture::indexRandomListener(vector<float> &vf){
 void oscillatorTexture::indexOffsetListener(vector<float> &vf){
     if(&vf == &indexOffset[0].get()){
         if(vf.size() == 1){
-            indexOffsetBuffer.updateData(0, vector<float>(width, vf[0]));
-        }else if(vf.size() == width){
+            indexOffsetBuffer.updateData(0, vector<float>(height, vf[0]));
+        }else if(vf.size() == height){
             indexOffsetBuffer.updateData(0, vf);
         }
     }
     if(&vf == &indexOffset[1].get()){
         if(vf.size() == 1){
-            indexOffsetBuffer.updateData(width*4, vector<float>(height, vf[0]));
-        }else if(vf.size() == height){
-            indexOffsetBuffer.updateData(width*4, vf);
+            indexOffsetBuffer.updateData(height*4, vector<float>(width, vf[0]));
+        }else if(vf.size() == width){
+            indexOffsetBuffer.updateData(height*4, vf);
         }
     }
 }
@@ -462,16 +462,16 @@ void oscillatorTexture::indexOffsetListener(vector<float> &vf){
 void oscillatorTexture::indexQuantizationListener(vector<int> &vi){
     if(&vi == &indexQuantization[0].get()){
         if(vi.size() == 1){
-            indexQuantizationBuffer.updateData(0, vector<int>(width, vi[0]));
-        }else if(vi.size() == width){
+            indexQuantizationBuffer.updateData(0, vector<int>(height, vi[0]));
+        }else if(vi.size() == height){
             indexQuantizationBuffer.updateData(0, vi);
         }
     }
     if(&vi == &indexQuantization[1].get()){
         if(vi.size() == 1){
-            indexQuantizationBuffer.updateData(width*4, vector<int>(height, vi[0]));
-        }else if(vi.size() == height){
-            indexQuantizationBuffer.updateData(width*4, vi);
+            indexQuantizationBuffer.updateData(height*4, vector<int>(width, vi[0]));
+        }else if(vi.size() == width){
+            indexQuantizationBuffer.updateData(height*4, vi);
         }
     }
 }
@@ -479,16 +479,16 @@ void oscillatorTexture::indexQuantizationListener(vector<int> &vi){
 void oscillatorTexture::indexCombinationListener(vector<float> &vf){
     if(&vf == &indexCombination[0].get()){
         if(vf.size() == 1){
-            indexCombinationBuffer.updateData(0, vector<float>(width, vf[0]));
-        }else if(vf.size() == width){
+            indexCombinationBuffer.updateData(0, vector<float>(height, vf[0]));
+        }else if(vf.size() == height){
             indexCombinationBuffer.updateData(0, vf);
         }
     }
     if(&vf == &indexCombination[1].get()){
         if(vf.size() == 1){
-            indexCombinationBuffer.updateData(width*4, vector<float>(height, vf[0]));
-        }else if(vf.size() == height){
-            indexCombinationBuffer.updateData(width*4, vf);
+            indexCombinationBuffer.updateData(height*4, vector<float>(width, vf[0]));
+        }else if(vf.size() == width){
+            indexCombinationBuffer.updateData(height*4, vf);
         }
     }
 }
@@ -496,16 +496,16 @@ void oscillatorTexture::indexCombinationListener(vector<float> &vf){
 void oscillatorTexture::indexModuloListener(vector<int> &vi){
     if(&vi == &indexModulo[0].get()){
         if(vi.size() == 1){
-            indexModuloBuffer.updateData(0, vector<int>(width, vi[0]));
-        }else if(vi.size() == width){
+            indexModuloBuffer.updateData(0, vector<int>(height, vi[0]));
+        }else if(vi.size() == height){
             indexModuloBuffer.updateData(0, vi);
         }
     }
     if(&vi == &indexModulo[1].get()){
         if(vi.size() == 1){
-            indexModuloBuffer.updateData(width*4, vector<int>(height, vi[0]));
-        }else if(vi.size() == height){
-            indexModuloBuffer.updateData(width*4, vi);
+            indexModuloBuffer.updateData(height*4, vector<int>(width, vi[0]));
+        }else if(vi.size() == width){
+            indexModuloBuffer.updateData(height*4, vi);
         }
     }
 }
@@ -758,14 +758,14 @@ void oscillatorTexture::sizeChanged(int &i){
         fboBuffer.end();
         fboBuffer.getTexture().setTextureMinMagFilter(GL_NEAREST, GL_NEAREST);
     
-        updateTBOWidthNewSizeFromParameters(indexNumWaves, indexNumWavesBuffer);
-        updateTBOWidthNewSizeFromParameters(indexInvert, indexInvertBuffer);
-        updateTBOWidthNewSizeFromParameters(indexSymmetry, indexSymmetryBuffer);
-        updateTBOWidthNewSizeFromParameters(indexRandom, indexRandomBuffer);
-        updateTBOWidthNewSizeFromParameters(indexOffset, indexOffsetBuffer);
-        updateTBOWidthNewSizeFromParameters(indexQuantization, indexQuantizationBuffer);
-        updateTBOWidthNewSizeFromParameters(indexCombination, indexCombinationBuffer);
-        updateTBOWidthNewSizeFromParameters(indexModulo, indexModuloBuffer);
+        updateTBOWidthNewSizeFromParametersInvertedSize(indexNumWaves, indexNumWavesBuffer);
+        updateTBOWidthNewSizeFromParametersInvertedSize(indexInvert, indexInvertBuffer);
+        updateTBOWidthNewSizeFromParametersInvertedSize(indexSymmetry, indexSymmetryBuffer);
+        updateTBOWidthNewSizeFromParametersInvertedSize(indexRandom, indexRandomBuffer);
+        updateTBOWidthNewSizeFromParametersInvertedSize(indexOffset, indexOffsetBuffer);
+        updateTBOWidthNewSizeFromParametersInvertedSize(indexQuantization, indexQuantizationBuffer);
+        updateTBOWidthNewSizeFromParametersInvertedSize(indexCombination, indexCombinationBuffer);
+        updateTBOWidthNewSizeFromParametersInvertedSize(indexModulo, indexModuloBuffer);
         updateTBOWidthNewSizeFromParameters(phaseOffset, phaseOffsetBuffer);
         updateTBOWidthNewSizeFromParameters(randomAddition, randomAdditionBuffer);
         updateTBOWidthNewSizeFromParameters(scale, scaleBuffer);

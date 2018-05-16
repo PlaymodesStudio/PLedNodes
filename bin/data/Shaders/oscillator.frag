@@ -153,18 +153,18 @@ void main(){
     //float index = texelFetch(xIndexs, xVal).r + texelFetch(yIndexs, yVal).r;
     int xIndex = xVal;
     int yIndex = yVal;
-    uint xQuantization = texelFetch(indexQuantization, xVal).r;
-    uint yQuantization = texelFetch(indexQuantization, yVal + width).r;
-    uint xSymmetry = texelFetch(indexSymmetry, xVal).r;
-    uint ySymmetry = texelFetch(indexSymmetry, yVal + width).r;
-    float xIndexOffset = texelFetch(indexOffset, xVal).r;
-    float yIndexOffset = texelFetch(indexOffset, yVal + width).r;
-    float xIndexRandom = texelFetch(indexRandom, xVal).r;
-    float yIndexRandom = texelFetch(indexRandom, yVal + width).r;
-    float xIndexCombination = texelFetch(indexCombination, xVal).r;
-    float yIndexCombination = texelFetch(indexCombination, yVal + width).r;
-    uint xIndexModulo = texelFetch(indexModulo, xVal).r;
-    uint yIndexModulo = texelFetch(indexModulo, yVal + width).r;
+    uint xQuantization = texelFetch(indexQuantization, yVal).r;
+    uint yQuantization = texelFetch(indexQuantization, xVal + height).r;
+    uint xSymmetry = texelFetch(indexSymmetry, yVal).r;
+    uint ySymmetry = texelFetch(indexSymmetry, xVal + height).r;
+    float xIndexOffset = texelFetch(indexOffset, yVal).r;
+    float yIndexOffset = texelFetch(indexOffset, xVal + height).r;
+    float xIndexRandom = texelFetch(indexRandom, yVal).r;
+    float yIndexRandom = texelFetch(indexRandom, xVal + height).r;
+    float xIndexCombination = texelFetch(indexCombination, yVal).r;
+    float yIndexCombination = texelFetch(indexCombination, xVal + height).r;
+    uint xIndexModulo = texelFetch(indexModulo, yVal).r;
+    uint yIndexModulo = texelFetch(indexModulo, xVal + height).r;
 
     //Offset
     xIndex = int(mod((xIndex - round(xIndexOffset)), width));
@@ -266,8 +266,8 @@ void main(){
     if(yIndexModulo != height)
         yIndex %= int(yIndexModulo);
 
-    float xNumWaves = -texelFetch(indexNumWaves, xVal).r * texelFetch(indexInvert, xVal).r;
-    float yNumWaves = -texelFetch(indexNumWaves, yVal + width).r * texelFetch(indexInvert, yVal + width).r;
+    float xNumWaves = -texelFetch(indexNumWaves, yVal).r * texelFetch(indexInvert, yVal).r;
+    float yNumWaves = -texelFetch(indexNumWaves, xVal + height).r * texelFetch(indexInvert, xVal + height).r;
 
 
     float xIndexf = ((float(xIndex)/float(width)))*(xNumWaves)*(float(width)/float(xQuantization))*(xSymmetry+1);
