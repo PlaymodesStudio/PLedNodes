@@ -18,9 +18,9 @@ public:
     ~oscillatorTexture(){};
     
     void presetRecallBeforeSettingParameters(ofJson &json) override;
-    
-    ofTexture&  computeBank(float phasor);
 private:
+    ofTexture&  computeBank(float phasor);
+    
     template<typename T>
     void changeMinMaxOfVecParameter(ofParameter<vector<T>> &param, T min = -1, T max = -1, bool scaleValue = false){
         float valueNormalized;
@@ -41,22 +41,12 @@ private:
         }
     }
     
-    template<typename T>
-    void updateTBOWidthNewSizeFromParametersInvertedSize(ofParameter<vector<T>> params[], ofBufferObject &tbo){
-        vector<T> xModVec(height, params[0].get()[0]);
-        vector<T> yModtVec(width, params[1].get()[0]);
-        xModVec.insert(xModVec.end(), yModtVec.begin(), yModtVec.end());
-        tbo.setData(xModVec, GL_STREAM_DRAW);
-    }
+    void setParametersInfoMaps();
     
-    template<typename T>
-    void updateTBOWidthNewSizeFromParameters(ofParameter<vector<T>> params[], ofBufferObject &tbo){
-        vector<T> xModVec(width, params[0].get()[0]);
-        vector<T> yModtVec(height, params[1].get()[0]);
-        xModVec.insert(xModVec.end(), yModtVec.begin(), yModtVec.end());
-        tbo.setData(xModVec, GL_STREAM_DRAW);
-    }
-
+    void setOscillatorShaderIntParameterDataToTBO();
+    void setOscillatorShaderFloatParameterDataToTBO();
+    void setScalingShaderIntParameterDataToTBO();
+    void setScalingShaderFloatParameterDataToTBO();
     
     vector<float> newRandomValuesVector();
     
@@ -64,39 +54,7 @@ private:
     
     void newPhasorIn(float &f);
     void sizeChanged(int &i);
-    
-    void indexNumWavesListener(vector<float> &vf);
-    void indexInvertListener(vector<float> &vf);
-    void indexSymmetryListener(vector<int> &vi);
-    void indexRandomListener(vector<float> &vf);
-    void indexOffsetListener(vector<float> &vf);
-    void indexQuantizationListener(vector<int> &vi);
-    void indexCombinationListener(vector<float> &vf);
-    void indexModuloListener(vector<int> &vi);
-    
-    void phaseOffsetListener(vector<float> &vf);
-    void randomAdditionListener(vector<float> &vf);
-    void scaleListener(vector<float> &vf);
-    void offsetListener(vector<float> &vf);
-    void powListener(vector<float> &vf);
-    void bipowListener(vector<float> &vf);
-    void quantizationListener(vector<int> &vi);
-    void pulseWidthListener(vector<float> &vf);
-    void skewListener(vector<float> &vf);
-    void faderListener(vector<float> &vf);
-    void invertListener(vector<float> &vf);
-    void waveformListener(vector<float> &vf);
     void newWaveSelectParam(int &i);
-    
-//    ofParameter<float>  numWaves_Param; //Desphase Quantity
-//    ofParameter<float>   indexInvert_Param;
-//    ofParameter<int>    symmetry_Param;
-//    ofParameter<float>  indexRand_Param;
-//    ofParameter<float>    indexOffset_Param;
-//    ofParameter<int>    indexQuant_Param;
-//    ofParameter<float>  combination_Param;
-//    ofParameter<int>    modulo_Param;
-//    ofParameter<bool>   manualReindex_Param;
     
     
     ofParameter<bool>       reloadShaderParam;
@@ -133,8 +91,24 @@ private:
 
     
     ofParameter<ofTexture*>      oscillatorOut;
+    
+    map<string, int> oscillatorShaderIntParameterNameTBOPositionMap;
+    map<string, int> oscillatorShaderFloatParameterNameTBOPositionMap;
+    map<string, int> scalingShaderIntParameterNameTBOPositionMap;
+    map<string, int> scalingShaderFloatParameterNameTBOPositionMap;
+    
+    map<string, int> oscillatorShaderParameterNameTBOSizeMap;
+    map<string, int> scalingShaderParameterNameTBOSizeMap;
 
     sharedResources* resources;
+    
+    uint oscillatorShaderIntParametersTextureLocation;
+    uint oscillatorShaderFloatParametersTextureLocation;
+    uint scalingShaderIntParametersTextureLocation;
+    uint scalingShaderFloatParametersTextureLocation;
+    
+    uint randomIndexsTextureLocation;
+    
     uint randomInfoOscillatorShaderTextureLocation;
     uint randomInfoScalingShaderTextureLocation;
     
@@ -143,98 +117,35 @@ private:
     ofFbo   fbo;
     ofFbo   fboBuffer;
     
+    
+    //Listeners
+    ofEventListeners oscillatorShaderIntListeners;
+    ofEventListeners oscillatorShaderFloatListeners;
+    ofEventListeners scalingShaderIntListeners;
+    ofEventListeners scalingShaderFloatListeners;
+    
+    void onOscillatorShaderIntParameterChanged(ofAbstractParameter &p, vector<int> &vi);
+    void onOscillatorShaderFloatParameterChanged(ofAbstractParameter &p, vector<float> &vf);
+    void onScalingShaderIntParameterChanged(ofAbstractParameter &p, vector<int> &vi);
+    void onScalingShaderFloatParameterChanged(ofAbstractParameter &p, vector<float> &vf);
+    
     //TBOs
     
+    ofTexture               oscillatorShaderIntTexture;
+    ofBufferObject          oscillatorShaderIntBuffer;
     
-    //INDEX PARAMETERS
+    ofTexture               oscillatorShaderFloatTexture;
+    ofBufferObject          oscillatorShaderFloatBuffer;
     
-    //Num Waves
-    ofTexture               indexNumWavesTexture;
-    ofBufferObject          indexNumWavesBuffer;
+    ofTexture               scalingShaderIntTexture;
+    ofBufferObject          scalingShaderIntBuffer;
     
-    //Invert
-    ofTexture               indexInvertTexture;
-    ofBufferObject          indexInvertBuffer;
+    ofTexture               scalingShaderFloatTexture;
+    ofBufferObject          scalingShaderFloatBuffer;
     
-    //Symmetry
-    ofTexture               indexSymmetryTexture;
-    ofBufferObject          indexSymmetryBuffer;
-    
-    //Random
-    ofTexture               indexRandomTexture;
-    ofBufferObject          indexRandomBuffer;
-    
-    //Offset
-    ofTexture               indexOffsetTexture;
-    ofBufferObject          indexOffsetBuffer;
-    
-    //Index Quantization
-    ofTexture               indexQuantizationTexture;
-    ofBufferObject          indexQuantizationBuffer;
-    
-    //Index Combination
-    ofTexture               indexCombinationTexture;
-    ofBufferObject          indexCombinationBuffer;
-    
-    //Index Modulo
-    ofTexture               indexModuloTexture;
-    ofBufferObject          indexModuloBuffer;
-    
-    //Index Modulo
+    //Index Random Values
     ofTexture               indexRandomValuesTexture;
     ofBufferObject          indexRandomValuesBuffer;
-    
-    
-    //OSCILLATOR PARAMETERS
-    
-    //Phase Offset
-    ofTexture               phaseOffsetTexture;
-    ofBufferObject          phaseOffsetBuffer;
-    
-    //Random Addition
-    ofTexture               randomAdditionTexture;
-    ofBufferObject          randomAdditionBuffer;
-    
-    //Scale
-    ofTexture               scaleTexture;
-    ofBufferObject          scaleBuffer;
-    
-    //Offset
-    ofTexture               offsetTexture;
-    ofBufferObject          offsetBuffer;
-    
-    //Pow
-    ofTexture               powTexture;
-    ofBufferObject          powBuffer;
-    
-    //Bipow
-    ofTexture               bipowTexture;
-    ofBufferObject          bipowBuffer;
-    
-    //Quantization
-    ofTexture               quantizationTexture;
-    ofBufferObject          quantizationBuffer;
-    
-    //Pulse Width
-    ofTexture               pulseWidthTexture;
-    ofBufferObject          pulseWidthBuffer;
-    
-    //Skew
-    ofTexture               skewTexture;
-    ofBufferObject          skewBuffer;
-    
-    //Fader
-    ofTexture               faderTexture;
-    ofBufferObject          faderBuffer;
-    
-    //Invert
-    ofTexture               invertTexture;
-    ofBufferObject          invertBuffer;
-    
-    //Waveform
-    ofTexture               waveformTexture;
-    ofBufferObject          waveformBuffer;
-    
 };
 
 #endif /* oscillatorTexture_h */

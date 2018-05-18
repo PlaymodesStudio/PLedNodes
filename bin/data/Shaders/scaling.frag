@@ -8,16 +8,17 @@ uniform float phase;
 uniform float time;
 uniform sampler2D randomInfo;
 
+uniform usamplerBuffer intParameters;
+uniform samplerBuffer floatParameters;
 
-//Phase Offset
-uniform samplerBuffer randomAddition;
-uniform samplerBuffer scale;
-uniform samplerBuffer offset;
-uniform samplerBuffer pow_;
-uniform samplerBuffer bipow;
-uniform usamplerBuffer quantization;
-uniform samplerBuffer fader;
-uniform samplerBuffer invert_;
+int randomAdditionPosition = 0;
+int scalePosition = 1;
+int offsetPosition = 2;
+int powPosition = 3;
+int bipowPosition = 4;
+int quantizationPosition = 0;
+int faderPosition = 5;
+int invertPosition = 6;
 
 out vec4 out_color;
 
@@ -142,6 +143,8 @@ void main(){
     int xVal = int(gl_FragCoord.x);
     int yVal = int(gl_FragCoord.y);
     int width = textureSize(randomInfo, 0).x;
+    int height = textureSize(randomInfo, 0).y;
+    int dimensionsSum = width+height;
     
     float xTex = (float(xVal)+0.5) / float(textureSize(randomInfo, 0).x);
     float yTex = (float(yVal)+0.5) / float(textureSize(randomInfo, 0).y);
@@ -149,14 +152,14 @@ void main(){
     vec4 r_info = texture(randomInfo, vec2(xTex, yTex));
     float value = r_info.r;
     
-    float randomAdditionParam = texelFetch(randomAddition, xVal).r + texelFetch(randomAddition, yVal + width).r;
-    float scaleParam = texelFetch(scale, xVal).r * texelFetch(scale, yVal + width).r;
-    float offsetParam = texelFetch(offset, xVal).r + texelFetch(offset, yVal + width).r;
-    float powParam = texelFetch(pow_, xVal).r + texelFetch(pow_, yVal + width).r;
-    float bipowParam = texelFetch(bipow, xVal).r + texelFetch(bipow, yVal + width).r;
-    uint quantizationParam = min(texelFetch(quantization, xVal).r, texelFetch(quantization, yVal + width).r);
-    float faderParam = texelFetch(fader, xVal).r * texelFetch(fader, yVal + width).r;
-    float invertParam = max(texelFetch(invert_, xVal).r, texelFetch(invert_, yVal + width).r);
+    float randomAdditionParam = texelFetch(floatParameters, xVal + (dimensionsSum*randomAdditionPosition)).r + texelFetch(floatParameters, yVal + (dimensionsSum*randomAdditionPosition) + width).r;
+    float scaleParam = texelFetch(floatParameters, xVal + (dimensionsSum*scalePosition)).r * texelFetch(floatParameters, yVal + (dimensionsSum*scalePosition) + width).r;
+    float offsetParam = texelFetch(floatParameters, xVal + (dimensionsSum*offsetPosition)).r + texelFetch(floatParameters, yVal + (dimensionsSum*offsetPosition) + width).r;
+    float powParam = texelFetch(floatParameters, xVal + (dimensionsSum*powPosition)).r + texelFetch(floatParameters, yVal + (dimensionsSum*powPosition) + width).r;
+    float bipowParam = texelFetch(floatParameters, xVal + (dimensionsSum*bipowPosition)).r + texelFetch(floatParameters, yVal + (dimensionsSum*bipowPosition) + width).r;
+    uint quantizationParam = min(texelFetch(intParameters, xVal + (dimensionsSum*quantizationPosition)).r, texelFetch(intParameters, yVal + (dimensionsSum*quantizationPosition) + width).r);
+    float faderParam = texelFetch(floatParameters, xVal + (dimensionsSum*faderPosition)).r * texelFetch(floatParameters, yVal + (dimensionsSum*faderPosition) + width).r;
+    float invertParam = max(texelFetch(floatParameters, xVal + (dimensionsSum*invertPosition)).r, texelFetch(floatParameters, yVal + (dimensionsSum*invertPosition) + width).r);
     
     //random Add
     if(randomAdditionParam != 0){

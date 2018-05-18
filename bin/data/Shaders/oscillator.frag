@@ -6,22 +6,24 @@ uniform float phase;
 uniform float time;
 uniform sampler2D randomInfo;
 
-//Indexs
-uniform samplerBuffer indexNumWaves;
-uniform samplerBuffer indexInvert;
-uniform usamplerBuffer indexSymmetry;
-uniform samplerBuffer indexRandom;
-uniform samplerBuffer indexOffset;
-uniform usamplerBuffer indexQuantization;
-uniform samplerBuffer indexCombination;
-uniform usamplerBuffer indexModulo;
+uniform usamplerBuffer intParameters;
+uniform samplerBuffer floatParameters;
+
 uniform samplerBuffer indexRandomValues;
 
-//Oscillator
-uniform samplerBuffer phaseOffset;
-uniform samplerBuffer pulseWidth;
-uniform samplerBuffer skew;
-uniform samplerBuffer waveform;
+int indexNumWavesPosition = 0;
+int indexInvertPosition = 1;
+int indexSymmetryPosition = 0;
+int indexRandomPosition = 2;
+int indexOffsetPosition = 3;
+int indexQuantizationPosition = 1;
+int indexCombinationPosition = 4;
+int indexModuloPosition = 2;
+int phaseOffsetPosition = 5;
+int pulseWidthPosition = 6;
+int skewPosition = 7;
+int waveformPosition = 8;
+
 
 
 out vec4 out_color;
@@ -148,23 +150,27 @@ void main(){
 	int yVal = int(gl_FragCoord.y);
     int width = textureSize(randomInfo, 0).x;
     int height = textureSize(randomInfo, 0).y;
+    int dimensionsSum = width+height;
     
     //Compute Index
-    //float index = texelFetch(xIndexs, xVal).r + texelFetch(yIndexs, yVal).r;
     int xIndex = xVal;
     int yIndex = yVal;
-    uint xQuantization = texelFetch(indexQuantization, yVal).r;
-    uint yQuantization = texelFetch(indexQuantization, xVal + height).r;
-    uint xSymmetry = texelFetch(indexSymmetry, yVal).r;
-    uint ySymmetry = texelFetch(indexSymmetry, xVal + height).r;
-    float xIndexOffset = texelFetch(indexOffset, yVal).r;
-    float yIndexOffset = texelFetch(indexOffset, xVal + height).r;
-    float xIndexRandom = texelFetch(indexRandom, yVal).r;
-    float yIndexRandom = texelFetch(indexRandom, xVal + height).r;
-    float xIndexCombination = texelFetch(indexCombination, yVal).r;
-    float yIndexCombination = texelFetch(indexCombination, xVal + height).r;
-    uint xIndexModulo = texelFetch(indexModulo, yVal).r;
-    uint yIndexModulo = texelFetch(indexModulo, xVal + height).r;
+    uint xQuantization = texelFetch(intParameters, yVal + (dimensionsSum*indexQuantizationPosition)).r;
+    uint yQuantization = texelFetch(intParameters, xVal + (dimensionsSum*indexQuantizationPosition) + height).r;
+    uint xSymmetry = texelFetch(intParameters, yVal + (dimensionsSum*indexSymmetryPosition)).r;
+    uint ySymmetry = texelFetch(intParameters, xVal + (dimensionsSum*indexSymmetryPosition)+ height).r;
+    float xIndexOffset = texelFetch(floatParameters, yVal + (dimensionsSum*indexOffsetPosition)).r;
+    float yIndexOffset = texelFetch(floatParameters, xVal + (dimensionsSum*indexOffsetPosition) + height).r;
+    float xIndexRandom = texelFetch(floatParameters, yVal + (dimensionsSum*indexRandomPosition)).r;
+    float yIndexRandom = texelFetch(floatParameters, xVal + (dimensionsSum*indexRandomPosition) + height).r;
+    float xIndexCombination = texelFetch(floatParameters, yVal + (dimensionsSum*indexCombinationPosition)).r;
+    float yIndexCombination = texelFetch(floatParameters, xVal + (dimensionsSum*indexCombinationPosition) + height).r;
+    uint xIndexModulo = texelFetch(intParameters, yVal + (dimensionsSum*indexModuloPosition)).r;
+    uint yIndexModulo = texelFetch(intParameters, xVal + (dimensionsSum*indexModuloPosition) + height).r;
+    float xNumWaves = texelFetch(floatParameters, yVal + (dimensionsSum*indexNumWavesPosition)).r;
+    float yNumWaves = texelFetch(floatParameters, xVal + (dimensionsSum*indexNumWavesPosition) + height).r;
+    float xInvert = texelFetch(floatParameters, yVal + (dimensionsSum*indexInvertPosition)).r;
+    float yInvert = texelFetch(floatParameters, xVal + (dimensionsSum*indexInvertPosition) + height).r;
 
     //Offset
     xIndex = int(mod((xIndex - round(xIndexOffset)), width));
@@ -265,26 +271,25 @@ void main(){
         xIndex %= int(xIndexModulo);
     if(yIndexModulo != height)
         yIndex %= int(yIndexModulo);
+    
+    float xNumWavesInverted = -xNumWaves * xInvert;
+    float yNumWavesInverted = -yNumWaves * yInvert;
 
-    float xNumWaves = -texelFetch(indexNumWaves, yVal).r * texelFetch(indexInvert, yVal).r;
-    float yNumWaves = -texelFetch(indexNumWaves, xVal + height).r * texelFetch(indexInvert, xVal + height).r;
 
-
-    float xIndexf = ((float(xIndex)/float(width)))*(xNumWaves)*(float(width)/float(xQuantization))*(xSymmetry+1);
-    float yIndexf = ((float(yIndex)/float(height)))*(yNumWaves)*(float(height)/float(yQuantization))*(ySymmetry+1);
+    float xIndexf = ((float(xIndex)/float(width)))*(xNumWavesInverted)*(float(width)/float(xQuantization))*(xSymmetry+1);
+    float yIndexf = ((float(yIndex)/float(height)))*(yNumWavesInverted)*(float(height)/float(yQuantization))*(ySymmetry+1);
 
 
     float index = xIndexf + yIndexf;
     
     
-    
     //Compute parameters of current coord;
-    float phaseOffsetParam = texelFetch(phaseOffset, xVal).r + texelFetch(phaseOffset, yVal + width).r;
-    float pulseWidthParam = texelFetch(pulseWidth, xVal).r * texelFetch(pulseWidth, yVal + width).r;
-    float skewParam = texelFetch(skew, xVal).r + texelFetch(skew, yVal + width).r;
+    float phaseOffsetParam = texelFetch(floatParameters, xVal + (dimensionsSum*phaseOffsetPosition)).r + texelFetch(floatParameters, yVal + (dimensionsSum*phaseOffsetPosition) + width).r;
+    float pulseWidthParam = texelFetch(floatParameters, xVal + (dimensionsSum*pulseWidthPosition)).r * texelFetch(floatParameters, yVal + (dimensionsSum*pulseWidthPosition) + width).r;
+    float skewParam = texelFetch(floatParameters, xVal + (dimensionsSum*skewPosition)).r + texelFetch(floatParameters, yVal + (dimensionsSum*skewPosition) + width).r;
     
     //How to blend waveform Parameter???
-    float waveformParam = max(texelFetch(waveform, xVal).r, texelFetch(waveform, yVal + width).r);
+    float waveformParam = max(texelFetch(floatParameters, xVal + (dimensionsSum*waveformPosition)).r, texelFetch(floatParameters, yVal + (dimensionsSum*waveformPosition) + width).r);
     
     
     //randon Info
