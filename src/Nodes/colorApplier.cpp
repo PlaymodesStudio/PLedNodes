@@ -81,17 +81,32 @@ colorApplier::colorApplier() : ofxOceanodeNodeModel("Color Applier"){
 
 }
 
+colorApplier::~colorApplier(){
+    for(auto &loc : shaderLocations){
+       resources->makeTextureLocationAvailable(loc);
+    }
+    resources->makeTextureLocationAvailable(infoTextureOutputShaderTextureLocation);
+    resources->makeTextureLocationAvailable(imageTextureOutputShaderTextureLocation);
+    resources->makeTextureLocationAvailable(infoTexturePreviewShaderTextureLocation);
+    resources->makeTextureLocationAvailable(imageTexturePreviewShaderTextureLocation);
+}
+
 void colorApplier::reloadShader(bool &b){
+    shaderLocations.resize(4);
+    for(auto &loc : shaderLocations){
+        loc = resources->getNextAvailableShaderTextureLocation();
+    }
+    
     outputShader.load("Shaders/color.vert", "Shaders/color.frag");
     outputShader.begin();
-    outputShader.setUniformTexture("modulationInfo", modulationInfoTexture, resources->getNextAvailableShaderTextureLocation());
-    outputShader.setUniformTexture("displacementInfo", colorDisplacementTexture, resources->getNextAvailableShaderTextureLocation());
+    outputShader.setUniformTexture("modulationInfo", modulationInfoTexture, shaderLocations[0]);
+    outputShader.setUniformTexture("displacementInfo", colorDisplacementTexture, shaderLocations[1]);
     outputShader.end();
     
     previewShader.load("Shaders/color.vert", "Shaders/color.frag");
     previewShader.begin();
-    previewShader.setUniformTexture("modulationInfo", modulationInfoTexture, resources->getNextAvailableShaderTextureLocation());
-    outputShader.setUniformTexture("displacementInfo", colorDisplacementTexture, resources->getNextAvailableShaderTextureLocation());
+    previewShader.setUniformTexture("modulationInfo", modulationInfoTexture, shaderLocations[2]);
+    outputShader.setUniformTexture("displacementInfo", colorDisplacementTexture, shaderLocations[3]);
     previewShader.end();
     
     infoTextureOutputShaderTextureLocation = resources->getNextAvailableShaderTextureLocation();

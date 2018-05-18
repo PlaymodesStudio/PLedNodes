@@ -276,6 +276,16 @@ oscillatorTexture::oscillatorTexture() : ofxOceanodeNodeModel("Oscillator Textur
     }));
 }
 
+oscillatorTexture::~oscillatorTexture(){
+    resources->makeTextureLocationAvailable(oscillatorShaderIntParametersTextureLocation);
+    resources->makeTextureLocationAvailable(oscillatorShaderFloatParametersTextureLocation);
+    resources->makeTextureLocationAvailable(scalingShaderIntParametersTextureLocation);
+    resources->makeTextureLocationAvailable(scalingShaderFloatParametersTextureLocation);
+    resources->makeTextureLocationAvailable(randomIndexsTextureLocation);
+    resources->makeTextureLocationAvailable(randomInfoOscillatorShaderTextureLocation);
+    resources->makeTextureLocationAvailable(randomInfoScalingShaderTextureLocation);
+}
+
 void oscillatorTexture::setParametersInfoMaps(){
     int dimensionsSum = width+height;
     oscillatorShaderFloatParameterNameTBOPositionMap[indexNumWaves[0].getName()] = 0;

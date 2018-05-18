@@ -15,7 +15,7 @@ class sharedResources{
 public:
     
     sharedResources(){
-        lastShaderTexturePositionUsed = -1;
+        lastShaderTextureLocationUsed = -1;
     }
     ~sharedResources(){};
     
@@ -25,28 +25,41 @@ public:
         return instance;
     }
     
-    static void addDropdownToParameterGroupFromParameters(ofParameterGroup* parameterGroup, string name, vector<string> options, ofParameter<int> dropdownSelector){
-        ofParameterGroup tempDropdown;
-        tempDropdown.setName(name + " Select");
-        string  tempStr;
-        ofParameter<string> tempStrParam("Options");
-        for(auto opt : options)
-            tempStr += opt + "-|-";
-        
-        tempStr.erase(tempStr.end()-3, tempStr.end());
-        tempStrParam.set(tempStr);
-        
-        tempDropdown.add(tempStrParam);
-        tempDropdown.add(dropdownSelector.set(name +" Select", 0, 0, options.size()));
-        parameterGroup->add(tempDropdown);
-    }
-    
     int getNextAvailableShaderTextureLocation(){
-        return ++lastShaderTexturePositionUsed;
+        int newLocation = computeEmptyLocation();
+        usedTextureLocations[newLocation] = true;
+        lastShaderTextureLocationUsed = newLocation;
+        ofLog() << "NewLocationFound: " << newLocation;
+        return newLocation;
+    }
+
+    void makeTextureLocationAvailable(uint location){
+        ofLog() << "Unuse location: " << location;
+        usedTextureLocations[location] = false;
     }
     
 private:
-    uint lastShaderTexturePositionUsed = -1;
+    int computeEmptyLocation(){
+        int newLocation = lastShaderTextureLocationUsed + 1;
+        while(newLocation > 0){
+            newLocation--;
+            if(!usedTextureLocations[newLocation]){
+                return newLocation;
+            }
+        }
+        newLocation = lastShaderTextureLocationUsed + 1;
+        while(newLocation < usedTextureLocations.size()){
+            if(!usedTextureLocations[newLocation]){
+                return newLocation;
+            }
+            newLocation++;
+        }
+        usedTextureLocations.push_back(true);
+        return usedTextureLocations.size()-1;
+    }
+    
+    vector<bool> usedTextureLocations;
+    uint lastShaderTextureLocationUsed = -1;
 };
 
 

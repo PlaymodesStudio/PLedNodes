@@ -15,7 +15,7 @@
 class oscillatorTexture : public ofxOceanodeNodeModel{
 public:
     oscillatorTexture();
-    ~oscillatorTexture(){};
+    ~oscillatorTexture();
     
     void presetRecallBeforeSettingParameters(ofJson &json) override;
 private:

@@ -72,6 +72,8 @@ private:
     uint infoTexturePreviewShaderTextureLocation;
     uint imageTexturePreviewShaderTextureLocation;
     
+    vector<uint> shaderLocations;
+    
     ofShader outputShader;
     ofShader previewShader;
     ofFbo whiteFbo;
