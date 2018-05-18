@@ -352,7 +352,7 @@ void main(){
     }
     if(waveformParam > 5 && waveformParam < 7){ //Random
         if(linPhase < oldPhasor){
-            val1 = hash13(vec3(xVal, yVal, time));
+            val1 = hash13(vec3(xIndex, yIndex, time));
         }
         else{
             val1 = oldValue;
@@ -361,7 +361,7 @@ void main(){
     if(waveformParam > 6 && waveformParam < 8){
         if(linPhase < oldPhasor){
             pastRandom = newRandom;
-            newRandom = hash13(vec3(xVal, yVal, time));
+            newRandom = hash13(vec3(xIndex, yIndex, time));
             val2 = pastRandom;
         }
         else{
@@ -371,7 +371,7 @@ void main(){
     if(waveformParam > 7 && waveformParam <= 8){
         if(linPhase < oldPhasor){
             pastRandom = newRandom;
-            newRandom = hash13(vec3(xVal, yVal, time));
+            newRandom = hash13(vec3(xIndex, yIndex, time));
             val1 = pastRandom;
         }
         else{
