@@ -3,6 +3,7 @@
 #include "waveScope.h"
 #include "senderManager.h"
 #include "colorApplier.h"
+#include "textureRecorder.h"
 #include "scriptModule.h"
 #include "vector_op_registrator.h"
 
@@ -10,7 +11,7 @@
 void ofApp::setup(){
     ofDisableArbTex();
     ofSetVerticalSync(true);
-    ofSetFrameRate(60);
+    ofSetFrameRate(33);
     
     auto reg = make_shared<ofxOceanodeNodeRegistry>();
     auto treg = make_shared<ofxOceanodeTypesRegistry>();
@@ -18,6 +19,7 @@ void ofApp::setup(){
     reg->registerModel<waveScope>("LedNodes");
     reg->registerModel<senderManager>("LedNodes");
     reg->registerModel<colorApplier>("LedNodes");
+    reg->registerModel<textureRecorder>("LedNodes");
     reg->registerModel<scriptModule>("Scripting");
     registerVectorOp(reg);
     
@@ -38,7 +40,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-
+    ofDrawBitmapString(ofGetFrameRate(), 10, 10);
 }
 
 //--------------------------------------------------------------

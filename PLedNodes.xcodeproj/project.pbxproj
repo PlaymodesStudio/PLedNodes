@@ -47,6 +47,7 @@
 		8EB5677652296BACF3A1C184 /* ofxOceanodeNodeGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 170083BFE7EEC5851D5DF9E6 /* ofxOceanodeNodeGui.cpp */; };
 		8F5205AEF8861EF234F0651A /* ofxOscSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81967292BFC87A0144BD32C6 /* ofxOscSender.cpp */; };
 		9150F94721FE0E44D16DA0CC /* baseOscillator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F44449692EA3A4B7FBABCF29 /* baseOscillator.cpp */; };
+		9F0AABE120B72973003EA570 /* textureRecorder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F0AABDF20B72973003EA570 /* textureRecorder.cpp */; };
 		9FB8AE6ABDA40CD0274A29BA /* oscillatorTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 123BA4F448ED422A2D4B94DC /* oscillatorTexture.cpp */; };
 		A0D48C0182D793C015BF8611 /* senderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B248531CBD212DB10018F828 /* senderManager.cpp */; };
 		ADE367465D2A8EBAD4C7A8D9 /* IpEndpointName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ADD194746185E2DA11468377 /* IpEndpointName.cpp */; };
@@ -219,6 +220,8 @@
 		9C1A96A2891A3C36C7DCA0F7 /* phasor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = phasor.cpp; path = ../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Generators/phasor.cpp; sourceTree = SOURCE_ROOT; };
 		9C7A8492A4E58437944DDF60 /* function_call.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = function_call.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/dispatchkit/function_call.hpp"; sourceTree = SOURCE_ROOT; };
 		9E034FA57FE251AC33904E82 /* ofxDatGuiThemes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiThemes.h; path = ../../../addons/ofxDatGui_PM/src/themes/ofxDatGuiThemes.h; sourceTree = SOURCE_ROOT; };
+		9F0AABDF20B72973003EA570 /* textureRecorder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = textureRecorder.cpp; path = "ofxOceanode_modules-texture/textureRecorder.cpp"; sourceTree = "<group>"; };
+		9F0AABE020B72973003EA570 /* textureRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = textureRecorder.h; path = "ofxOceanode_modules-texture/textureRecorder.h"; sourceTree = "<group>"; };
 		9F7986DC4EB05E75FCE2C777 /* ofxOscSender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxOscSender.h; path = ../../../addons/ofxOsc/src/ofxOscSender.h; sourceTree = SOURCE_ROOT; };
 		A13853A1B21F20177F44EE37 /* ofxDatGuiLabel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiLabel.h; path = ../../../addons/ofxDatGui_PM/src/components/ofxDatGuiLabel.h; sourceTree = SOURCE_ROOT; };
 		A2A156C2D14C4F39566F9478 /* exception_specification.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = exception_specification.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/dispatchkit/exception_specification.hpp"; sourceTree = SOURCE_ROOT; };
@@ -477,6 +480,8 @@
 		5A694BEC91FB6EF3AB538DD1 /* ofxOceanode_modules-texture */ = {
 			isa = PBXGroup;
 			children = (
+				9F0AABDF20B72973003EA570 /* textureRecorder.cpp */,
+				9F0AABE020B72973003EA570 /* textureRecorder.h */,
 				6E2501FCF25AA79A70709392 /* colorApplier.cpp */,
 				A63DA1251E7D08F369D048F2 /* colorApplier.h */,
 				123BA4F448ED422A2D4B94DC /* oscillatorTexture.cpp */,
@@ -991,6 +996,7 @@
 				7B5743F2E77F2D5AD9B436F0 /* ofxOceanodeBaseController.cpp in Sources */,
 				717BCDD6091D90F262DC7860 /* ofxOceanodeBPMController.cpp in Sources */,
 				7B8EE5B7F57088CD23B7934D /* ofxOceanodeControls.cpp in Sources */,
+				9F0AABE120B72973003EA570 /* textureRecorder.cpp in Sources */,
 				210113B93D0C86F7DF921A87 /* ofxOceanodeOSCController.cpp in Sources */,
 				026CF24E227F5DFC3C392E27 /* ofxOceanodePresetsController.cpp in Sources */,
 				FE7602E65C7BA676951A37FB /* ofxOceanodeCanvas.cpp in Sources */,
