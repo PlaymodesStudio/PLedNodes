@@ -3,6 +3,8 @@
 #include "waveScope.h"
 #include "senderManager.h"
 #include "colorApplier.h"
+#include "scriptModule.h"
+#include "vector_op_registrator.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -16,6 +18,9 @@ void ofApp::setup(){
     reg->registerModel<waveScope>("LedNodes");
     reg->registerModel<senderManager>("LedNodes");
     reg->registerModel<colorApplier>("LedNodes");
+    reg->registerModel<scriptModule>("Scripting");
+    registerVectorOp(reg);
+    
     treg->registerType<ofTexture*>();
     
     
