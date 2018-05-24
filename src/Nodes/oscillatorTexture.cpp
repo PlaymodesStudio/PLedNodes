@@ -510,6 +510,8 @@ void oscillatorTexture::setScalingShaderFloatParameterDataToTBO(){
     vector<float> invertY_tempVec(height, invert[1].get()[0]);
     accumulateParametersScalingShaderFloatParameters.insert(accumulateParametersScalingShaderFloatParameters.end(), invertY_tempVec.begin(), invertY_tempVec.end());
     
+    waveSelect_Param.addListener(this, &oscillatorTexture::newWaveSelectParam);
+    
     scalingShaderFloatBuffer.setData(accumulateParametersScalingShaderFloatParameters, GL_STREAM_DRAW);
 }
 
