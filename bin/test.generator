@@ -1,0 +1,9 @@
+{
+    "Name": "Example",
+    "BPM": 123.75,
+    "FPS": 33,
+    "Syphon": 1,
+    "TextureUnifierNumber": 0,
+    "TextureUnifierSpacing": 0,
+    "TextureRecorder": false
+}
