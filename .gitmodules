@@ -4,3 +4,6 @@
 [submodule "src/ofxOceanode_modules-vector_op"]
 	path = src/ofxOceanode_modules-vector_op
 	url = https://eduardfrigola@github.com/PlaymodesStudio/ofxOceanode_modules-vector_op.git
+[submodule "src/ofxOceanode_modules-texture"]
+	path = src/ofxOceanode_modules-texture
+	url = https://eduardfrigola@github.com/PlaymodesStudio/ofxOceanode_modules-texture.git
