@@ -223,6 +223,9 @@
 		9F0AABDF20B72973003EA570 /* textureRecorder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = textureRecorder.cpp; path = "ofxOceanode_modules-texture/textureRecorder.cpp"; sourceTree = "<group>"; };
 		9F0AABE020B72973003EA570 /* textureRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = textureRecorder.h; path = "ofxOceanode_modules-texture/textureRecorder.h"; sourceTree = "<group>"; };
 		9F7986DC4EB05E75FCE2C777 /* ofxOscSender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxOscSender.h; path = ../../../addons/ofxOsc/src/ofxOscSender.h; sourceTree = SOURCE_ROOT; };
+		9FAB51D220BEB78E00144888 /* oscillatorFragShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = oscillatorFragShader.h; path = "ofxOceanode_modules-texture/oscillatorFragShader.h"; sourceTree = "<group>"; };
+		9FAB51D320BEB83900144888 /* defaultVertexShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = defaultVertexShader.h; path = "ofxOceanode_modules-texture/defaultVertexShader.h"; sourceTree = "<group>"; };
+		9FAB51D420BEB92800144888 /* scalingFragShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = scalingFragShader.h; path = "ofxOceanode_modules-texture/scalingFragShader.h"; sourceTree = "<group>"; };
 		A13853A1B21F20177F44EE37 /* ofxDatGuiLabel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiLabel.h; path = ../../../addons/ofxDatGui_PM/src/components/ofxDatGuiLabel.h; sourceTree = SOURCE_ROOT; };
 		A2A156C2D14C4F39566F9478 /* exception_specification.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = exception_specification.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/dispatchkit/exception_specification.hpp"; sourceTree = SOURCE_ROOT; };
 		A2AAA8CA403479E6FCDF920E /* OscHostEndianness.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = OscHostEndianness.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscHostEndianness.h; sourceTree = SOURCE_ROOT; };
@@ -480,6 +483,7 @@
 		5A694BEC91FB6EF3AB538DD1 /* ofxOceanode_modules-texture */ = {
 			isa = PBXGroup;
 			children = (
+				9FAB51D220BEB78E00144888 /* oscillatorFragShader.h */,
 				9F0AABDF20B72973003EA570 /* textureRecorder.cpp */,
 				9F0AABE020B72973003EA570 /* textureRecorder.h */,
 				6E2501FCF25AA79A70709392 /* colorApplier.cpp */,
@@ -491,6 +495,8 @@
 				3E79119D4C7D4C10868241C6 /* sharedResources.h */,
 				B2C71D603AC4849CB5983A4B /* waveScope.cpp */,
 				3ABE08620BD6533FF8DCF2BB /* waveScope.h */,
+				9FAB51D320BEB83900144888 /* defaultVertexShader.h */,
+				9FAB51D420BEB92800144888 /* scalingFragShader.h */,
 			);
 			name = "ofxOceanode_modules-texture";
 			sourceTree = "<group>";
