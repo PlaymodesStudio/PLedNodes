@@ -24,5 +24,5 @@ class ofApp : public ofBaseApp{
 		
     ofxOceanodeCanvas canvas;
     shared_ptr<ofxOceanodeContainer> container;
-    ofxOceanodeControls* controls;
+    shared_ptr<ofxOceanodeControls> controls;
 };
