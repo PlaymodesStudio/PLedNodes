@@ -7,23 +7,18 @@
 //
 
 #include "textureUnifier.h"
-#include "parametersControl.h"
 
-textureUnifier::textureUnifier(int numInputs, int _spacing){
-    spacing = _spacing;
-
-    parameters = new ofParameterGroup();
-    parameters->setName("textureUnifier");
+textureUnifier::textureUnifier() : ofxOceanodeNodeModel("Texture Unifier"){
+    spacing = true;
     
-    parameters->add(triggerTextureIndex.set("Trigger Index", 0, 0, numInputs - 1));
-    inputs.resize(numInputs);
+    parameters->add(triggerTextureIndex.set("Trigger Index", 0, 0, 2));
+    inputs.resize(2);
     for(int i = 0; i < inputs.size() ; i++){
         parameters->add(inputs[i].set("Input " + ofToString(i), nullptr));
         inputs[i].addListener(this, &textureUnifier::computeOutput);
     }
     parameters->add(output.set("Output", nullptr));
     
-    parametersControl::getInstance().createGuiFromParams(parameters, ofColor::darkMagenta);
 }
 
 void textureUnifier::computeOutput(ofTexture* &in){
@@ -53,6 +48,6 @@ void textureUnifier::computeOutput(ofTexture* &in){
         }
         outputFbo.end();
         
-        parameters->get("Output").cast<ofTexture*>() = &outputFbo.getTexture();
+        output = &outputFbo.getTexture();
     }
 }

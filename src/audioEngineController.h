@@ -9,35 +9,28 @@
 #ifndef audioEngineController_h
 #define audioEngineController_h
 
-#include "ofMain.h"
+#include "ofxOceanodeNodeModel.h"
 #include "ofxOsc.h"
 
-class audioEngineController {
+class audioEngineController : public ofxOceanodeNodeModel {
 public:
     audioEngineController();
+    ~audioEngineController(){};
     
 private:
     void oscHostAndPortListener(string &s);
     
     void presetNumSender(int &i);
-    void param_aSender(float &f);
-    void param_bSender(float &f);
-    void param_cSender(float &f);
-    void param_vaSender(vector<float> &vf);
-    void param_vbSender(vector<float> &vf);
-    void param_vcSender(vector<float> &vf);
-    
-    ofParameterGroup* parameters;
-    
+    void param_aSender(vector<float> &vf);
+    void param_bSender(vector<float> &vf);
+    void param_cSender(vector<float> &vf);
+        
     ofParameter<string> oscHost;
     ofParameter<string> oscPort;
     ofParameter<int>    presetNum;
-    ofParameter<float>  param_a;
-    ofParameter<float>  param_b;
-    ofParameter<float>  param_c;
-    ofParameter<vector<float>>  param_va;
-    ofParameter<vector<float>>  param_vb;
-    ofParameter<vector<float>>  param_vc;
+    ofParameter<vector<float>>  param_a;
+    ofParameter<vector<float>>  param_b;
+    ofParameter<vector<float>>  param_c;
     
     ofxOscSender oscSender;
 };

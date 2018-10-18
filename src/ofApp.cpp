@@ -5,6 +5,8 @@
 #include "colorApplier.h"
 #include "textureRecorder.h"
 #include "scriptModule.h"
+#include "textureUnifier.h"
+#include "audioEngineController.h"
 #include "vector_op_registrator.h"
 
 #include "ofxOceanodeBPMController.h"
@@ -78,6 +80,8 @@ void ofApp::setup(){
     reg->registerModel<colorApplier>("LedNodes");
     reg->registerModel<textureRecorder>("LedNodes");
     reg->registerModel<scriptModule>("Scripting");
+    reg->registerModel<textureUnifier>("LedNodes");
+    reg->registerModel<audioEngineController>("Audio");
     registerVectorOp(reg);
     
     treg->registerType<ofTexture*>();

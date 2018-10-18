@@ -9,18 +9,16 @@
 #ifndef textureUnifier_h
 #define textureUnifier_h
 
-#include "ofMain.h"
+#include "ofxOceanodeNodeModel.h"
 
-class textureUnifier{
+class textureUnifier : public ofxOceanodeNodeModel{
 public:
-    textureUnifier(int numInputs, int _spacing);
+    textureUnifier();
     ~textureUnifier(){};
-    
     
 private:
     void computeOutput(ofTexture* &in);
     
-    ofParameterGroup *parameters;
     ofParameter<int>    triggerTextureIndex;
     vector<ofParameter<ofTexture*>>    inputs;
     ofParameter<ofTexture*>    output;
