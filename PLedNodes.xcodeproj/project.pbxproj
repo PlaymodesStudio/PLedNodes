@@ -10,9 +10,13 @@
 		026CF24E227F5DFC3C392E27 /* ofxOceanodePresetsController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C27DB6A973A67BE0BF855933 /* ofxOceanodePresetsController.cpp */; };
 		0546D1A38E13BD319CC9755B /* OscReceivedElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BF3AA0D4FAA89D0F8A0E545 /* OscReceivedElements.cpp */; };
 		0AA13C54EE8C24EC793EA60E /* waveScope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B2C71D603AC4849CB5983A4B /* waveScope.cpp */; };
+		0BEE6D908B90BD8BCB7071A4 /* ofxOceanodeMidiBinding.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0DF3E4F877F8E51B24698B3 /* ofxOceanodeMidiBinding.cpp */; };
 		102C0035698294FDB36E6899 /* ofxOceanodeTypesRegistry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60A6750E6D5A48E6B4B69C0A /* ofxOceanodeTypesRegistry.cpp */; };
 		11DF9AB1B4EAA63E3B190CA0 /* ofxSyphonServerDirectory.mm in Sources */ = {isa = PBXBuildFile; fileRef = E723BEF4C55D236E24639608 /* ofxSyphonServerDirectory.mm */; };
 		124BB55C818D1F89450ED005 /* localPresetController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9EC5C75C9CA92B4EFB78CFF /* localPresetController.cpp */; };
+		1375FF8F6CBF4CC39E765E10 /* audioEngineController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11983BC9563DFD6825F21C55 /* audioEngineController.cpp */; };
+		19D87B8D9CBC3A637A3FCFE0 /* switcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6962CFFA24B1C8A59A419D24 /* switcher.cpp */; };
+		1B9F9695C79C723D1C54DA16 /* colorApplier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1C63D9CC0C744A42DD64529B /* colorApplier.cpp */; };
 		1F558B76FB3412843DDAA031 /* ofxSyphonClient.mm in Sources */ = {isa = PBXBuildFile; fileRef = 03EA4DA95B5E1B8409FC058E /* ofxSyphonClient.mm */; };
 		210113B93D0C86F7DF921A87 /* ofxOceanodeOSCController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 499C7B06926EEE148981AE7F /* ofxOceanodeOSCController.cpp */; };
 		25154474D8E4A83860E73344 /* subDimensionCombinator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 799D51ED52F84462BC69FD3E /* subDimensionCombinator.cpp */; };
@@ -40,17 +44,16 @@
 		7B5743F2E77F2D5AD9B436F0 /* ofxOceanodeBaseController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90D557700F1EECB9E9F8AEB9 /* ofxOceanodeBaseController.cpp */; };
 		7B8EE5B7F57088CD23B7934D /* ofxOceanodeControls.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3AD3B4C116407604DCFB986 /* ofxOceanodeControls.cpp */; };
 		7CC1A4D669C6C1B3786CD384 /* ofxOceanodeNodeModelExternalWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E42CA654A61594B6D8167F /* ofxOceanodeNodeModelExternalWindow.cpp */; };
+		80C2077E2DE4E2436EE84D82 /* senderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 82E06F261743B1A265AA564A /* senderManager.cpp */; };
 		842D4B1559D16CD55B1CF6DD /* oscillator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0BE6AC32AE0E7C44E14DFE2F /* oscillator.cpp */; };
 		879A251454401BC0B6E4F238 /* OscTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9BFFBBF4CC43DEE890B3C3E /* OscTypes.cpp */; };
 		8D60C222CBD3F869382832E9 /* ofxSyphonServer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 32D6F27DC6308427F9A278C1 /* ofxSyphonServer.mm */; };
 		8EB5677652296BACF3A1C184 /* ofxOceanodeNodeGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 170083BFE7EEC5851D5DF9E6 /* ofxOceanodeNodeGui.cpp */; };
 		8F5205AEF8861EF234F0651A /* ofxOscSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81967292BFC87A0144BD32C6 /* ofxOscSender.cpp */; };
 		9150F94721FE0E44D16DA0CC /* baseOscillator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F44449692EA3A4B7FBABCF29 /* baseOscillator.cpp */; };
-		9FAB51E220BEBD5300144888 /* senderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB51DC20BEBD5200144888 /* senderManager.cpp */; };
-		9FAB51E320BEBD5300144888 /* textureRecorder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB51DF20BEBD5300144888 /* textureRecorder.cpp */; };
-		9FAB51E420BEBD5300144888 /* colorApplier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB51E120BEBD5300144888 /* colorApplier.cpp */; };
 		9FB8AE6ABDA40CD0274A29BA /* oscillatorTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 123BA4F448ED422A2D4B94DC /* oscillatorTexture.cpp */; };
 		ADE367465D2A8EBAD4C7A8D9 /* IpEndpointName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ADD194746185E2DA11468377 /* IpEndpointName.cpp */; };
+		B1B6AFE05524CCE1A0DCC03A /* textureRecorder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AC12B7D2B80C68B60303D67 /* textureRecorder.cpp */; };
 		B7559FEE382DBA7FB094D5E7 /* ofxOceanodeNodeRegistry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F15C9896F6A32FCA280CD4B5 /* ofxOceanodeNodeRegistry.cpp */; };
 		BDE21E02C646BD31BEC13891 /* smoother.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA0730CA1A73FC90DCF8C770 /* smoother.cpp */; };
 		BE7DAF3CB982C2BD0FE44648 /* ofxDatGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD8F81F7AAB5BA396231DD4C /* ofxDatGui.cpp */; };
@@ -60,11 +63,13 @@
 		C6A203560BFBDA04C5746210 /* ofxOceanodeConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B84BA3AF325F3D843633B /* ofxOceanodeConnection.cpp */; };
 		C9109422648B170B07A778CF /* SyphonNameboundClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E3405C5AE387BDDC2AD19473 /* SyphonNameboundClient.m */; };
 		D925621F7F6146497318658A /* baseIndexer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 645C793F85B56EF720B10C7F /* baseIndexer.cpp */; };
+		DA3F8CA8BF17B551366E5BC1 /* textureUnifier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD7F0D57E1EE390875D5C1F6 /* textureUnifier.cpp */; };
 		E1A3FD40C8BCD507345F1126 /* Syphon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D58DCB2C0AEFDE6171E29540 /* Syphon.framework */; };
 		E1E0C08A53EAFC4A088F5BDC /* reindexer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D3CE3C79225FEEDD92A410A /* reindexer.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
 		E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */; };
+		EB90AF0EFA3A80E58C07AC46 /* ofxOceanodeMidiController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E05C2B948C3533E37FD66528 /* ofxOceanodeMidiController.cpp */; };
 		FE7602E65C7BA676951A37FB /* ofxOceanodeCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69F09B1450CB3FF08A87D2FF /* ofxOceanodeCanvas.cpp */; };
 /* End PBXBuildFile section */
 
@@ -113,8 +118,10 @@
 		0AED834CE4DEC5260AF302A2 /* ofxOscParameterSync.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxOscParameterSync.cpp; path = ../../../addons/ofxOsc/src/ofxOscParameterSync.cpp; sourceTree = SOURCE_ROOT; };
 		0BE6AC32AE0E7C44E14DFE2F /* oscillator.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = oscillator.cpp; path = ../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Generators/oscillator.cpp; sourceTree = SOURCE_ROOT; };
 		0EA01AA404A74EE4BF1F46AD /* ofxDatGuiTheme.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiTheme.h; path = ../../../addons/ofxDatGui_PM/src/themes/ofxDatGuiTheme.h; sourceTree = SOURCE_ROOT; };
+		0EE517B339CA72A861445AE2 /* senderManager.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = senderManager.h; path = src/senderManager.h; sourceTree = SOURCE_ROOT; };
 		0FB83AC7747296DD35C1C295 /* ofxSyphon.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxSyphon.h; path = ../../../addons/ofxSyphon/src/ofxSyphon.h; sourceTree = SOURCE_ROOT; };
 		11021811865108C49AED9E1E /* ofxDatGuiScrollView.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiScrollView.h; path = ../../../addons/ofxDatGui_PM/src/components/ofxDatGuiScrollView.h; sourceTree = SOURCE_ROOT; };
+		11983BC9563DFD6825F21C55 /* audioEngineController.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = audioEngineController.cpp; path = src/audioEngineController.cpp; sourceTree = SOURCE_ROOT; };
 		123BA4F448ED422A2D4B94DC /* oscillatorTexture.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = oscillatorTexture.cpp; path = "src/ofxOceanode_modules-texture/oscillatorTexture.cpp"; sourceTree = SOURCE_ROOT; };
 		125F57661DCF7E855F76266F /* chaiscript.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = chaiscript.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/chaiscript.hpp"; sourceTree = SOURCE_ROOT; };
 		125FC7DF81918DE565891A92 /* reindexer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = reindexer.h; path = ../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Modifiers/reindexer.h; sourceTree = SOURCE_ROOT; };
@@ -125,12 +132,14 @@
 		170083BFE7EEC5851D5DF9E6 /* ofxOceanodeNodeGui.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxOceanodeNodeGui.cpp; path = ../../../addons/ofxOceanode/src/Nodes/ofxOceanodeNodeGui.cpp; sourceTree = SOURCE_ROOT; };
 		18902594A5884CA5CA6D3D9D /* ofxOceanodeNodeModel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxOceanodeNodeModel.cpp; path = ../../../addons/ofxOceanode/src/Nodes/ofxOceanodeNodeModel.cpp; sourceTree = SOURCE_ROOT; };
 		1ABF793406DAA156DB3CFDC1 /* dynamic_object.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = dynamic_object.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/dispatchkit/dynamic_object.hpp"; sourceTree = SOURCE_ROOT; };
+		1C63D9CC0C744A42DD64529B /* colorApplier.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = colorApplier.cpp; path = src/colorApplier.cpp; sourceTree = SOURCE_ROOT; };
 		20F35AFADAF0068B067E713F /* OscReceivedElements.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = OscReceivedElements.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscReceivedElements.h; sourceTree = SOURCE_ROOT; };
 		2112F393B19586AAA880BAA6 /* handle_return.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = handle_return.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/dispatchkit/handle_return.hpp"; sourceTree = SOURCE_ROOT; };
 		2213F07A257ADDE35F494AEF /* oscillatorTexture.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = oscillatorTexture.h; path = "src/ofxOceanode_modules-texture/oscillatorTexture.h"; sourceTree = SOURCE_ROOT; };
 		23640F57DF6C4BB6BFC5DA4C /* PacketListener.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = PacketListener.h; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/PacketListener.h; sourceTree = SOURCE_ROOT; };
 		24D86E159653FA81FBC76A6A /* any.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = any.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/dispatchkit/any.hpp"; sourceTree = SOURCE_ROOT; };
 		25D5E7701031B96E5EF7AA42 /* chaiscript_basic.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = chaiscript_basic.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/chaiscript_basic.hpp"; sourceTree = SOURCE_ROOT; };
+		26DEBD01B69676B7568827ED /* scalingFragShader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = scalingFragShader.h; path = "src/ofxOceanode_modules-texture/scalingFragShader.h"; sourceTree = SOURCE_ROOT; };
 		29030CD02944F06F1DAC3E49 /* ofxDatGuiTextInput.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiTextInput.h; path = ../../../addons/ofxDatGui_PM/src/components/ofxDatGuiTextInput.h; sourceTree = SOURCE_ROOT; };
 		2FD4B0329909D3527F003494 /* UdpSocket.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = UdpSocket.h; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/UdpSocket.h; sourceTree = SOURCE_ROOT; };
 		308C1C3E231D0D2F9596BABB /* fnv1a.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = fnv1a.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/utility/fnv1a.hpp"; sourceTree = SOURCE_ROOT; };
@@ -156,11 +165,13 @@
 		499638E4E5136BDFDA5E5192 /* proxy_functions.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = proxy_functions.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/dispatchkit/proxy_functions.hpp"; sourceTree = SOURCE_ROOT; };
 		499C7B06926EEE148981AE7F /* ofxOceanodeOSCController.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxOceanodeOSCController.cpp; path = ../../../addons/ofxOceanode/src/Controls/ofxOceanodeOSCController.cpp; sourceTree = SOURCE_ROOT; };
 		4A76FE1EC14329064FDB60C7 /* ofxOceanodeNodeRegistry.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxOceanodeNodeRegistry.h; path = ../../../addons/ofxOceanode/src/Managers/ofxOceanodeNodeRegistry.h; sourceTree = SOURCE_ROOT; };
+		4C1870613449AC6489DA5F0B /* ofxOceanodeMidiController.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxOceanodeMidiController.h; path = ../../../addons/ofxOceanode/src/Controls/ofxOceanodeMidiController.h; sourceTree = SOURCE_ROOT; };
 		4D832D586223B608C5420D29 /* ofxDatGui.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGui.h; path = ../../../addons/ofxDatGui_PM/src/ofxDatGui.h; sourceTree = SOURCE_ROOT; };
 		4E95FB446A9C9C6F0DE12D75 /* OscPrintReceivedElements.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = OscPrintReceivedElements.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscPrintReceivedElements.h; sourceTree = SOURCE_ROOT; };
 		506C15604BCBD5C4947DB06D /* chaiscript_engine.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = chaiscript_engine.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/language/chaiscript_engine.hpp"; sourceTree = SOURCE_ROOT; };
 		535435478917DDBF1A2A5390 /* vector_op_registrator.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = vector_op_registrator.h; path = "src/ofxOceanode_modules-vector_op/vector_op_registrator.h"; sourceTree = SOURCE_ROOT; };
 		542B8A9AF130D0C5A3086539 /* ofxOceanodeConnectionGraphics.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxOceanodeConnectionGraphics.h; path = ../../../addons/ofxOceanode/src/Connections/ofxOceanodeConnectionGraphics.h; sourceTree = SOURCE_ROOT; };
+		54702E6AD1A77EA5E033B6AA /* defaultVertexShader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = defaultVertexShader.h; path = "src/ofxOceanode_modules-texture/defaultVertexShader.h"; sourceTree = SOURCE_ROOT; };
 		56216E7879FF316470E9F43A /* boxed_number.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = boxed_number.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/dispatchkit/boxed_number.hpp"; sourceTree = SOURCE_ROOT; };
 		567F71180806A9FF45F418B0 /* subDimensionCombinator.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = subDimensionCombinator.h; path = "src/ofxOceanode_modules-vector_op/subDimensionCombinator.h"; sourceTree = SOURCE_ROOT; };
 		56FB03D9F622C9350A0AB8BC /* ofxOceanodePresetsController.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxOceanodePresetsController.h; path = ../../../addons/ofxOceanode/src/Controls/ofxOceanodePresetsController.h; sourceTree = SOURCE_ROOT; };
@@ -168,6 +179,7 @@
 		57BE225E0F260D16C715A6A6 /* boxed_cast.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = boxed_cast.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/dispatchkit/boxed_cast.hpp"; sourceTree = SOURCE_ROOT; };
 		587BC0EA6E7620617FC6EC08 /* chaiscript_prelude.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = chaiscript_prelude.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/language/chaiscript_prelude.hpp"; sourceTree = SOURCE_ROOT; };
 		58CE5F2A4703DEABF87540A9 /* register_function.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = register_function.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/dispatchkit/register_function.hpp"; sourceTree = SOURCE_ROOT; };
+		5AC12B7D2B80C68B60303D67 /* textureRecorder.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = textureRecorder.cpp; path = src/textureRecorder.cpp; sourceTree = SOURCE_ROOT; };
 		5D13EE4C64902574D9153447 /* ofxDatGuiComponent.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxDatGuiComponent.cpp; path = ../../../addons/ofxDatGui_PM/src/core/ofxDatGuiComponent.cpp; sourceTree = SOURCE_ROOT; };
 		5E65A0C39A6FDCA2888DDAF8 /* ofxOceanodeContainer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxOceanodeContainer.cpp; path = ../../../addons/ofxOceanode/src/Managers/ofxOceanodeContainer.cpp; sourceTree = SOURCE_ROOT; };
 		5E99CD00B4304F8EBC5BA3F1 /* proxy_constructors.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = proxy_constructors.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/dispatchkit/proxy_constructors.hpp"; sourceTree = SOURCE_ROOT; };
@@ -182,6 +194,7 @@
 		65EEFA3DA3526E9CDD9C21F9 /* ofxOscBundle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxOscBundle.cpp; path = ../../../addons/ofxOsc/src/ofxOscBundle.cpp; sourceTree = SOURCE_ROOT; };
 		67F8DCF8142684F256504212 /* chaiscript_optimizer.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = chaiscript_optimizer.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/language/chaiscript_optimizer.hpp"; sourceTree = SOURCE_ROOT; };
 		694343B6251177D03526F32E /* proxy_functions_detail.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = proxy_functions_detail.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/dispatchkit/proxy_functions_detail.hpp"; sourceTree = SOURCE_ROOT; };
+		6962CFFA24B1C8A59A419D24 /* switcher.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = switcher.cpp; path = ../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Modifiers/switcher.cpp; sourceTree = SOURCE_ROOT; };
 		698855D874920D7A53525854 /* ofxDatGuiGroups.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiGroups.h; path = ../../../addons/ofxDatGui_PM/src/components/ofxDatGuiGroups.h; sourceTree = SOURCE_ROOT; };
 		69F09B1450CB3FF08A87D2FF /* ofxOceanodeCanvas.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxOceanodeCanvas.cpp; path = ../../../addons/ofxOceanode/src/Managers/ofxOceanodeCanvas.cpp; sourceTree = SOURCE_ROOT; };
 		6B65E6930994CC4B2D2B8B33 /* OscPacketListener.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = OscPacketListener.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscPacketListener.h; sourceTree = SOURCE_ROOT; };
@@ -196,7 +209,9 @@
 		7C560CA30BA33036EEC637E9 /* chaiscript_threading.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = chaiscript_threading.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/chaiscript_threading.hpp"; sourceTree = SOURCE_ROOT; };
 		7C9B84BA3AF325F3D843633B /* ofxOceanodeConnection.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxOceanodeConnection.cpp; path = ../../../addons/ofxOceanode/src/Connections/ofxOceanodeConnection.cpp; sourceTree = SOURCE_ROOT; };
 		7CD0DCB72D0590FAFD948763 /* type_conversions.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = type_conversions.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/dispatchkit/type_conversions.hpp"; sourceTree = SOURCE_ROOT; };
+		7F66D279E4FE5B7515000B3E /* audioEngineController.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = audioEngineController.h; path = src/audioEngineController.h; sourceTree = SOURCE_ROOT; };
 		81967292BFC87A0144BD32C6 /* ofxOscSender.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxOscSender.cpp; path = ../../../addons/ofxOsc/src/ofxOscSender.cpp; sourceTree = SOURCE_ROOT; };
+		82E06F261743B1A265AA564A /* senderManager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = senderManager.cpp; path = src/senderManager.cpp; sourceTree = SOURCE_ROOT; };
 		85CA43E90443167538D06F3C /* baseIndexer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = baseIndexer.h; path = ../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Base/baseIndexer.h; sourceTree = SOURCE_ROOT; };
 		86F00AF8B1543076FA133A82 /* ofxOceanode.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxOceanode.h; path = ../../../addons/ofxOceanode/src/ofxOceanode.h; sourceTree = SOURCE_ROOT; };
 		89011C5E1B6B7542B69913D7 /* dispatchkit.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = dispatchkit.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/dispatchkit/dispatchkit.hpp"; sourceTree = SOURCE_ROOT; };
@@ -220,15 +235,8 @@
 		9C7A8492A4E58437944DDF60 /* function_call.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = function_call.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/dispatchkit/function_call.hpp"; sourceTree = SOURCE_ROOT; };
 		9E034FA57FE251AC33904E82 /* ofxDatGuiThemes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiThemes.h; path = ../../../addons/ofxDatGui_PM/src/themes/ofxDatGuiThemes.h; sourceTree = SOURCE_ROOT; };
 		9F7986DC4EB05E75FCE2C777 /* ofxOscSender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxOscSender.h; path = ../../../addons/ofxOsc/src/ofxOscSender.h; sourceTree = SOURCE_ROOT; };
-		9FAB51D220BEB78E00144888 /* oscillatorFragShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = oscillatorFragShader.h; path = "ofxOceanode_modules-texture/oscillatorFragShader.h"; sourceTree = "<group>"; };
-		9FAB51D320BEB83900144888 /* defaultVertexShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = defaultVertexShader.h; path = "ofxOceanode_modules-texture/defaultVertexShader.h"; sourceTree = "<group>"; };
-		9FAB51D420BEB92800144888 /* scalingFragShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = scalingFragShader.h; path = "ofxOceanode_modules-texture/scalingFragShader.h"; sourceTree = "<group>"; };
-		9FAB51DC20BEBD5200144888 /* senderManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = senderManager.cpp; sourceTree = "<group>"; };
-		9FAB51DD20BEBD5300144888 /* colorApplier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = colorApplier.h; sourceTree = "<group>"; };
-		9FAB51DE20BEBD5300144888 /* senderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = senderManager.h; sourceTree = "<group>"; };
-		9FAB51DF20BEBD5300144888 /* textureRecorder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = textureRecorder.cpp; sourceTree = "<group>"; };
-		9FAB51E020BEBD5300144888 /* textureRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = textureRecorder.h; sourceTree = "<group>"; };
-		9FAB51E120BEBD5300144888 /* colorApplier.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = colorApplier.cpp; sourceTree = "<group>"; };
+		9FA2A0B2E964C498EBE3ACF4 /* oscillatorFragShader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = oscillatorFragShader.h; path = "src/ofxOceanode_modules-texture/oscillatorFragShader.h"; sourceTree = SOURCE_ROOT; };
+		A124F871683B22E8D97BECDE /* textureUnifier.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = textureUnifier.h; path = src/textureUnifier.h; sourceTree = SOURCE_ROOT; };
 		A13853A1B21F20177F44EE37 /* ofxDatGuiLabel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiLabel.h; path = ../../../addons/ofxDatGui_PM/src/components/ofxDatGuiLabel.h; sourceTree = SOURCE_ROOT; };
 		A2A156C2D14C4F39566F9478 /* exception_specification.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = exception_specification.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/dispatchkit/exception_specification.hpp"; sourceTree = SOURCE_ROOT; };
 		A2AAA8CA403479E6FCDF920E /* OscHostEndianness.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = OscHostEndianness.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscHostEndianness.h; sourceTree = SOURCE_ROOT; };
@@ -237,9 +245,12 @@
 		A7B61DF7F41316374CEEE8CA /* ofxDatGuiTimeGraph.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiTimeGraph.h; path = ../../../addons/ofxDatGui_PM/src/components/ofxDatGuiTimeGraph.h; sourceTree = SOURCE_ROOT; };
 		A8150F1936B064445E99AF76 /* ofxOceanodeBPMController.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxOceanodeBPMController.cpp; path = ../../../addons/ofxOceanode/src/Controls/ofxOceanodeBPMController.cpp; sourceTree = SOURCE_ROOT; };
 		A8EF7BA33CEDD3D0F18D9BD3 /* utility.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = utility.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/utility/utility.hpp"; sourceTree = SOURCE_ROOT; };
+		A914AD56DE399642506DDB33 /* ofxOceanodeMidiBinding.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxOceanodeMidiBinding.h; path = ../../../addons/ofxOceanode/src/Managers/ofxOceanodeMidiBinding.h; sourceTree = SOURCE_ROOT; };
 		AC8A5A0F0DD211E2E3C1E18D /* chaiscript_common.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = chaiscript_common.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/language/chaiscript_common.hpp"; sourceTree = SOURCE_ROOT; };
+		AD7F0D57E1EE390875D5C1F6 /* textureUnifier.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = textureUnifier.cpp; path = src/textureUnifier.cpp; sourceTree = SOURCE_ROOT; };
 		ADD194746185E2DA11468377 /* IpEndpointName.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = IpEndpointName.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/IpEndpointName.cpp; sourceTree = SOURCE_ROOT; };
 		AE335EB4709BFD4671EEAC84 /* MessageMappingOscPacketListener.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = MessageMappingOscPacketListener.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/MessageMappingOscPacketListener.h; sourceTree = SOURCE_ROOT; };
+		AF45987CEF73D6D1587AFFDA /* switcher.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = switcher.h; path = ../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Modifiers/switcher.h; sourceTree = SOURCE_ROOT; };
 		B11DB438E2A6EBD360F8BA50 /* ofxDatGuiFRM.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiFRM.h; path = ../../../addons/ofxDatGui_PM/src/components/ofxDatGuiFRM.h; sourceTree = SOURCE_ROOT; };
 		B2C71D603AC4849CB5983A4B /* waveScope.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = waveScope.cpp; path = "src/ofxOceanode_modules-texture/waveScope.cpp"; sourceTree = SOURCE_ROOT; };
 		B31C608870ECEB2490A93736 /* ofxOscParameterSync.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxOscParameterSync.h; path = ../../../addons/ofxOsc/src/ofxOscParameterSync.h; sourceTree = SOURCE_ROOT; };
@@ -271,6 +282,7 @@
 		DCC77D1E228088A526604E34 /* smoother.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = smoother.h; path = ../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Modifiers/smoother.h; sourceTree = SOURCE_ROOT; };
 		DD8F81F7AAB5BA396231DD4C /* ofxDatGui.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxDatGui.cpp; path = ../../../addons/ofxDatGui_PM/src/ofxDatGui.cpp; sourceTree = SOURCE_ROOT; };
 		DF49D76C45D5DB505A234880 /* ofxOscMessage.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxOscMessage.cpp; path = ../../../addons/ofxOsc/src/ofxOscMessage.cpp; sourceTree = SOURCE_ROOT; };
+		E05C2B948C3533E37FD66528 /* ofxOceanodeMidiController.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxOceanodeMidiController.cpp; path = ../../../addons/ofxOceanode/src/Controls/ofxOceanodeMidiController.cpp; sourceTree = SOURCE_ROOT; };
 		E187B9F0640B673635B5ECDF /* phasor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = phasor.h; path = ../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Generators/phasor.h; sourceTree = SOURCE_ROOT; };
 		E242C3B7CF466D13638B192F /* chaiscript_windows.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = chaiscript_windows.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/language/chaiscript_windows.hpp"; sourceTree = SOURCE_ROOT; };
 		E30A5D97E1BB93A0B02662E3 /* bootstrap_stl.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = bootstrap_stl.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/dispatchkit/bootstrap_stl.hpp"; sourceTree = SOURCE_ROOT; };
@@ -285,14 +297,17 @@
 		E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
 		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
 		E4F53B46D587F378DA43DF57 /* ofxOceanodeBPMController.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxOceanodeBPMController.h; path = ../../../addons/ofxOceanode/src/Controls/ofxOceanodeBPMController.h; sourceTree = SOURCE_ROOT; };
+		E62DA60445493738EA2F7E2B /* colorApplier.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = colorApplier.h; path = src/colorApplier.h; sourceTree = SOURCE_ROOT; };
 		E6DEF695B88BA5FAACEAA937 /* UdpSocket.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = UdpSocket.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/posix/UdpSocket.cpp; sourceTree = SOURCE_ROOT; };
 		E723BEF4C55D236E24639608 /* ofxSyphonServerDirectory.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = ofxSyphonServerDirectory.mm; path = ../../../addons/ofxSyphon/src/ofxSyphonServerDirectory.mm; sourceTree = SOURCE_ROOT; };
 		EA0730CA1A73FC90DCF8C770 /* smoother.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = smoother.cpp; path = ../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Modifiers/smoother.cpp; sourceTree = SOURCE_ROOT; };
 		EDEAD1332CEFCB6171498ADE /* ofxOceanodeNodeModel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxOceanodeNodeModel.h; path = ../../../addons/ofxOceanode/src/Nodes/ofxOceanodeNodeModel.h; sourceTree = SOURCE_ROOT; };
 		EFC799641CF7089DDBF2094B /* ofxSmartFont.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxSmartFont.h; path = ../../../addons/ofxDatGui_PM/src/libs/ofxSmartFont/ofxSmartFont.h; sourceTree = SOURCE_ROOT; };
+		F0DF3E4F877F8E51B24698B3 /* ofxOceanodeMidiBinding.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxOceanodeMidiBinding.cpp; path = ../../../addons/ofxOceanode/src/Managers/ofxOceanodeMidiBinding.cpp; sourceTree = SOURCE_ROOT; };
 		F15C9896F6A32FCA280CD4B5 /* ofxOceanodeNodeRegistry.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxOceanodeNodeRegistry.cpp; path = ../../../addons/ofxOceanode/src/Managers/ofxOceanodeNodeRegistry.cpp; sourceTree = SOURCE_ROOT; };
 		F44449692EA3A4B7FBABCF29 /* baseOscillator.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = baseOscillator.cpp; path = ../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Base/baseOscillator.cpp; sourceTree = SOURCE_ROOT; };
 		F4F5B6B8BA2BD52C646ED908 /* OscException.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = OscException.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscException.h; sourceTree = SOURCE_ROOT; };
+		F6F3ADFBC612B5128606760D /* textureRecorder.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = textureRecorder.h; path = src/textureRecorder.h; sourceTree = SOURCE_ROOT; };
 		F7FBC56859535E597B24BB91 /* NetworkingUtils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = NetworkingUtils.h; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/NetworkingUtils.h; sourceTree = SOURCE_ROOT; };
 		FA4876B6977AA62545819166 /* scriptModule.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = scriptModule.h; path = "src/ofxOceanode_modules-scripting/scriptModule.h"; sourceTree = SOURCE_ROOT; };
 		FC25B1BE287AB8FDDE737375 /* type_info.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = type_info.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/dispatchkit/type_info.hpp"; sourceTree = SOURCE_ROOT; };
@@ -325,10 +340,10 @@
 		1611DA528262F51B8A4FBD22 /* Base_Nodes */ = {
 			isa = PBXGroup;
 			children = (
-				03E42CA654A61594B6D8167F /* ofxOceanodeNodeModelExternalWindow.cpp */,
+				027F095A0217A890F2B21761 /* ofxOceanodeNodeModelLocalPreset.h */,
 				16D50E04676F5AF6D586DD9B /* ofxOceanodeNodeModelExternalWindow.h */,
 				8AC0F166599AAFFA99CD14EF /* ofxOceanodeNodeModelLocalPreset.cpp */,
-				027F095A0217A890F2B21761 /* ofxOceanodeNodeModelLocalPreset.h */,
+				03E42CA654A61594B6D8167F /* ofxOceanodeNodeModelExternalWindow.cpp */,
 			);
 			name = Base_Nodes;
 			sourceTree = "<group>";
@@ -336,19 +351,19 @@
 		1D570521A53950659A74DE26 /* components */ = {
 			isa = PBXGroup;
 			children = (
-				C2BBB5BA515C82003E0EEB5E /* ofxDatGui2dPad.h */,
-				771877A40D55CB5D6C1969C4 /* ofxDatGuiButton.h */,
 				0795F21A2022A202F628BE94 /* ofxDatGuiColorPicker.h */,
-				B7B623A02730497FBCEA4FF2 /* ofxDatGuiControls.h */,
-				B11DB438E2A6EBD360F8BA50 /* ofxDatGuiFRM.h */,
-				698855D874920D7A53525854 /* ofxDatGuiGroups.h */,
-				A13853A1B21F20177F44EE37 /* ofxDatGuiLabel.h */,
-				92007C97134ED347908EA736 /* ofxDatGuiMatrix.h */,
-				11021811865108C49AED9E1E /* ofxDatGuiScrollView.h */,
 				149298D896FDA631EE81BEB9 /* ofxDatGuiSlider.h */,
-				29030CD02944F06F1DAC3E49 /* ofxDatGuiTextInput.h */,
-				3F15C4313830F7C3C28E1FAE /* ofxDatGuiTextInputField.h */,
+				B11DB438E2A6EBD360F8BA50 /* ofxDatGuiFRM.h */,
 				A7B61DF7F41316374CEEE8CA /* ofxDatGuiTimeGraph.h */,
+				3F15C4313830F7C3C28E1FAE /* ofxDatGuiTextInputField.h */,
+				771877A40D55CB5D6C1969C4 /* ofxDatGuiButton.h */,
+				B7B623A02730497FBCEA4FF2 /* ofxDatGuiControls.h */,
+				698855D874920D7A53525854 /* ofxDatGuiGroups.h */,
+				11021811865108C49AED9E1E /* ofxDatGuiScrollView.h */,
+				A13853A1B21F20177F44EE37 /* ofxDatGuiLabel.h */,
+				C2BBB5BA515C82003E0EEB5E /* ofxDatGui2dPad.h */,
+				29030CD02944F06F1DAC3E49 /* ofxDatGuiTextInput.h */,
+				92007C97134ED347908EA736 /* ofxDatGuiMatrix.h */,
 			);
 			name = components;
 			sourceTree = "<group>";
@@ -364,17 +379,17 @@
 		30CB364908817057B430D528 /* osc */ = {
 			isa = PBXGroup;
 			children = (
-				AE335EB4709BFD4671EEAC84 /* MessageMappingOscPacketListener.h */,
-				F4F5B6B8BA2BD52C646ED908 /* OscException.h */,
-				A2AAA8CA403479E6FCDF920E /* OscHostEndianness.h */,
 				63A47AC60FFAFC3BF093EC0F /* OscOutboundPacketStream.cpp */,
-				029684CF678F70F6D3537A29 /* OscOutboundPacketStream.h */,
 				6B65E6930994CC4B2D2B8B33 /* OscPacketListener.h */,
-				BC8881B3C8C0A1C45F042E7A /* OscPrintReceivedElements.cpp */,
-				4E95FB446A9C9C6F0DE12D75 /* OscPrintReceivedElements.h */,
-				9BF3AA0D4FAA89D0F8A0E545 /* OscReceivedElements.cpp */,
-				20F35AFADAF0068B067E713F /* OscReceivedElements.h */,
 				D9BFFBBF4CC43DEE890B3C3E /* OscTypes.cpp */,
+				4E95FB446A9C9C6F0DE12D75 /* OscPrintReceivedElements.h */,
+				AE335EB4709BFD4671EEAC84 /* MessageMappingOscPacketListener.h */,
+				A2AAA8CA403479E6FCDF920E /* OscHostEndianness.h */,
+				F4F5B6B8BA2BD52C646ED908 /* OscException.h */,
+				029684CF678F70F6D3537A29 /* OscOutboundPacketStream.h */,
+				9BF3AA0D4FAA89D0F8A0E545 /* OscReceivedElements.cpp */,
+				BC8881B3C8C0A1C45F042E7A /* OscPrintReceivedElements.cpp */,
+				20F35AFADAF0068B067E713F /* OscReceivedElements.h */,
 				C6937888E126BADC8777423B /* OscTypes.h */,
 			);
 			name = osc;
@@ -399,31 +414,31 @@
 		48163CE840DE051459713699 /* dispatchkit */ = {
 			isa = PBXGroup;
 			children = (
-				24D86E159653FA81FBC76A6A /* any.hpp */,
-				608423B865EAA2A2751D8D90 /* bad_boxed_cast.hpp */,
-				15DDBA686E95072304567B4D /* bind_first.hpp */,
-				058C54767DCD2030521CA4E4 /* bootstrap.hpp */,
-				E30A5D97E1BB93A0B02662E3 /* bootstrap_stl.hpp */,
-				57BE225E0F260D16C715A6A6 /* boxed_cast.hpp */,
-				402497DF2DF519C8AF44F7E0 /* boxed_cast_helper.hpp */,
-				56216E7879FF316470E9F43A /* boxed_number.hpp */,
-				C3B720AD67C24B1AB7388D68 /* boxed_value.hpp */,
-				98A07C87667A9B4D615FF81E /* callable_traits.hpp */,
+				7CD0DCB72D0590FAFD948763 /* type_conversions.hpp */,
 				89011C5E1B6B7542B69913D7 /* dispatchkit.hpp */,
-				1ABF793406DAA156DB3CFDC1 /* dynamic_object.hpp */,
-				C673330FF24CD702066FF012 /* dynamic_object_detail.hpp */,
+				5E99CD00B4304F8EBC5BA3F1 /* proxy_constructors.hpp */,
+				694343B6251177D03526F32E /* proxy_functions_detail.hpp */,
+				56216E7879FF316470E9F43A /* boxed_number.hpp */,
+				402497DF2DF519C8AF44F7E0 /* boxed_cast_helper.hpp */,
+				058C54767DCD2030521CA4E4 /* bootstrap.hpp */,
+				C3B720AD67C24B1AB7388D68 /* boxed_value.hpp */,
+				E30A5D97E1BB93A0B02662E3 /* bootstrap_stl.hpp */,
 				A2A156C2D14C4F39566F9478 /* exception_specification.hpp */,
 				9C7A8492A4E58437944DDF60 /* function_call.hpp */,
-				45E43DA0183D392D201A952A /* function_call_detail.hpp */,
-				2112F393B19586AAA880BAA6 /* handle_return.hpp */,
-				576EBA200082BF35B970FA50 /* operators.hpp */,
-				5E99CD00B4304F8EBC5BA3F1 /* proxy_constructors.hpp */,
-				499638E4E5136BDFDA5E5192 /* proxy_functions.hpp */,
-				694343B6251177D03526F32E /* proxy_functions_detail.hpp */,
-				58CE5F2A4703DEABF87540A9 /* register_function.hpp */,
 				CF32EF71FD632AE574753D7A /* short_alloc.hpp */,
-				7CD0DCB72D0590FAFD948763 /* type_conversions.hpp */,
+				58CE5F2A4703DEABF87540A9 /* register_function.hpp */,
+				C673330FF24CD702066FF012 /* dynamic_object_detail.hpp */,
+				608423B865EAA2A2751D8D90 /* bad_boxed_cast.hpp */,
+				24D86E159653FA81FBC76A6A /* any.hpp */,
+				576EBA200082BF35B970FA50 /* operators.hpp */,
+				2112F393B19586AAA880BAA6 /* handle_return.hpp */,
 				FC25B1BE287AB8FDDE737375 /* type_info.hpp */,
+				98A07C87667A9B4D615FF81E /* callable_traits.hpp */,
+				15DDBA686E95072304567B4D /* bind_first.hpp */,
+				499638E4E5136BDFDA5E5192 /* proxy_functions.hpp */,
+				57BE225E0F260D16C715A6A6 /* boxed_cast.hpp */,
+				45E43DA0183D392D201A952A /* function_call_detail.hpp */,
+				1ABF793406DAA156DB3CFDC1 /* dynamic_object.hpp */,
 			);
 			name = dispatchkit;
 			sourceTree = "<group>";
@@ -440,12 +455,12 @@
 			isa = PBXGroup;
 			children = (
 				0FB83AC7747296DD35C1C295 /* ofxSyphon.h */,
-				01FAC3552E00C3620035EA2F /* ofxSyphonClient.h */,
-				03EA4DA95B5E1B8409FC058E /* ofxSyphonClient.mm */,
-				46BBCC26D60B589958BF0D03 /* ofxSyphonServer.h */,
 				32D6F27DC6308427F9A278C1 /* ofxSyphonServer.mm */,
-				337B812806A0E7D26A029E5A /* ofxSyphonServerDirectory.h */,
+				46BBCC26D60B589958BF0D03 /* ofxSyphonServer.h */,
+				03EA4DA95B5E1B8409FC058E /* ofxSyphonClient.mm */,
 				E723BEF4C55D236E24639608 /* ofxSyphonServerDirectory.mm */,
+				01FAC3552E00C3620035EA2F /* ofxSyphonClient.h */,
+				337B812806A0E7D26A029E5A /* ofxSyphonServerDirectory.h */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -453,11 +468,11 @@
 		4A0C0B233C38AF6788F3CE7D /* Default_Nodes */ = {
 			isa = PBXGroup;
 			children = (
-				7122898CC63A863AD1DC1535 /* Base */,
-				550B846BFF2680933EE8B745 /* Controllers */,
+				C9E0C4F6A9698E8F0EF5E14C /* Modifiers */,
 				60A061F8C47B5624AE6C450E /* defaultNodes.h */,
 				86C08C13FA71904D23256B02 /* Generators */,
-				C9E0C4F6A9698E8F0EF5E14C /* Modifiers */,
+				550B846BFF2680933EE8B745 /* Controllers */,
+				7122898CC63A863AD1DC1535 /* Base */,
 			);
 			name = Default_Nodes;
 			sourceTree = "<group>";
@@ -465,8 +480,8 @@
 		50EAFB5FF7C5722E7B4895C7 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				71FFD50EA75BCC76F0C58D12 /* SyphonNameboundClient.h */,
 				E3405C5AE387BDDC2AD19473 /* SyphonNameboundClient.m */,
+				71FFD50EA75BCC76F0C58D12 /* SyphonNameboundClient.h */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -483,14 +498,14 @@
 		5A694BEC91FB6EF3AB538DD1 /* ofxOceanode_modules-texture */ = {
 			isa = PBXGroup;
 			children = (
-				9FAB51D220BEB78E00144888 /* oscillatorFragShader.h */,
-				123BA4F448ED422A2D4B94DC /* oscillatorTexture.cpp */,
-				2213F07A257ADDE35F494AEF /* oscillatorTexture.h */,
 				3E79119D4C7D4C10868241C6 /* sharedResources.h */,
-				B2C71D603AC4849CB5983A4B /* waveScope.cpp */,
+				54702E6AD1A77EA5E033B6AA /* defaultVertexShader.h */,
 				3ABE08620BD6533FF8DCF2BB /* waveScope.h */,
-				9FAB51D320BEB83900144888 /* defaultVertexShader.h */,
-				9FAB51D420BEB92800144888 /* scalingFragShader.h */,
+				2213F07A257ADDE35F494AEF /* oscillatorTexture.h */,
+				B2C71D603AC4849CB5983A4B /* waveScope.cpp */,
+				26DEBD01B69676B7568827ED /* scalingFragShader.h */,
+				9FA2A0B2E964C498EBE3ACF4 /* oscillatorFragShader.h */,
+				123BA4F448ED422A2D4B94DC /* oscillatorTexture.cpp */,
 			);
 			name = "ofxOceanode_modules-texture";
 			sourceTree = "<group>";
@@ -531,14 +546,14 @@
 		6B8A921B73CC6BADD2D0E3A3 /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
-				1611DA528262F51B8A4FBD22 /* Base_Nodes */,
-				4A0C0B233C38AF6788F3CE7D /* Default_Nodes */,
 				63A44DC38599839305F1F4D3 /* ofxOceanodeNode.cpp */,
-				7839463FADC4E27D1C66C5FB /* ofxOceanodeNode.h */,
+				4A0C0B233C38AF6788F3CE7D /* Default_Nodes */,
 				170083BFE7EEC5851D5DF9E6 /* ofxOceanodeNodeGui.cpp */,
 				D11A82FE9732DAF8F599F2AB /* ofxOceanodeNodeGui.h */,
-				18902594A5884CA5CA6D3D9D /* ofxOceanodeNodeModel.cpp */,
 				EDEAD1332CEFCB6171498ADE /* ofxOceanodeNodeModel.h */,
+				18902594A5884CA5CA6D3D9D /* ofxOceanodeNodeModel.cpp */,
+				1611DA528262F51B8A4FBD22 /* Base_Nodes */,
+				7839463FADC4E27D1C66C5FB /* ofxOceanodeNode.h */,
 			);
 			name = Nodes;
 			sourceTree = "<group>";
@@ -546,12 +561,12 @@
 		7122898CC63A863AD1DC1535 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				645C793F85B56EF720B10C7F /* baseIndexer.cpp */,
 				85CA43E90443167538D06F3C /* baseIndexer.h */,
 				F44449692EA3A4B7FBABCF29 /* baseOscillator.cpp */,
 				94ED70588667CA0E144E436E /* baseOscillator.h */,
-				0538E73A948F5367828D0596 /* basePhasor.cpp */,
 				C76BA1A770D742397939F7A7 /* basePhasor.h */,
+				0538E73A948F5367828D0596 /* basePhasor.cpp */,
+				645C793F85B56EF720B10C7F /* baseIndexer.cpp */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -577,8 +592,8 @@
 			isa = PBXGroup;
 			children = (
 				DC602717CC26F00FD6D62859 /* chaiscript */,
-				C4E2C5EB5B0CDA865E6AA98F /* scriptModule.cpp */,
 				FA4876B6977AA62545819166 /* scriptModule.h */,
+				C4E2C5EB5B0CDA865E6AA98F /* scriptModule.cpp */,
 			);
 			name = "ofxOceanode_modules-scripting";
 			sourceTree = "<group>";
@@ -586,12 +601,12 @@
 		86C08C13FA71904D23256B02 /* Generators */ = {
 			isa = PBXGroup;
 			children = (
-				0BE6AC32AE0E7C44E14DFE2F /* oscillator.cpp */,
-				96D838AC4E4260B0ABA07D05 /* oscillator.h */,
-				BE59ACA8A0510B61FD8647C6 /* oscillatorBank.cpp */,
 				3C2190A2D726C8DCEF074E3C /* oscillatorBank.h */,
+				96D838AC4E4260B0ABA07D05 /* oscillator.h */,
 				9C1A96A2891A3C36C7DCA0F7 /* phasor.cpp */,
 				E187B9F0640B673635B5ECDF /* phasor.h */,
+				0BE6AC32AE0E7C44E14DFE2F /* oscillator.cpp */,
+				BE59ACA8A0510B61FD8647C6 /* oscillatorBank.cpp */,
 			);
 			name = Generators;
 			sourceTree = "<group>";
@@ -607,15 +622,17 @@
 		957575D61FEE61F5BA89C5CF /* Controls */ = {
 			isa = PBXGroup;
 			children = (
-				90D557700F1EECB9E9F8AEB9 /* ofxOceanodeBaseController.cpp */,
-				46ADAF0F6560879BAE3D1C61 /* ofxOceanodeBaseController.h */,
-				A8150F1936B064445E99AF76 /* ofxOceanodeBPMController.cpp */,
 				E4F53B46D587F378DA43DF57 /* ofxOceanodeBPMController.h */,
+				73520CA7939116FBB46C3F19 /* ofxOceanodeOSCController.h */,
+				499C7B06926EEE148981AE7F /* ofxOceanodeOSCController.cpp */,
 				C3AD3B4C116407604DCFB986 /* ofxOceanodeControls.cpp */,
 				CA4B325D2EC75988A7F9E2CB /* ofxOceanodeControls.h */,
-				499C7B06926EEE148981AE7F /* ofxOceanodeOSCController.cpp */,
-				73520CA7939116FBB46C3F19 /* ofxOceanodeOSCController.h */,
+				46ADAF0F6560879BAE3D1C61 /* ofxOceanodeBaseController.h */,
+				4C1870613449AC6489DA5F0B /* ofxOceanodeMidiController.h */,
+				90D557700F1EECB9E9F8AEB9 /* ofxOceanodeBaseController.cpp */,
+				E05C2B948C3533E37FD66528 /* ofxOceanodeMidiController.cpp */,
 				C27DB6A973A67BE0BF855933 /* ofxOceanodePresetsController.cpp */,
+				A8150F1936B064445E99AF76 /* ofxOceanodeBPMController.cpp */,
 				56FB03D9F622C9350A0AB8BC /* ofxOceanodePresetsController.h */,
 			);
 			name = Controls;
@@ -635,10 +652,10 @@
 		9BF163AD5F824DF0AD945222 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				9BBF10547B078BE7A527677B /* Connections */,
-				957575D61FEE61F5BA89C5CF /* Controls */,
-				F345CC31328F66B89F4BB079 /* Managers */,
 				6B8A921B73CC6BADD2D0E3A3 /* Nodes */,
+				F345CC31328F66B89F4BB079 /* Managers */,
+				957575D61FEE61F5BA89C5CF /* Controls */,
+				9BBF10547B078BE7A527677B /* Connections */,
 				86F00AF8B1543076FA133A82 /* ofxOceanode.h */,
 			);
 			name = src;
@@ -647,13 +664,13 @@
 		9F43D858F7D1E17A6C3D0054 /* ofxOceanode_modules-vector_op */ = {
 			isa = PBXGroup;
 			children = (
-				799D51ED52F84462BC69FD3E /* subDimensionCombinator.cpp */,
-				567F71180806A9FF45F418B0 /* subDimensionCombinator.h */,
-				535435478917DDBF1A2A5390 /* vector_op_registrator.h */,
-				60C1730B60F917059165380B /* vectorChain.cpp */,
-				06F0EFC85B9EBE916BE8D239 /* vectorChain.h */,
-				9BB43CABFA5E974B51E61E49 /* vectorGetter.h */,
 				974BC333C1AC76AE34BF5272 /* vectorOperations.h */,
+				06F0EFC85B9EBE916BE8D239 /* vectorChain.h */,
+				567F71180806A9FF45F418B0 /* subDimensionCombinator.h */,
+				60C1730B60F917059165380B /* vectorChain.cpp */,
+				9BB43CABFA5E974B51E61E49 /* vectorGetter.h */,
+				799D51ED52F84462BC69FD3E /* subDimensionCombinator.cpp */,
+				535435478917DDBF1A2A5390 /* vector_op_registrator.h */,
 			);
 			name = "ofxOceanode_modules-vector_op";
 			sourceTree = "<group>";
@@ -661,18 +678,18 @@
 		B35221BB111B3A72955807E9 /* language */ = {
 			isa = PBXGroup;
 			children = (
-				CFEE6D34D637879CFC1D916A /* chaiscript_algebraic.hpp */,
-				AC8A5A0F0DD211E2E3C1E18D /* chaiscript_common.hpp */,
-				506C15604BCBD5C4947DB06D /* chaiscript_engine.hpp */,
-				97055F5118F1917536E071FF /* chaiscript_eval.hpp */,
-				67F8DCF8142684F256504212 /* chaiscript_optimizer.hpp */,
-				E4B31DE2E778A5D76BFE88C7 /* chaiscript_parser.hpp */,
-				777EB2ECF5E10C02E98EDB85 /* chaiscript_posix.hpp */,
-				587BC0EA6E7620617FC6EC08 /* chaiscript_prelude.hpp */,
 				90B3D75244C315C7A9D6102B /* chaiscript_prelude_docs.hpp */,
+				97055F5118F1917536E071FF /* chaiscript_eval.hpp */,
 				3ADE4293B3C1FB698009CAD7 /* chaiscript_tracer.hpp */,
-				D0DA240D64AA6563D560C2A5 /* chaiscript_unknown.hpp */,
+				506C15604BCBD5C4947DB06D /* chaiscript_engine.hpp */,
+				CFEE6D34D637879CFC1D916A /* chaiscript_algebraic.hpp */,
 				E242C3B7CF466D13638B192F /* chaiscript_windows.hpp */,
+				E4B31DE2E778A5D76BFE88C7 /* chaiscript_parser.hpp */,
+				AC8A5A0F0DD211E2E3C1E18D /* chaiscript_common.hpp */,
+				67F8DCF8142684F256504212 /* chaiscript_optimizer.hpp */,
+				D0DA240D64AA6563D560C2A5 /* chaiscript_unknown.hpp */,
+				587BC0EA6E7620617FC6EC08 /* chaiscript_prelude.hpp */,
+				777EB2ECF5E10C02E98EDB85 /* chaiscript_posix.hpp */,
 			);
 			name = language;
 			sourceTree = "<group>";
@@ -691,16 +708,16 @@
 		BD2F1A9F8D0C05EDB29122D0 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				00D6D32B84B099226431108C /* ofxOsc.h */,
-				7689F8A0F3D0B7635A8C3104 /* ofxOscArg.h */,
-				65EEFA3DA3526E9CDD9C21F9 /* ofxOscBundle.cpp */,
-				8B30E93FD3D3475EED522A0E /* ofxOscBundle.h */,
-				DF49D76C45D5DB505A234880 /* ofxOscMessage.cpp */,
-				C58862C6D212C8E8A83810F4 /* ofxOscMessage.h */,
-				0AED834CE4DEC5260AF302A2 /* ofxOscParameterSync.cpp */,
 				B31C608870ECEB2490A93736 /* ofxOscParameterSync.h */,
-				C2FAC65C491D4231379F3298 /* ofxOscReceiver.cpp */,
+				0AED834CE4DEC5260AF302A2 /* ofxOscParameterSync.cpp */,
+				DF49D76C45D5DB505A234880 /* ofxOscMessage.cpp */,
+				00D6D32B84B099226431108C /* ofxOsc.h */,
+				65EEFA3DA3526E9CDD9C21F9 /* ofxOscBundle.cpp */,
 				8C75AFC8774A62495DD53464 /* ofxOscReceiver.h */,
+				7689F8A0F3D0B7635A8C3104 /* ofxOscArg.h */,
+				C2FAC65C491D4231379F3298 /* ofxOscReceiver.cpp */,
+				C58862C6D212C8E8A83810F4 /* ofxOscMessage.h */,
+				8B30E93FD3D3475EED522A0E /* ofxOscBundle.h */,
 				81967292BFC87A0144BD32C6 /* ofxOscSender.cpp */,
 				9F7986DC4EB05E75FCE2C777 /* ofxOscSender.h */,
 			);
@@ -710,14 +727,16 @@
 		C9E0C4F6A9698E8F0EF5E14C /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
-				D623E907C25C25D1AB411052 /* mapper.cpp */,
-				3B2B1469CBE279200D558FAB /* mapper.h */,
-				959F4777E3902536DC81AC0A /* ranger.cpp */,
-				06F3C8FC2DD28E0B985BADB0 /* ranger.h */,
-				3D3CE3C79225FEEDD92A410A /* reindexer.cpp */,
-				125FC7DF81918DE565891A92 /* reindexer.h */,
-				EA0730CA1A73FC90DCF8C770 /* smoother.cpp */,
 				DCC77D1E228088A526604E34 /* smoother.h */,
+				D623E907C25C25D1AB411052 /* mapper.cpp */,
+				AF45987CEF73D6D1587AFFDA /* switcher.h */,
+				125FC7DF81918DE565891A92 /* reindexer.h */,
+				3B2B1469CBE279200D558FAB /* mapper.h */,
+				EA0730CA1A73FC90DCF8C770 /* smoother.cpp */,
+				959F4777E3902536DC81AC0A /* ranger.cpp */,
+				3D3CE3C79225FEEDD92A410A /* reindexer.cpp */,
+				6962CFFA24B1C8A59A419D24 /* switcher.cpp */,
+				06F3C8FC2DD28E0B985BADB0 /* ranger.h */,
 			);
 			name = Modifiers;
 			sourceTree = "<group>";
@@ -725,8 +744,8 @@
 		D27B2221A225CA523C019676 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				FF8CDF57858E9B94E3237115 /* ip */,
 				30CB364908817057B430D528 /* osc */,
+				FF8CDF57858E9B94E3237115 /* ip */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -752,13 +771,13 @@
 		DC602717CC26F00FD6D62859 /* chaiscript */ = {
 			isa = PBXGroup;
 			children = (
+				48163CE840DE051459713699 /* dispatchkit */,
+				7C560CA30BA33036EEC637E9 /* chaiscript_threading.hpp */,
+				B35221BB111B3A72955807E9 /* language */,
+				949B878BC596D4403F7A4989 /* chaiscript_defines.hpp */,
 				125F57661DCF7E855F76266F /* chaiscript.hpp */,
 				25D5E7701031B96E5EF7AA42 /* chaiscript_basic.hpp */,
-				949B878BC596D4403F7A4989 /* chaiscript_defines.hpp */,
 				37B07AB58DA4B373D48DE469 /* chaiscript_stdlib.hpp */,
-				7C560CA30BA33036EEC637E9 /* chaiscript_threading.hpp */,
-				48163CE840DE051459713699 /* dispatchkit */,
-				B35221BB111B3A72955807E9 /* language */,
 				01AD06E9658F3FC8B95479B5 /* utility */,
 			);
 			name = chaiscript;
@@ -788,18 +807,22 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				9FAB51E120BEBD5300144888 /* colorApplier.cpp */,
-				9FAB51DD20BEBD5300144888 /* colorApplier.h */,
-				9FAB51DC20BEBD5200144888 /* senderManager.cpp */,
-				9FAB51DE20BEBD5300144888 /* senderManager.h */,
-				9FAB51DF20BEBD5300144888 /* textureRecorder.cpp */,
-				9FAB51E020BEBD5300144888 /* textureRecorder.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
-				841C41D3663FFD049A798B69 /* ofxOceanode_modules-scripting */,
+				82E06F261743B1A265AA564A /* senderManager.cpp */,
+				F6F3ADFBC612B5128606760D /* textureRecorder.h */,
 				5A694BEC91FB6EF3AB538DD1 /* ofxOceanode_modules-texture */,
+				7F66D279E4FE5B7515000B3E /* audioEngineController.h */,
+				841C41D3663FFD049A798B69 /* ofxOceanode_modules-scripting */,
+				A124F871683B22E8D97BECDE /* textureUnifier.h */,
+				11983BC9563DFD6825F21C55 /* audioEngineController.cpp */,
+				1C63D9CC0C744A42DD64529B /* colorApplier.cpp */,
 				9F43D858F7D1E17A6C3D0054 /* ofxOceanode_modules-vector_op */,
+				5AC12B7D2B80C68B60303D67 /* textureRecorder.cpp */,
+				AD7F0D57E1EE390875D5C1F6 /* textureUnifier.cpp */,
+				E62DA60445493738EA2F7E2B /* colorApplier.h */,
+				0EE517B339CA72A861445AE2 /* senderManager.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -833,11 +856,11 @@
 		EB0606B779510751DDA16A81 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				8E922B504254FF844AF5505A /* ofxDatGuiIntObject.h */,
 				5D13EE4C64902574D9153447 /* ofxDatGuiComponent.cpp */,
-				A534F08B38B5C43917E2A9E4 /* ofxDatGuiComponent.h */,
 				169D713735D46DFA03D4EBEB /* ofxDatGuiConstants.h */,
 				407D7F7B6D3EDF97638DF661 /* ofxDatGuiEvents.h */,
-				8E922B504254FF844AF5505A /* ofxDatGuiIntObject.h */,
+				A534F08B38B5C43917E2A9E4 /* ofxDatGuiComponent.h */,
 			);
 			name = core;
 			sourceTree = "<group>";
@@ -845,13 +868,15 @@
 		F345CC31328F66B89F4BB079 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				FC8E873E04A65764668D30AB /* ofxOceanodeContainer.h */,
+				A914AD56DE399642506DDB33 /* ofxOceanodeMidiBinding.h */,
+				60A6750E6D5A48E6B4B69C0A /* ofxOceanodeTypesRegistry.cpp */,
+				5E65A0C39A6FDCA2888DDAF8 /* ofxOceanodeContainer.cpp */,
+				F0DF3E4F877F8E51B24698B3 /* ofxOceanodeMidiBinding.cpp */,
+				4A76FE1EC14329064FDB60C7 /* ofxOceanodeNodeRegistry.h */,
 				69F09B1450CB3FF08A87D2FF /* ofxOceanodeCanvas.cpp */,
 				BFA88189469A37E0B53C6773 /* ofxOceanodeCanvas.h */,
-				5E65A0C39A6FDCA2888DDAF8 /* ofxOceanodeContainer.cpp */,
-				FC8E873E04A65764668D30AB /* ofxOceanodeContainer.h */,
 				F15C9896F6A32FCA280CD4B5 /* ofxOceanodeNodeRegistry.cpp */,
-				4A76FE1EC14329064FDB60C7 /* ofxOceanodeNodeRegistry.h */,
-				60A6750E6D5A48E6B4B69C0A /* ofxOceanodeTypesRegistry.cpp */,
 				3795AFB8EAAD641D6CA88D4A /* ofxOceanodeTypesRegistry.h */,
 			);
 			name = Managers;
@@ -860,11 +885,11 @@
 		FE3CA1F8648010DBA2401722 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				1D570521A53950659A74DE26 /* components */,
 				EB0606B779510751DDA16A81 /* core */,
-				49829C6AAEB884DF8A116E1D /* libs */,
-				DD8F81F7AAB5BA396231DD4C /* ofxDatGui.cpp */,
 				4D832D586223B608C5420D29 /* ofxDatGui.h */,
+				DD8F81F7AAB5BA396231DD4C /* ofxDatGui.cpp */,
+				49829C6AAEB884DF8A116E1D /* libs */,
+				1D570521A53950659A74DE26 /* components */,
 				D9757BE1A5DFAE64198FF989 /* themes */,
 			);
 			name = src;
@@ -873,13 +898,13 @@
 		FF8CDF57858E9B94E3237115 /* ip */ = {
 			isa = PBXGroup;
 			children = (
-				ADD194746185E2DA11468377 /* IpEndpointName.cpp */,
-				48974F980F51769171D0B2F5 /* IpEndpointName.h */,
-				F7FBC56859535E597B24BB91 /* NetworkingUtils.h */,
-				23640F57DF6C4BB6BFC5DA4C /* PacketListener.h */,
 				641362CA659FAFEE4E81001B /* posix */,
-				444657A12E59D0ED86981498 /* TimerListener.h */,
 				2FD4B0329909D3527F003494 /* UdpSocket.h */,
+				444657A12E59D0ED86981498 /* TimerListener.h */,
+				23640F57DF6C4BB6BFC5DA4C /* PacketListener.h */,
+				48974F980F51769171D0B2F5 /* IpEndpointName.h */,
+				ADD194746185E2DA11468377 /* IpEndpointName.cpp */,
+				F7FBC56859535E597B24BB91 /* NetworkingUtils.h */,
 			);
 			name = ip;
 			sourceTree = "<group>";
@@ -987,58 +1012,63 @@
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
-				3B08BD13D76B507752129349 /* scriptModule.cpp in Sources */,
-				9FB8AE6ABDA40CD0274A29BA /* oscillatorTexture.cpp in Sources */,
+				80C2077E2DE4E2436EE84D82 /* senderManager.cpp in Sources */,
 				0AA13C54EE8C24EC793EA60E /* waveScope.cpp in Sources */,
-				25154474D8E4A83860E73344 /* subDimensionCombinator.cpp in Sources */,
+				9FB8AE6ABDA40CD0274A29BA /* oscillatorTexture.cpp in Sources */,
+				3B08BD13D76B507752129349 /* scriptModule.cpp in Sources */,
+				1375FF8F6CBF4CC39E765E10 /* audioEngineController.cpp in Sources */,
+				1B9F9695C79C723D1C54DA16 /* colorApplier.cpp in Sources */,
 				37B621CAE9CCF5193AAB87D9 /* vectorChain.cpp in Sources */,
+				25154474D8E4A83860E73344 /* subDimensionCombinator.cpp in Sources */,
+				B1B6AFE05524CCE1A0DCC03A /* textureRecorder.cpp in Sources */,
+				DA3F8CA8BF17B551366E5BC1 /* textureUnifier.cpp in Sources */,
 				4A277DA746402C76CE307770 /* ofxDatGuiComponent.cpp in Sources */,
-				646DF4D56CE728133610A7F6 /* ofxSmartFont.cpp in Sources */,
 				BE7DAF3CB982C2BD0FE44648 /* ofxDatGui.cpp in Sources */,
-				C6A203560BFBDA04C5746210 /* ofxOceanodeConnection.cpp in Sources */,
-				C1EEF98E795AFB7BB33F94B1 /* ofxOceanodeConnectionGraphics.cpp in Sources */,
-				7B5743F2E77F2D5AD9B436F0 /* ofxOceanodeBaseController.cpp in Sources */,
-				717BCDD6091D90F262DC7860 /* ofxOceanodeBPMController.cpp in Sources */,
-				7B8EE5B7F57088CD23B7934D /* ofxOceanodeControls.cpp in Sources */,
-				210113B93D0C86F7DF921A87 /* ofxOceanodeOSCController.cpp in Sources */,
-				026CF24E227F5DFC3C392E27 /* ofxOceanodePresetsController.cpp in Sources */,
-				FE7602E65C7BA676951A37FB /* ofxOceanodeCanvas.cpp in Sources */,
-				5769B6A6D79188D3D351933E /* ofxOceanodeContainer.cpp in Sources */,
-				B7559FEE382DBA7FB094D5E7 /* ofxOceanodeNodeRegistry.cpp in Sources */,
-				102C0035698294FDB36E6899 /* ofxOceanodeTypesRegistry.cpp in Sources */,
-				7CC1A4D669C6C1B3786CD384 /* ofxOceanodeNodeModelExternalWindow.cpp in Sources */,
-				4B0881C0E4F3D037FA83C3E3 /* ofxOceanodeNodeModelLocalPreset.cpp in Sources */,
-				D925621F7F6146497318658A /* baseIndexer.cpp in Sources */,
-				9150F94721FE0E44D16DA0CC /* baseOscillator.cpp in Sources */,
-				BFBE6AEF801BA1F820867405 /* basePhasor.cpp in Sources */,
-				124BB55C818D1F89450ED005 /* localPresetController.cpp in Sources */,
-				842D4B1559D16CD55B1CF6DD /* oscillator.cpp in Sources */,
-				4C3192DB1EAE1CFF29580749 /* oscillatorBank.cpp in Sources */,
-				7416EB8AFDAB615D36EC3137 /* phasor.cpp in Sources */,
-				9FAB51E220BEBD5300144888 /* senderManager.cpp in Sources */,
+				646DF4D56CE728133610A7F6 /* ofxSmartFont.cpp in Sources */,
+				4C8024D8DD46223D43C514C0 /* ofxOceanodeNode.cpp in Sources */,
 				47608E29666CD58C20E53408 /* mapper.cpp in Sources */,
+				BDE21E02C646BD31BEC13891 /* smoother.cpp in Sources */,
 				4838368B3C8561AD76D56D69 /* ranger.cpp in Sources */,
 				E1E0C08A53EAFC4A088F5BDC /* reindexer.cpp in Sources */,
-				9FAB51E320BEBD5300144888 /* textureRecorder.cpp in Sources */,
-				BDE21E02C646BD31BEC13891 /* smoother.cpp in Sources */,
-				4C8024D8DD46223D43C514C0 /* ofxOceanodeNode.cpp in Sources */,
+				19D87B8D9CBC3A637A3FCFE0 /* switcher.cpp in Sources */,
+				7416EB8AFDAB615D36EC3137 /* phasor.cpp in Sources */,
+				842D4B1559D16CD55B1CF6DD /* oscillator.cpp in Sources */,
+				4C3192DB1EAE1CFF29580749 /* oscillatorBank.cpp in Sources */,
+				124BB55C818D1F89450ED005 /* localPresetController.cpp in Sources */,
+				9150F94721FE0E44D16DA0CC /* baseOscillator.cpp in Sources */,
+				BFBE6AEF801BA1F820867405 /* basePhasor.cpp in Sources */,
+				D925621F7F6146497318658A /* baseIndexer.cpp in Sources */,
 				8EB5677652296BACF3A1C184 /* ofxOceanodeNodeGui.cpp in Sources */,
 				4F63EFF3BAACF2B19051E336 /* ofxOceanodeNodeModel.cpp in Sources */,
-				72A929D3561B8232A182ABFC /* ofxOscBundle.cpp in Sources */,
-				5864AD82E20F15536D054EA3 /* ofxOscMessage.cpp in Sources */,
+				4B0881C0E4F3D037FA83C3E3 /* ofxOceanodeNodeModelLocalPreset.cpp in Sources */,
+				7CC1A4D669C6C1B3786CD384 /* ofxOceanodeNodeModelExternalWindow.cpp in Sources */,
+				102C0035698294FDB36E6899 /* ofxOceanodeTypesRegistry.cpp in Sources */,
+				5769B6A6D79188D3D351933E /* ofxOceanodeContainer.cpp in Sources */,
+				0BEE6D908B90BD8BCB7071A4 /* ofxOceanodeMidiBinding.cpp in Sources */,
+				FE7602E65C7BA676951A37FB /* ofxOceanodeCanvas.cpp in Sources */,
+				B7559FEE382DBA7FB094D5E7 /* ofxOceanodeNodeRegistry.cpp in Sources */,
+				210113B93D0C86F7DF921A87 /* ofxOceanodeOSCController.cpp in Sources */,
+				7B8EE5B7F57088CD23B7934D /* ofxOceanodeControls.cpp in Sources */,
+				7B5743F2E77F2D5AD9B436F0 /* ofxOceanodeBaseController.cpp in Sources */,
+				EB90AF0EFA3A80E58C07AC46 /* ofxOceanodeMidiController.cpp in Sources */,
+				026CF24E227F5DFC3C392E27 /* ofxOceanodePresetsController.cpp in Sources */,
+				717BCDD6091D90F262DC7860 /* ofxOceanodeBPMController.cpp in Sources */,
+				C6A203560BFBDA04C5746210 /* ofxOceanodeConnection.cpp in Sources */,
+				C1EEF98E795AFB7BB33F94B1 /* ofxOceanodeConnectionGraphics.cpp in Sources */,
 				4ADB88E2FB52E76A471065DE /* ofxOscParameterSync.cpp in Sources */,
+				5864AD82E20F15536D054EA3 /* ofxOscMessage.cpp in Sources */,
+				72A929D3561B8232A182ABFC /* ofxOscBundle.cpp in Sources */,
 				640279EE111671BD026CB013 /* ofxOscReceiver.cpp in Sources */,
 				8F5205AEF8861EF234F0651A /* ofxOscSender.cpp in Sources */,
-				ADE367465D2A8EBAD4C7A8D9 /* IpEndpointName.cpp in Sources */,
+				62545D179C94265CA1389D4A /* OscOutboundPacketStream.cpp in Sources */,
+				879A251454401BC0B6E4F238 /* OscTypes.cpp in Sources */,
+				0546D1A38E13BD319CC9755B /* OscReceivedElements.cpp in Sources */,
+				C4782ECC372420ACE0615B74 /* OscPrintReceivedElements.cpp in Sources */,
 				67FE4C7B15C2F0478C8126C2 /* NetworkingUtils.cpp in Sources */,
 				510CAFE035E576A4E1502D52 /* UdpSocket.cpp in Sources */,
-				62545D179C94265CA1389D4A /* OscOutboundPacketStream.cpp in Sources */,
-				C4782ECC372420ACE0615B74 /* OscPrintReceivedElements.cpp in Sources */,
-				0546D1A38E13BD319CC9755B /* OscReceivedElements.cpp in Sources */,
-				879A251454401BC0B6E4F238 /* OscTypes.cpp in Sources */,
-				1F558B76FB3412843DDAA031 /* ofxSyphonClient.mm in Sources */,
+				ADE367465D2A8EBAD4C7A8D9 /* IpEndpointName.cpp in Sources */,
 				8D60C222CBD3F869382832E9 /* ofxSyphonServer.mm in Sources */,
-				9FAB51E420BEBD5300144888 /* colorApplier.cpp in Sources */,
+				1F558B76FB3412843DDAA031 /* ofxSyphonClient.mm in Sources */,
 				11DF9AB1B4EAA63E3B190CA0 /* ofxSyphonServerDirectory.mm in Sources */,
 				C9109422648B170B07A778CF /* SyphonNameboundClient.m in Sources */,
 			);
@@ -1140,7 +1170,7 @@
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_MODEL_TUNING = NONE;
-				GCC_PREPROCESSOR_DEFINITIONS = OFXOCEANODE_USE_OSC;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "APPSTORE=1";
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
@@ -1351,7 +1381,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_MODEL_TUNING = NONE;
-				GCC_PREPROCESSOR_DEFINITIONS = OFXOCEANODE_USE_OSC;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
 					src,
@@ -1417,7 +1447,7 @@
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_MODEL_TUNING = NONE;
-				GCC_PREPROCESSOR_DEFINITIONS = OFXOCEANODE_USE_OSC;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
 					src,
