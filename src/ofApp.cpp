@@ -8,13 +8,14 @@
 #include "textureUnifier.h"
 #include "audioEngineController.h"
 #include "vector_op_registrator.h"
+#include "textureReader.h"
 
 #include "ofxOceanodeBPMController.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
     ofDisableArbTex();
-    ofSetVerticalSync(true);
+    ofSetVerticalSync(false);
     ofSetEscapeQuitsApp(false);
     
     auto result = ofSystemLoadDialog("Select Generator File", false, ofToDataPath("../"));
@@ -82,6 +83,7 @@ void ofApp::setup(){
     reg->registerModel<scriptModule>("Scripting");
     reg->registerModel<textureUnifier>("LedNodes");
     reg->registerModel<audioEngineController>("Audio");
+    reg->registerModel<textureReader>("LedNodes");
     registerVectorOp(reg);
     
     treg->registerType<ofTexture*>();

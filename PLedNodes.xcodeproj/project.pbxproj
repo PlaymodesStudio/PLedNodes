@@ -236,6 +236,7 @@
 		9E034FA57FE251AC33904E82 /* ofxDatGuiThemes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiThemes.h; path = ../../../addons/ofxDatGui_PM/src/themes/ofxDatGuiThemes.h; sourceTree = SOURCE_ROOT; };
 		9F7986DC4EB05E75FCE2C777 /* ofxOscSender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxOscSender.h; path = ../../../addons/ofxOsc/src/ofxOscSender.h; sourceTree = SOURCE_ROOT; };
 		9FA2A0B2E964C498EBE3ACF4 /* oscillatorFragShader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = oscillatorFragShader.h; path = "src/ofxOceanode_modules-texture/oscillatorFragShader.h"; sourceTree = SOURCE_ROOT; };
+		9FBDED57217F6C24009A5136 /* textureReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = textureReader.h; sourceTree = "<group>"; };
 		A124F871683B22E8D97BECDE /* textureUnifier.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = textureUnifier.h; path = src/textureUnifier.h; sourceTree = SOURCE_ROOT; };
 		A13853A1B21F20177F44EE37 /* ofxDatGuiLabel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiLabel.h; path = ../../../addons/ofxDatGui_PM/src/components/ofxDatGuiLabel.h; sourceTree = SOURCE_ROOT; };
 		A2A156C2D14C4F39566F9478 /* exception_specification.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = exception_specification.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/dispatchkit/exception_specification.hpp"; sourceTree = SOURCE_ROOT; };
@@ -664,6 +665,8 @@
 		9F43D858F7D1E17A6C3D0054 /* ofxOceanode_modules-vector_op */ = {
 			isa = PBXGroup;
 			children = (
+				542D277EC73A572739BE4BD9 /* vectorItemOperations.cpp */,
+				10999A6F757F1945D1AB0342 /* vectorItemOperations.h */,
 				974BC333C1AC76AE34BF5272 /* vectorOperations.h */,
 				06F0EFC85B9EBE916BE8D239 /* vectorChain.h */,
 				567F71180806A9FF45F418B0 /* subDimensionCombinator.h */,
@@ -807,6 +810,7 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				9FBDED57217F6C24009A5136 /* textureReader.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
@@ -1018,6 +1022,7 @@
 				3B08BD13D76B507752129349 /* scriptModule.cpp in Sources */,
 				1375FF8F6CBF4CC39E765E10 /* audioEngineController.cpp in Sources */,
 				1B9F9695C79C723D1C54DA16 /* colorApplier.cpp in Sources */,
+				1EF0EE4A07F96BBB810A868B /* vectorItemOperations.cpp in Sources */,
 				37B621CAE9CCF5193AAB87D9 /* vectorChain.cpp in Sources */,
 				25154474D8E4A83860E73344 /* subDimensionCombinator.cpp in Sources */,
 				B1B6AFE05524CCE1A0DCC03A /* textureRecorder.cpp in Sources */,
