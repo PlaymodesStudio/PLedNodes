@@ -9,6 +9,7 @@
 #include "audioEngineController.h"
 #include "vector_op_registrator.h"
 #include "textureReader.h"
+#include "swarosky_custom_reindex.h"
 
 #include "ofxOceanodeBPMController.h"
 
@@ -84,6 +85,7 @@ void ofApp::setup(){
     reg->registerModel<textureUnifier>("LedNodes");
     reg->registerModel<audioEngineController>("Audio");
     reg->registerModel<textureReader>("LedNodes");
+    reg->registerModel<swarosky_custom_reindex>("Swarosky");
     registerVectorOp(reg);
     
     treg->registerType<ofTexture*>();
@@ -109,7 +111,14 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
+    if(ofGetKeyPressed(OF_KEY_COMMAND)){
+        if(key == 'p') container->savePersistent();
+        else if(key == 'u') container->updatePersistent();
+        else if(key == 'c') container->collapseGuis();
+        else if(key == 'e') container->expandGuis();
+        else if(key == 's') container->saveCurrentPreset();
+        else if(key == 'r') container->resetPhase();
+    }
 }
 
 //--------------------------------------------------------------
