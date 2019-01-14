@@ -86,6 +86,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Debug"
+      customArchiveName = "PLedNodes"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

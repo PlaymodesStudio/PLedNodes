@@ -16,6 +16,7 @@ private:
     
     ofParameter<int>                    triggerTextureIndex;
     ofParameter<int>                    mixMode;
+    vector<string>                      mixModeName;
     ofParameter<float>                  crossFader;
 
     vector<ofParameter<ofTexture*>>     inputs;
