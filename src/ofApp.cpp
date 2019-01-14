@@ -14,6 +14,7 @@
 #include "envelopeGenerator.h"
 #include "manualOscillatorBank.h"
 #include "textureMixer.h"
+#include "artnetSender.h"
 
 #include "ofxOceanodeBPMController.h"
 
@@ -94,6 +95,7 @@ void ofApp::setup(){
     reg->registerModel<manualOscillatorBank>("Generators");
     reg->registerModel<envelopeGenerator>("Midi");
     reg->registerModel<textureMixer>("LedNodes");
+    reg->registerModel<artnetSender>("ARTNET");
 
     registerVectorOp(reg);
     

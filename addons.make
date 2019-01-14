@@ -1,5 +1,7 @@
+ofxArtNode
 ofxDatGui_PM
 ofxEasing
+ofxNetwork
 ofxOceanode
 ofxOsc
 ofxSyphon

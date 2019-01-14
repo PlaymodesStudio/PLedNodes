@@ -7,3 +7,6 @@
 [submodule "src/ofxOceanode_modules-texture"]
 	path = src/ofxOceanode_modules-texture
 	url = https://eduardfrigola@github.com/PlaymodesStudio/ofxOceanode_modules-texture.git
+[submodule "src/ofxOceanode_modules-artnet"]
+	path = src/ofxOceanode_modules-artnet
+	url = https://eduardfrigola@github.com/PlaymodesStudio/ofxOceanode_modules-artnet.git
