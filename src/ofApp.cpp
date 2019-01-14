@@ -13,7 +13,7 @@
 #include "valueEaser.h"
 #include "envelopeGenerator.h"
 #include "manualOscillatorBank.h"
-
+#include "textureMixer.h"
 
 #include "ofxOceanodeBPMController.h"
 
@@ -93,7 +93,7 @@ void ofApp::setup(){
     reg->registerModel<valueEaser>("EASER");
     reg->registerModel<manualOscillatorBank>("Generators");
     reg->registerModel<envelopeGenerator>("Midi");
-
+    reg->registerModel<textureMixer>("LedNodes");
 
     registerVectorOp(reg);
     

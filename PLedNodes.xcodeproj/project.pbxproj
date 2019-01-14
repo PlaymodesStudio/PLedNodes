@@ -58,6 +58,7 @@
 		9FB8AE6ABDA40CD0274A29BA /* oscillatorTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 123BA4F448ED422A2D4B94DC /* oscillatorTexture.cpp */; };
 		AA12BB979460264F7478443E /* valueEaser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D00378236FD73D5D8CF8C990 /* valueEaser.cpp */; };
 		ADE367465D2A8EBAD4C7A8D9 /* IpEndpointName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ADD194746185E2DA11468377 /* IpEndpointName.cpp */; };
+		B089BFC821EBB4FA00AA50A7 /* textureMixer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B089BFC621EBB4F900AA50A7 /* textureMixer.cpp */; };
 		B1B6AFE05524CCE1A0DCC03A /* textureRecorder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AC12B7D2B80C68B60303D67 /* textureRecorder.cpp */; };
 		B7559FEE382DBA7FB094D5E7 /* ofxOceanodeNodeRegistry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F15C9896F6A32FCA280CD4B5 /* ofxOceanodeNodeRegistry.cpp */; };
 		BDE21E02C646BD31BEC13891 /* smoother.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA0730CA1A73FC90DCF8C770 /* smoother.cpp */; };
@@ -247,6 +248,8 @@
 		ADD194746185E2DA11468377 /* IpEndpointName.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = IpEndpointName.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/IpEndpointName.cpp; sourceTree = SOURCE_ROOT; };
 		AE335EB4709BFD4671EEAC84 /* MessageMappingOscPacketListener.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = MessageMappingOscPacketListener.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/MessageMappingOscPacketListener.h; sourceTree = SOURCE_ROOT; };
 		AF45987CEF73D6D1587AFFDA /* switcher.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = switcher.h; path = ../../../addons/ofxOceanode/src/Nodes/Default_Nodes/Modifiers/switcher.h; sourceTree = SOURCE_ROOT; };
+		B089BFC621EBB4F900AA50A7 /* textureMixer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = textureMixer.cpp; sourceTree = "<group>"; };
+		B089BFC721EBB4F900AA50A7 /* textureMixer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = textureMixer.h; sourceTree = "<group>"; };
 		B11DB438E2A6EBD360F8BA50 /* ofxDatGuiFRM.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiFRM.h; path = ../../../addons/ofxDatGui_PM/src/components/ofxDatGuiFRM.h; sourceTree = SOURCE_ROOT; };
 		B2C71D603AC4849CB5983A4B /* waveScope.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = waveScope.cpp; path = "src/ofxOceanode_modules-texture/waveScope.cpp"; sourceTree = SOURCE_ROOT; };
 		B31C608870ECEB2490A93736 /* ofxOscParameterSync.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxOscParameterSync.h; path = ../../../addons/ofxOsc/src/ofxOscParameterSync.h; sourceTree = SOURCE_ROOT; };
@@ -681,10 +684,10 @@
 				54702E6AD1A77EA5E033B6AA /* defaultVertexShader.h */,
 				3ABE08620BD6533FF8DCF2BB /* waveScope.h */,
 				2213F07A257ADDE35F494AEF /* oscillatorTexture.h */,
+				123BA4F448ED422A2D4B94DC /* oscillatorTexture.cpp */,
 				B2C71D603AC4849CB5983A4B /* waveScope.cpp */,
 				26DEBD01B69676B7568827ED /* scalingFragShader.h */,
 				9FA2A0B2E964C498EBE3ACF4 /* oscillatorFragShader.h */,
-				123BA4F448ED422A2D4B94DC /* oscillatorTexture.cpp */,
 			);
 			name = "ofxOceanode_modules-texture";
 			sourceTree = "<group>";
@@ -1266,6 +1269,8 @@
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
+				B089BFC621EBB4F900AA50A7 /* textureMixer.cpp */,
+				B089BFC721EBB4F900AA50A7 /* textureMixer.h */,
 				AD1723E2540DDC1702163C59 /* manualOscillatorBank.cpp */,
 				82E06F261743B1A265AA564A /* senderManager.cpp */,
 				390CB0D2C92769CA1CF21D72 /* swarosky_custom_reindex.h */,
@@ -1476,6 +1481,7 @@
 				6EE384C13C514F47DA1CA235 /* manualOscillatorBank.cpp in Sources */,
 				80C2077E2DE4E2436EE84D82 /* senderManager.cpp in Sources */,
 				9BD777923C7E370A961526AC /* envelopeGenerator.cpp in Sources */,
+				B089BFC821EBB4FA00AA50A7 /* textureMixer.cpp in Sources */,
 				AA12BB979460264F7478443E /* valueEaser.cpp in Sources */,
 				0AA13C54EE8C24EC793EA60E /* waveScope.cpp in Sources */,
 				9FB8AE6ABDA40CD0274A29BA /* oscillatorTexture.cpp in Sources */,
