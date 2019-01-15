@@ -25,6 +25,8 @@ private:
     void reloadShader(bool &b);
     vector<ofVec3f> computeNewColorDisplacementVector(float parameter);
     
+    ofEventListeners listeners;
+    
     void modulationInfoListener(vector<float> &vf);
     void applyColor(ofTexture* &inputTex);
     void colorDisplacementChanged(float &f);
