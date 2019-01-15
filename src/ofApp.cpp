@@ -16,6 +16,7 @@
 #include "textureMixer.h"
 #include "artnetSender.h"
 #include "texturePixelmap.h"
+#include "dviOutput.h"
 
 #include "ofxOceanodeBPMController.h"
 
@@ -98,7 +99,8 @@ void ofApp::setup(){
     reg->registerModel<textureMixer>("LedNodes");
     reg->registerModel<artnetSender>("ARTNET");
     reg->registerModel<texturePixelmap>("ARTNET");
-
+    reg->registerModel<dviOutput>("OUTPUT");
+    
     registerVectorOp(reg);
     
     treg->registerType<ofTexture*>();

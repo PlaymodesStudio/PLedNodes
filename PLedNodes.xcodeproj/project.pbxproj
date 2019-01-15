@@ -259,6 +259,7 @@
 		9E034FA57FE251AC33904E82 /* ofxDatGuiThemes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiThemes.h; path = ../../../addons/ofxDatGui_PM/src/themes/ofxDatGuiThemes.h; sourceTree = SOURCE_ROOT; };
 		9F06B7B021ECBEA200F8BE2E /* texturePixelmap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = texturePixelmap.cpp; sourceTree = "<group>"; };
 		9F06B7B121ECBEA200F8BE2E /* texturePixelmap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = texturePixelmap.h; sourceTree = "<group>"; };
+		9F06B7B421ECF93300F8BE2E /* dviOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dviOutput.h; sourceTree = "<group>"; };
 		9F7986DC4EB05E75FCE2C777 /* ofxOscSender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxOscSender.h; path = ../../../addons/ofxOsc/src/ofxOscSender.h; sourceTree = SOURCE_ROOT; };
 		9FA2A0B2E964C498EBE3ACF4 /* oscillatorFragShader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = oscillatorFragShader.h; path = "src/ofxOceanode_modules-texture/oscillatorFragShader.h"; sourceTree = SOURCE_ROOT; };
 		A124F871683B22E8D97BECDE /* textureUnifier.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = textureUnifier.h; path = src/textureUnifier.h; sourceTree = SOURCE_ROOT; };
@@ -1403,6 +1404,7 @@
 				C2115534DAA5A686652FE55B /* ofxOceanode_modules-artnet */,
 				9F06B7B021ECBEA200F8BE2E /* texturePixelmap.cpp */,
 				9F06B7B121ECBEA200F8BE2E /* texturePixelmap.h */,
+				9F06B7B421ECF93300F8BE2E /* dviOutput.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
