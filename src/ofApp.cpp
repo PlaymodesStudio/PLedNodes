@@ -17,23 +17,34 @@
 #include "artnetSender.h"
 #include "texturePixelmap.h"
 #include "dviOutput.h"
+#include "midiGateIn.h"
+#include "sequentialAnalyzer.h"
 
 #include "ofxOceanodeBPMController.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+//    ofEnableGLDebugLog();
+    
     ofDisableArbTex();
-    ofSetVerticalSync(false);
+    ofSetVerticalSync(true);
     ofSetEscapeQuitsApp(false);
     
-    auto result = ofSystemLoadDialog("Select Generator File", false, ofToDataPath("../"));
-    if(ofSplitString(result.getPath(), ".").back() != "generator"){
+    ofFile file;
+    string path;
+    if(file.doesFileExist(ofToDataPath("../GIANT.generator"))) {
+        path = ofToDataPath("../GIANT.generator");
+    }else{
+        auto result = ofSystemLoadDialog("Select Generator File", false, ofToDataPath("../"));
+        path = result.getPath();
+    }
+    if(ofSplitString(path, ".").back() != "generator"){
         ofExit();
     }
     
     float bpm = 120;
     
-    ofJson json = ofLoadJson(result.getPath());
+    ofJson json = ofLoadJson(path);
     if(!json.empty()){
         string name = json["Name"];
         ofSetWindowTitle(name);
@@ -100,6 +111,8 @@ void ofApp::setup(){
     reg->registerModel<artnetSender>("ARTNET");
     reg->registerModel<texturePixelmap>("ARTNET");
     reg->registerModel<dviOutput>("OUTPUT");
+    reg->registerModel<midiGateIn>("Midi");
+    reg->registerModel<sequentialAnalyzer>("Midi");
     
     registerVectorOp(reg);
     
@@ -112,11 +125,15 @@ void ofApp::setup(){
     
     controls = make_shared<ofxOceanodeControls>(container);
     controls->get<ofxOceanodeBPMController>()->setBPM(bpm);
+    
+    //container->loadPreset("Presets/Bank_2019-01-20-14-33-32-088/2--cyclo2");
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+    if(ofGetFrameNum() > 200 && ofGetFrameRate() < 10){
+        //ofExit();
+    }
 }
 
 //--------------------------------------------------------------
@@ -133,6 +150,8 @@ void ofApp::keyPressed(int key){
         else if(key == 'e') container->expandGuis();
         else if(key == 's') container->saveCurrentPreset();
         else if(key == 'r') container->resetPhase();
+    }else if(key == 'l'){
+        //container->loadPreset("Presets/Bank_2019-01-20-14-33-32-088/1--cyclo");
     }
 }
 
