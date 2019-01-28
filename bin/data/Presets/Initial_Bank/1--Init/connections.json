@@ -1,0 +1,16 @@
+{
+    "Oscillator_Texture_1": {
+        "Oscillator Out": {
+            "Texture_Scope_1": {
+                "Group In 0": null
+            }
+        }
+    },
+    "Phasor_1": {
+        "Phasor Output": {
+            "Oscillator_Texture_1": {
+                "Phasor In": null
+            }
+        }
+    }
+}
