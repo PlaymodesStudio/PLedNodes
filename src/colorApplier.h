@@ -67,12 +67,12 @@ private:
     int height = 1;
     
     sharedResources* resources;
-    uint infoTextureOutputShaderTextureLocation;
-    uint imageTextureOutputShaderTextureLocation;
-    uint infoTexturePreviewShaderTextureLocation;
-    uint imageTexturePreviewShaderTextureLocation;
+    unsigned int infoTextureOutputShaderTextureLocation;
+	unsigned int imageTextureOutputShaderTextureLocation;
+	unsigned int infoTexturePreviewShaderTextureLocation;
+	unsigned int imageTexturePreviewShaderTextureLocation;
     
-    vector<uint> shaderLocations;
+    vector<unsigned int> shaderLocations;
     
     ofShader outputShader;
     ofShader previewShader;
