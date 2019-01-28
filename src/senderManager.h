@@ -10,14 +10,14 @@
 #define senderManager_h
 
 #include "ofxOceanodeNodeModel.h"
-#include "ofxSyphon.h"
+//#include "ofxSyphon.h"
 
 class senderManager : public ofxOceanodeNodeModel{
 public:
     
     senderManager();
     ~senderManager(){
-        delete syphonServer;
+        //delete syphonServer;
     };
     void setname(string name){syphonName = name;};
     
@@ -27,7 +27,7 @@ public:
 private:
     void sendTexture(ofTexture *&info);
     
-    ofxSyphonServer*   syphonServer;
+    //ofxSyphonServer*   syphonServer;
 
     ofParameter<bool>   enable;
     ofParameter<string> syphonName;

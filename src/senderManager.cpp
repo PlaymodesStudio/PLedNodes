@@ -22,36 +22,36 @@ senderManager::senderManager() : ofxOceanodeNodeModel("Sender Manager"){
 
 
 void senderManager::sendTexture(ofTexture *&info){
-    if(syphonServer != NULL && enable && info != nullptr){
-        if(colorFbo.getHeight() != info->getHeight() || colorFbo.getWidth() != info->getWidth()){
-            colorFbo.allocate(info->getWidth(), info->getHeight(), GL_RGB);
-        }
-        colorFbo.begin();
-        ofClear(0, 0, 0, 255);
-        ofPushStyle();
-        ofSetColor(masterFader * 255);
-        info->draw(0, 0);
-        ofPopStyle();
-        colorFbo.end();
-        syphonServer->publishTexture(&colorFbo.getTexture());
-    }
+    //if(syphonServer != NULL && enable && info != nullptr){
+    //    if(colorFbo.getHeight() != info->getHeight() || colorFbo.getWidth() != info->getWidth()){
+    //        colorFbo.allocate(info->getWidth(), info->getHeight(), GL_RGB);
+    //    }
+    //    colorFbo.begin();
+    //    ofClear(0, 0, 0, 255);
+    //    ofPushStyle();
+    //    ofSetColor(masterFader * 255);
+    //    info->draw(0, 0);
+    //    ofPopStyle();
+    //    colorFbo.end();
+    //    syphonServer->publishTexture(&colorFbo.getTexture());
+    //}
 }
 
 
 #pragma mark -- Listeners --
 void senderManager::enableSyphonListener(bool &b){
     if(b){
-        syphonServer = new ofxSyphonServer;
+        //syphonServer = new ofxSyphonServer;
         
-        syphonServer->setName(syphonName);
+        //syphonServer->setName(syphonName);
         
         listeners.push(syphonName.newListener(this, &senderManager::syphonNameListener));
     }else{
         listeners.unsubscribe(1);
-        delete syphonServer;
+        //delete syphonServer;
     }
 }
 
 void senderManager::syphonNameListener(string &s){
-    syphonServer->setName(syphonName);
+    //syphonServer->setName(syphonName);
 }

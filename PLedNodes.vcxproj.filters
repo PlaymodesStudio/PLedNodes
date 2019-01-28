@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\ofApp.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\audioEngineController.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\colorApplier.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\envelopeGenerator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\manualOscillatorBank.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofApp.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxOceanode_modules-scripting\scriptModule.cpp">
+      <Filter>src\ofxOceanode_modules-scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxOceanode_modules-texture\oscillatorTexture.cpp">
+      <Filter>src\ofxOceanode_modules-texture</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxOceanode_modules-texture\waveScope.cpp">
+      <Filter>src\ofxOceanode_modules-texture</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxOceanode_modules-vector_op\subDimensionCombinator.cpp">
+      <Filter>src\ofxOceanode_modules-vector_op</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxOceanode_modules-vector_op\vectorChain.cpp">
+      <Filter>src\ofxOceanode_modules-vector_op</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxOceanode_modules-vector_op\vectorItemOperations.cpp">
+      <Filter>src\ofxOceanode_modules-vector_op</Filter>
+    </ClCompile>
+    <ClCompile Include="src\senderManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\textureMixer.cp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\textureMixer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\textureRecorder.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\textureUnifier.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\valueEaser.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxDatGui_PM\src\core\ofxDatGuiComponent.cpp">
+      <Filter>addons\ofxDatGui_PM\src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxDatGui_PM\src\libs\ofxSmartFont\ofxSmartFont.cpp">
+      <Filter>addons\ofxDatGui_PM\src\libs\ofxSmartFont</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxDatGui_PM\src\ofxDatGui.cpp">
+      <Filter>addons\ofxDatGui_PM\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Connections\ofxOceanodeConnection.cpp">
+      <Filter>addons\ofxOceanode\src\Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Connections\ofxOceanodeConnectionGraphics.cpp">
+      <Filter>addons\ofxOceanode\src\Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Controls\ofxOceanodeBaseController.cpp">
+      <Filter>addons\ofxOceanode\src\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Controls\ofxOceanodeBPMController.cpp">
+      <Filter>addons\ofxOceanode\src\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Controls\ofxOceanodeControls.cpp">
+      <Filter>addons\ofxOceanode\src\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Controls\ofxOceanodeMidiController.cpp">
+      <Filter>addons\ofxOceanode\src\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Controls\ofxOceanodeOSCController.cpp">
+      <Filter>addons\ofxOceanode\src\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Controls\ofxOceanodePresetsController.cpp">
+      <Filter>addons\ofxOceanode\src\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Managers\ofxOceanodeCanvas.cpp">
+      <Filter>addons\ofxOceanode\src\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Managers\ofxOceanodeContainer.cpp">
+      <Filter>addons\ofxOceanode\src\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Managers\ofxOceanodeMidiBinding.cpp">
+      <Filter>addons\ofxOceanode\src\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Managers\ofxOceanodeNodeRegistry.cpp">
+      <Filter>addons\ofxOceanode\src\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Managers\ofxOceanodeTypesRegistry.cpp">
+      <Filter>addons\ofxOceanode\src\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Nodes\Base_Nodes\ofxOceanodeNodeModelExternalWindow.cpp">
+      <Filter>addons\ofxOceanode\src\Nodes\Base_Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Nodes\Base_Nodes\ofxOceanodeNodeModelLocalPreset.cpp">
+      <Filter>addons\ofxOceanode\src\Nodes\Base_Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Nodes\Default_Nodes\Base\baseIndexer.cpp">
+      <Filter>addons\ofxOceanode\src\Nodes\Default_Nodes\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Nodes\Default_Nodes\Base\baseOscillator.cpp">
+      <Filter>addons\ofxOceanode\src\Nodes\Default_Nodes\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Nodes\Default_Nodes\Base\basePhasor.cpp">
+      <Filter>addons\ofxOceanode\src\Nodes\Default_Nodes\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Nodes\Default_Nodes\Controllers\localPresetController.cpp">
+      <Filter>addons\ofxOceanode\src\Nodes\Default_Nodes\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Nodes\Default_Nodes\Generators\oscillator.cpp">
+      <Filter>addons\ofxOceanode\src\Nodes\Default_Nodes\Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Nodes\Default_Nodes\Generators\oscillatorBank.cpp">
+      <Filter>addons\ofxOceanode\src\Nodes\Default_Nodes\Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Nodes\Default_Nodes\Generators\phasor.cpp">
+      <Filter>addons\ofxOceanode\src\Nodes\Default_Nodes\Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Nodes\Default_Nodes\Modifiers\mapper.cpp">
+      <Filter>addons\ofxOceanode\src\Nodes\Default_Nodes\Modifiers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Nodes\Default_Nodes\Modifiers\ranger.cpp">
+      <Filter>addons\ofxOceanode\src\Nodes\Default_Nodes\Modifiers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Nodes\Default_Nodes\Modifiers\reindexer.cpp">
+      <Filter>addons\ofxOceanode\src\Nodes\Default_Nodes\Modifiers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Nodes\Default_Nodes\Modifiers\smoother.cpp">
+      <Filter>addons\ofxOceanode\src\Nodes\Default_Nodes\Modifiers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Nodes\Default_Nodes\Modifiers\switcher.cpp">
+      <Filter>addons\ofxOceanode\src\Nodes\Default_Nodes\Modifiers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Nodes\ofxOceanodeNode.cpp">
+      <Filter>addons\ofxOceanode\src\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Nodes\ofxOceanodeNodeGui.cpp">
+      <Filter>addons\ofxOceanode\src\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOceanode\src\Nodes\ofxOceanodeNodeModel.cpp">
+      <Filter>addons\ofxOceanode\src\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.cpp">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscMessage.cpp">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscParameterSync.cpp">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.cpp">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscSender.cpp">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp">
+      <Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32\NetworkingUtils.cpp">
+      <Filter>addons\ofxOsc\libs\oscpack\src\ip\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32\UdpSocket.cpp">
+      <Filter>addons\ofxOsc\libs\oscpack\src\ip\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.cpp">
+      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.cpp">
+      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.cpp">
+      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.cpp">
+      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ofxOceanode_modules-scripting">
+      <UniqueIdentifier>{24091ECC-83FC-E424-5ED3-1F6E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ofxOceanode_modules-scripting\chaiscript">
+      <UniqueIdentifier>{0A81A96E-D7DA-A5A5-BA8D-6E41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit">
+      <UniqueIdentifier>{BF446FB6-6F01-2020-10DF-7F36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ofxOceanode_modules-scripting\chaiscript\language">
+      <UniqueIdentifier>{48EBB1F6-6128-B4B6-0D5A-887A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ofxOceanode_modules-scripting\chaiscript\utility">
+      <UniqueIdentifier>{EF834599-6543-244F-0A87-28B5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ofxOceanode_modules-texture">
+      <UniqueIdentifier>{ECD51AD2-B940-C4EC-CD2C-D3F5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ofxOceanode_modules-vector_op">
+      <UniqueIdentifier>{528C5926-1398-87A6-078F-0489}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons">
+      <UniqueIdentifier>{71834F65-F3A9-211E-73B8-DC85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxDatGui_PM">
+      <UniqueIdentifier>{01293801-C034-99D5-F578-8F36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxDatGui_PM\src">
+      <UniqueIdentifier>{05D01662-40FD-ED5F-61A5-731C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxDatGui_PM\src\components">
+      <UniqueIdentifier>{7F558F1E-F5CA-0893-415C-C659}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxDatGui_PM\src\core">
+      <UniqueIdentifier>{4E3F84A4-36EE-8CEF-C8A9-B623}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxDatGui_PM\src\libs">
+      <UniqueIdentifier>{E9F57642-3AD4-F868-FFE2-7887}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxDatGui_PM\src\libs\ofxSmartFont">
+      <UniqueIdentifier>{62A86B9E-F689-B9F1-5D42-4E03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxDatGui_PM\src\themes">
+      <UniqueIdentifier>{9FA978D4-CA0B-987D-E513-BB4A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxEasing">
+      <UniqueIdentifier>{CAD580FB-01DB-F456-F00B-7791}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxEasing\src">
+      <UniqueIdentifier>{59A6BD40-DCB3-8A98-B41B-1BA9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOceanode">
+      <UniqueIdentifier>{E33D0E64-AE7C-7048-F871-8BE9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOceanode\src">
+      <UniqueIdentifier>{E772EA3D-6469-75F7-7122-FB27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOceanode\src\Connections">
+      <UniqueIdentifier>{C2F355AF-20DF-6799-20D6-9A91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOceanode\src\Controls">
+      <UniqueIdentifier>{AF8E3603-77D9-48CD-AA9B-82B4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOceanode\src\Managers">
+      <UniqueIdentifier>{A42C9064-2FFB-40A7-FE0B-B1ED}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOceanode\src\Nodes">
+      <UniqueIdentifier>{765DEF33-6DF3-102C-A163-745B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOceanode\src\Nodes\Base_Nodes">
+      <UniqueIdentifier>{4C36F27D-8E7B-2967-74C7-8F44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOceanode\src\Nodes\Default_Nodes">
+      <UniqueIdentifier>{BB81536E-BD2F-1892-48D8-19AD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOceanode\src\Nodes\Default_Nodes\Base">
+      <UniqueIdentifier>{CF539339-A26B-3E08-26BA-86A7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOceanode\src\Nodes\Default_Nodes\Controllers">
+      <UniqueIdentifier>{4A0D6604-61D8-2FC6-5AFF-4B71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOceanode\src\Nodes\Default_Nodes\Generators">
+      <UniqueIdentifier>{F95ADF75-72DB-86A8-65A6-8910}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOceanode\src\Nodes\Default_Nodes\Modifiers">
+      <UniqueIdentifier>{78AB283C-4663-A4F5-FE08-836B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc">
+      <UniqueIdentifier>{D91DCA33-6E5D-4481-2AEC-9FBB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc\src">
+      <UniqueIdentifier>{B9DD339A-D93D-92A1-0A2F-4B41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc\libs">
+      <UniqueIdentifier>{99ECA1D9-873F-4622-8FC0-FC7B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc\libs\oscpack">
+      <UniqueIdentifier>{D3A98534-1602-4FEF-57A6-6593}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc\libs\oscpack\src">
+      <UniqueIdentifier>{BFB5BB47-98C8-BBCB-3066-1046}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc\libs\oscpack\src\ip">
+      <UniqueIdentifier>{5A029128-EB41-95C5-CBC0-CDED}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc\libs\oscpack\src\ip\win32">
+      <UniqueIdentifier>{79DFDFE2-400B-8654-3675-01A3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOsc\libs\oscpack\src\osc">
+      <UniqueIdentifier>{EDACB89C-9768-9551-4D41-B590}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\ofApp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\audioEngineController.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\colorApplier.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\envelopeGenerator.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\manualOscillatorBank.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofApp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\chaiscript.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\chaiscript_basic.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\chaiscript_defines.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\chaiscript_stdlib.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\chaiscript_threading.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit\any.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\dispatchkit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit\bad_boxed_cast.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\dispatchkit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit\bind_first.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\dispatchkit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit\bootstrap.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\dispatchkit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit\bootstrap_stl.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\dispatchkit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit\boxed_cast.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\dispatchkit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit\boxed_cast_helper.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\dispatchkit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit\boxed_number.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\dispatchkit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit\boxed_value.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\dispatchkit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit\callable_traits.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\dispatchkit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit\dispatchkit.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\dispatchkit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit\dynamic_object.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\dispatchkit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit\dynamic_object_detail.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\dispatchkit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit\exception_specification.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\dispatchkit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit\function_call.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\dispatchkit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit\function_call_detail.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\dispatchkit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit\handle_return.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\dispatchkit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit\operators.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\dispatchkit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit\proxy_constructors.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\dispatchkit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit\proxy_functions.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\dispatchkit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit\proxy_functions_detail.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\dispatchkit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit\register_function.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\dispatchkit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit\short_alloc.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\dispatchkit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit\type_conversions.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\dispatchkit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\dispatchkit\type_info.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\dispatchkit</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\language\chaiscript_algebraic.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\language</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\language\chaiscript_common.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\language</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\language\chaiscript_engine.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\language</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\language\chaiscript_eval.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\language</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\language\chaiscript_optimizer.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\language</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\language\chaiscript_parser.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\language</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\language\chaiscript_posix.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\language</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\language\chaiscript_prelude.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\language</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\language\chaiscript_prelude_docs.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\language</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\language\chaiscript_tracer.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\language</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\language\chaiscript_unknown.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\language</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\language\chaiscript_windows.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\language</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\utility\fnv1a.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\utility\static_string.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\chaiscript\utility\utility.hpp">
+      <Filter>src\ofxOceanode_modules-scripting\chaiscript\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-scripting\scriptModule.h">
+      <Filter>src\ofxOceanode_modules-scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-texture\defaultVertexShader.h">
+      <Filter>src\ofxOceanode_modules-texture</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-texture\oscillatorFragShader.h">
+      <Filter>src\ofxOceanode_modules-texture</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-texture\oscillatorTexture.h">
+      <Filter>src\ofxOceanode_modules-texture</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-texture\scalingFragShader.h">
+      <Filter>src\ofxOceanode_modules-texture</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-texture\sharedResources.h">
+      <Filter>src\ofxOceanode_modules-texture</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-texture\waveScope.h">
+      <Filter>src\ofxOceanode_modules-texture</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-vector_op\subDimensionCombinator.h">
+      <Filter>src\ofxOceanode_modules-vector_op</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-vector_op\vectorChain.h">
+      <Filter>src\ofxOceanode_modules-vector_op</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-vector_op\vectorGetter.h">
+      <Filter>src\ofxOceanode_modules-vector_op</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-vector_op\vectorItemOperations.h">
+      <Filter>src\ofxOceanode_modules-vector_op</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-vector_op\vectorOperations.h">
+      <Filter>src\ofxOceanode_modules-vector_op</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxOceanode_modules-vector_op\vector_op_registrator.h">
+      <Filter>src\ofxOceanode_modules-vector_op</Filter>
+    </ClInclude>
+    <ClInclude Include="src\senderManager.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\swarosky_custom_reindex.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\textureMixer.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\textureReader.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\textureRecorder.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\textureUnifier.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\valueEaser.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui_PM\src\components\ofxDatGui2dPad.h">
+      <Filter>addons\ofxDatGui_PM\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui_PM\src\components\ofxDatGuiButton.h">
+      <Filter>addons\ofxDatGui_PM\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui_PM\src\components\ofxDatGuiColorPicker.h">
+      <Filter>addons\ofxDatGui_PM\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui_PM\src\components\ofxDatGuiControls.h">
+      <Filter>addons\ofxDatGui_PM\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui_PM\src\components\ofxDatGuiFRM.h">
+      <Filter>addons\ofxDatGui_PM\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui_PM\src\components\ofxDatGuiGroups.h">
+      <Filter>addons\ofxDatGui_PM\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui_PM\src\components\ofxDatGuiLabel.h">
+      <Filter>addons\ofxDatGui_PM\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui_PM\src\components\ofxDatGuiMatrix.h">
+      <Filter>addons\ofxDatGui_PM\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui_PM\src\components\ofxDatGuiScrollView.h">
+      <Filter>addons\ofxDatGui_PM\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui_PM\src\components\ofxDatGuiSlider.h">
+      <Filter>addons\ofxDatGui_PM\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui_PM\src\components\ofxDatGuiTextInput.h">
+      <Filter>addons\ofxDatGui_PM\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui_PM\src\components\ofxDatGuiTextInputField.h">
+      <Filter>addons\ofxDatGui_PM\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui_PM\src\components\ofxDatGuiTimeGraph.h">
+      <Filter>addons\ofxDatGui_PM\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui_PM\src\core\ofxDatGuiComponent.h">
+      <Filter>addons\ofxDatGui_PM\src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui_PM\src\core\ofxDatGuiConstants.h">
+      <Filter>addons\ofxDatGui_PM\src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui_PM\src\core\ofxDatGuiEvents.h">
+      <Filter>addons\ofxDatGui_PM\src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui_PM\src\core\ofxDatGuiIntObject.h">
+      <Filter>addons\ofxDatGui_PM\src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui_PM\src\libs\ofxSmartFont\ofxSmartFont.h">
+      <Filter>addons\ofxDatGui_PM\src\libs\ofxSmartFont</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui_PM\src\ofxDatGui.h">
+      <Filter>addons\ofxDatGui_PM\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui_PM\src\themes\ofxDatGuiTheme.h">
+      <Filter>addons\ofxDatGui_PM\src\themes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui_PM\src\themes\ofxDatGuiThemes.h">
+      <Filter>addons\ofxDatGui_PM\src\themes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxEasing\src\easing_terms_of_use.html">
+      <Filter>addons\ofxEasing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxEasing\src\ofxEasing.h">
+      <Filter>addons\ofxEasing\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Connections\ofxOceanodeConnection.h">
+      <Filter>addons\ofxOceanode\src\Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Connections\ofxOceanodeConnectionGraphics.h">
+      <Filter>addons\ofxOceanode\src\Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Controls\ofxOceanodeBaseController.h">
+      <Filter>addons\ofxOceanode\src\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Controls\ofxOceanodeBPMController.h">
+      <Filter>addons\ofxOceanode\src\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Controls\ofxOceanodeControls.h">
+      <Filter>addons\ofxOceanode\src\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Controls\ofxOceanodeMidiController.h">
+      <Filter>addons\ofxOceanode\src\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Controls\ofxOceanodeOSCController.h">
+      <Filter>addons\ofxOceanode\src\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Controls\ofxOceanodePresetsController.h">
+      <Filter>addons\ofxOceanode\src\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Managers\ofxOceanodeCanvas.h">
+      <Filter>addons\ofxOceanode\src\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Managers\ofxOceanodeContainer.h">
+      <Filter>addons\ofxOceanode\src\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Managers\ofxOceanodeMidiBinding.h">
+      <Filter>addons\ofxOceanode\src\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Managers\ofxOceanodeNodeRegistry.h">
+      <Filter>addons\ofxOceanode\src\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Managers\ofxOceanodeTypesRegistry.h">
+      <Filter>addons\ofxOceanode\src\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Nodes\Base_Nodes\ofxOceanodeNodeModelExternalWindow.h">
+      <Filter>addons\ofxOceanode\src\Nodes\Base_Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Nodes\Base_Nodes\ofxOceanodeNodeModelLocalPreset.h">
+      <Filter>addons\ofxOceanode\src\Nodes\Base_Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Nodes\Default_Nodes\Base\baseIndexer.h">
+      <Filter>addons\ofxOceanode\src\Nodes\Default_Nodes\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Nodes\Default_Nodes\Base\baseOscillator.h">
+      <Filter>addons\ofxOceanode\src\Nodes\Default_Nodes\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Nodes\Default_Nodes\Base\basePhasor.h">
+      <Filter>addons\ofxOceanode\src\Nodes\Default_Nodes\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Nodes\Default_Nodes\Controllers\localPresetController.h">
+      <Filter>addons\ofxOceanode\src\Nodes\Default_Nodes\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Nodes\Default_Nodes\defaultNodes.h">
+      <Filter>addons\ofxOceanode\src\Nodes\Default_Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Nodes\Default_Nodes\Generators\oscillator.h">
+      <Filter>addons\ofxOceanode\src\Nodes\Default_Nodes\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Nodes\Default_Nodes\Generators\oscillatorBank.h">
+      <Filter>addons\ofxOceanode\src\Nodes\Default_Nodes\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Nodes\Default_Nodes\Generators\phasor.h">
+      <Filter>addons\ofxOceanode\src\Nodes\Default_Nodes\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Nodes\Default_Nodes\Modifiers\mapper.h">
+      <Filter>addons\ofxOceanode\src\Nodes\Default_Nodes\Modifiers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Nodes\Default_Nodes\Modifiers\ranger.h">
+      <Filter>addons\ofxOceanode\src\Nodes\Default_Nodes\Modifiers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Nodes\Default_Nodes\Modifiers\reindexer.h">
+      <Filter>addons\ofxOceanode\src\Nodes\Default_Nodes\Modifiers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Nodes\Default_Nodes\Modifiers\smoother.h">
+      <Filter>addons\ofxOceanode\src\Nodes\Default_Nodes\Modifiers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Nodes\Default_Nodes\Modifiers\switcher.h">
+      <Filter>addons\ofxOceanode\src\Nodes\Default_Nodes\Modifiers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Nodes\ofxOceanodeNode.h">
+      <Filter>addons\ofxOceanode\src\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Nodes\ofxOceanodeNodeGui.h">
+      <Filter>addons\ofxOceanode\src\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\Nodes\ofxOceanodeNodeModel.h">
+      <Filter>addons\ofxOceanode\src\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOceanode\src\ofxOceanode.h">
+      <Filter>addons\ofxOceanode\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOsc.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscArg.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscMessage.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscParameterSync.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscSender.h">
+      <Filter>addons\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\NetworkingUtils.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\PacketListener.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\TimerListener.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\UdpSocket.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\MessageMappingOscPacketListener.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscException.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscHostEndianness.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPacketListener.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.h">
+      <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc" />
+  </ItemGroup>
+</Project>
