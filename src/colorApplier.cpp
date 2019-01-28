@@ -38,12 +38,12 @@ colorApplier::colorApplier() : ofxOceanodeNodeModel("Color Applier"){
     parameters->add(gradientPreview.set("Gradient Preview", nullptr));
     parameters->add(colorizedValues.set("Output", nullptr));
     
-    listeners.push(colorPickerParam[0].newListener(this, &colorApplier::colorListener));
+//    listeners.push(colorPickerParam[0].newListener(this, &colorApplier::colorListener));
     listeners.push(colorRParam[0].newListener(this, &colorApplier::colorSliderListener));
     listeners.push(colorGParam[0].newListener(this, &colorApplier::colorSliderListener));
     listeners.push(colorBParam[0].newListener(this, &colorApplier::colorSliderListener));
     
-    listeners.push(colorPickerParam[1].newListener(this, &colorApplier::colorListener));
+//    listeners.push(colorPickerParam[1].newListener(this, &colorApplier::colorListener));
     listeners.push(colorRParam[1].newListener(this, &colorApplier::colorSliderListener));
     listeners.push(colorGParam[1].newListener(this, &colorApplier::colorSliderListener));
     listeners.push(colorBParam[1].newListener(this, &colorApplier::colorSliderListener));
@@ -121,6 +121,7 @@ void colorApplier::applyColor(ofTexture* &inputTex){
         height = inputTex->getHeight();
         if(outputFbo.getWidth() != width || outputFbo.getHeight() != height || !outputFbo.isAllocated()){
             outputFbo.allocate(width, height, GL_RGB);
+            outputFbo.getTexture().setTextureMinMagFilter(GL_NEAREST, GL_NEAREST);
             previewFbo.allocate(width, height, GL_RGB);
             whiteFbo.allocate(width, height, GL_RGB);
             whiteFbo.begin();
@@ -150,8 +151,8 @@ void colorApplier::applyColor(ofTexture* &inputTex){
         outputShader.setUniform1i("width", width);
         outputShader.setUniform1f("displacement", colorDisplacement);
         outputShader.setUniform1i("useImage", isImageLoaded);
-        outputShader.setUniform3f("color1", colorPickerParam[0]->r/255., colorPickerParam[0]->g/255., colorPickerParam[0]->b/255.);
-        outputShader.setUniform3f("color2", colorPickerParam[1]->r/255., colorPickerParam[1]->g/255., colorPickerParam[1]->b/255.);
+        outputShader.setUniform3f("color1", colorRParam[0]/255., colorGParam[0]/255., colorBParam[0]/255.);
+        outputShader.setUniform3f("color2", colorRParam[1]/255., colorGParam[1]/255., colorBParam[1]/255.);
         outputShader.setUniformTexture("inputTexture", *inputTex, infoTextureOutputShaderTextureLocation);
         if(isImageLoaded)
             outputShader.setUniformTexture("inputImage", imageTexture.getTexture(), imageTextureOutputShaderTextureLocation);
@@ -167,8 +168,8 @@ void colorApplier::applyColor(ofTexture* &inputTex){
         previewShader.setUniform1i("width", width);
         outputShader.setUniform1f("displacement", colorDisplacement);
         outputShader.setUniform1i("useImage", isImageLoaded);
-        previewShader.setUniform3f("color1", colorPickerParam[0]->r/255., colorPickerParam[0]->g/255., colorPickerParam[0]->b/255.);
-        previewShader.setUniform3f("color2", colorPickerParam[1]->r/255., colorPickerParam[1]->g/255., colorPickerParam[1]->b/255.);
+        previewShader.setUniform3f("color1", colorRParam[0]/255., colorGParam[0]/255., colorBParam[0]/255.);
+        previewShader.setUniform3f("color2", colorRParam[1]/255., colorGParam[1]/255., colorBParam[1]/255.);
         previewShader.setUniformTexture("inputTexture", whiteFbo.getTexture(), infoTexturePreviewShaderTextureLocation);
         if(isImageLoaded)
             outputShader.setUniformTexture("inputImage", imageTexture.getTexture(), imageTexturePreviewShaderTextureLocation);
