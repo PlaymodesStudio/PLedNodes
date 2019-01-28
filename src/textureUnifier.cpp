@@ -9,16 +9,18 @@
 #include "textureUnifier.h"
 
 textureUnifier::textureUnifier() : ofxOceanodeNodeModel("Texture Unifier"){
-    spacing = 1;
     
+}
+
+void textureUnifier::setup(){
     parameters->add(triggerTextureIndex.set("Trigger Index", 0, 0, 5));
+    parameters->add(spacing.set("Tex Spacing", 1, 0, 10));
     inputs.resize(5);
     for(int i = 0; i < inputs.size() ; i++){
         parameters->add(inputs[i].set("Input " + ofToString(i), nullptr));
-        inputs[i].addListener(this, &textureUnifier::computeOutput);
+        listeners.push(inputs[i].newListener(this, &textureUnifier::computeOutput));
     }
     parameters->add(output.set("Output", nullptr));
-    
 }
 
 void textureUnifier::computeOutput(ofTexture* &in){
@@ -36,8 +38,25 @@ void textureUnifier::computeOutput(ofTexture* &in){
             }
             if(outputFbo.getHeight() != totalHeight || outputFbo.getWidth() != maxWidth || !outputFbo.isAllocated()){
                 if(totalHeight != 0 && maxWidth != 0){  
-                    outputFbo.allocate(maxWidth, totalHeight, GL_RGBA32F);
-                    outputFbo.getTexture().setTextureMinMagFilter(GL_NEAREST, GL_NEAREST);
+//                    outputFbo.allocate(maxWidth, totalHeight, GL_RGBA32F);
+//                    outputFbo.getTexture().setTextureMinMagFilter(GL_NEAREST, GL_NEAREST);
+                    
+                    outputFbo.clear();
+    
+                    ofFbo::Settings settings;
+                    settings.height = totalHeight;
+                    settings.width = maxWidth;
+                    settings.internalformat = GL_RGBA32F;
+                    settings.maxFilter = GL_NEAREST;
+                    settings.minFilter = GL_NEAREST;
+                    settings.numColorbuffers = 1;
+                    settings.useDepth = false;
+                    settings.useStencil = false;
+                    
+                    outputFbo.allocate(settings);
+                    outputFbo.begin();
+                    ofClear(255, 255, 255, 0);
+                    outputFbo.end();
                 }else{
                     return;
                 }
