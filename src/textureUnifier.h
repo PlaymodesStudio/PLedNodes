@@ -16,15 +16,19 @@ public:
     textureUnifier();
     ~textureUnifier(){};
     
+    void setup() override;
+    
 private:
     void computeOutput(ofTexture* &in);
     
+    ofEventListeners listeners;
+    
     ofParameter<int>    triggerTextureIndex;
+    ofParameter<int>    spacing;
     vector<ofParameter<ofTexture*>>    inputs;
     ofParameter<ofTexture*>    output;
     
     ofFbo outputFbo;
-    int spacing;
 };
 
 #endif /* textureUnifier_h */
