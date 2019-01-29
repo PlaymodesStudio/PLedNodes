@@ -51,6 +51,7 @@ void ofApp::setup(){
         bpm = json["BPM"];
         int frameRate = json["FPS"];
         ofSetFrameRate(frameRate);
+		if (frameRate == 60) ofSetVerticalSync(true);
         
         int syphonSenders = json["Syphon"];
         
