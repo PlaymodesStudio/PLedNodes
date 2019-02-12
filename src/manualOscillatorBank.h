@@ -18,6 +18,10 @@ public:
     
     void presetRecallBeforeSettingParameters(ofJson &json) override;
     
+    void presetHasLoaded() override{
+        output = {0};
+    }
+    
 private:
     void computeValues(float &f);
     
