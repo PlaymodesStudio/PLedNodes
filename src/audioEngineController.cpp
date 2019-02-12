@@ -33,14 +33,14 @@ void audioEngineController::oscHostAndPortListener(string &s){
 
 void audioEngineController::presetNumSender(int &i){
     ofxOscMessage message;
-    message.setAddress("audio/preset");
+    message.setAddress("/audio/preset");
     message.addIntArg(i);
     oscSender.sendMessage(message);
 }
 
 void audioEngineController::param_aSender(vector<float> &vf){
     ofxOscMessage message;
-    message.setAddress("audio/va");
+    message.setAddress("/audio/va");
     for(auto f : vf){
         message.addFloatArg(f);
     }
@@ -49,7 +49,7 @@ void audioEngineController::param_aSender(vector<float> &vf){
 
 void audioEngineController::param_bSender(vector<float> &vf){
     ofxOscMessage message;
-    message.setAddress("audio/vb");
+    message.setAddress("/audio/vb");
     for(auto f : vf){
         message.addFloatArg(f);
     }
@@ -58,7 +58,7 @@ void audioEngineController::param_bSender(vector<float> &vf){
 
 void audioEngineController::param_cSender(vector<float> &vf){
     ofxOscMessage message;
-    message.setAddress("audio/vc");
+    message.setAddress("/audio/vc");
     for(auto f : vf){
         message.addFloatArg(f);
     }
