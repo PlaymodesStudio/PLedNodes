@@ -9,7 +9,8 @@
 #include "colorApplier.h"
 #include "sharedResources.h"
 
-colorApplier::colorApplier() : ofxOceanodeNodeModel("Color Applier"){
+void colorApplier::setup(){
+    isSetup = true;
     resources = &sharedResources::getInstance();
     
     parameters->add(reloadShaderParam.set("Reload Shader", false));
@@ -82,13 +83,17 @@ colorApplier::colorApplier() : ofxOceanodeNodeModel("Color Applier"){
 }
 
 colorApplier::~colorApplier(){
-    for(auto &loc : shaderLocations){
-        resources->makeTextureLocationAvailable(loc);
+    if(isSetup){
+        modulationInfoTexture.clear();
+        colorDisplacementTexture.clear();
+        for(auto &loc : shaderLocations){
+            resources->makeTextureLocationAvailable(loc);
+        }
+        resources->makeTextureLocationAvailable(infoTextureOutputShaderTextureLocation);
+        resources->makeTextureLocationAvailable(imageTextureOutputShaderTextureLocation);
+        resources->makeTextureLocationAvailable(infoTexturePreviewShaderTextureLocation);
+        resources->makeTextureLocationAvailable(imageTexturePreviewShaderTextureLocation);
     }
-    resources->makeTextureLocationAvailable(infoTextureOutputShaderTextureLocation);
-    resources->makeTextureLocationAvailable(imageTextureOutputShaderTextureLocation);
-    resources->makeTextureLocationAvailable(infoTexturePreviewShaderTextureLocation);
-    resources->makeTextureLocationAvailable(imageTexturePreviewShaderTextureLocation);
 }
 
 void colorApplier::reloadShader(bool &b){
@@ -166,8 +171,8 @@ void colorApplier::applyColor(ofTexture* &inputTex){
         previewFbo.begin();
         previewShader.begin();
         previewShader.setUniform1i("width", width);
-        outputShader.setUniform1f("displacement", colorDisplacement);
-        outputShader.setUniform1i("useImage", isImageLoaded);
+        previewShader.setUniform1f("displacement", colorDisplacement);
+        previewShader.setUniform1i("useImage", isImageLoaded);
         previewShader.setUniform3f("color1", colorRParam[0]/255., colorGParam[0]/255., colorBParam[0]/255.);
         previewShader.setUniform3f("color2", colorRParam[1]/255., colorGParam[1]/255., colorBParam[1]/255.);
         previewShader.setUniformTexture("inputTexture", whiteFbo.getTexture(), infoTexturePreviewShaderTextureLocation);

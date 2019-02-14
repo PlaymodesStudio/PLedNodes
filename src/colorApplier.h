@@ -17,8 +17,12 @@ class colorApplier : public ofxOceanodeNodeModel{
     
 public:
     
-    colorApplier();
+    colorApplier() : ofxOceanodeNodeModel("Color Applier"){
+        isSetup = false;
+    };
     ~colorApplier();
+    
+    void setup() override;
     
     
 private:
@@ -88,7 +92,7 @@ private:
     ofTexture               colorDisplacementTexture;
     ofBufferObject          colorDisplacementBuffer;
     
-    
+    bool isSetup;
 };
 
 #endif /* colorApplier_h */
