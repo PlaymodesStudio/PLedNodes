@@ -27,7 +27,7 @@ void ofApp::setup(){
 //    ofEnableGLDebugLog();
     
     ofDisableArbTex();
-    ofSetVerticalSync(true);
+    ofSetVerticalSync(false);
     ofSetEscapeQuitsApp(false);
     
     ofFile file;
