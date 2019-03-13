@@ -146,7 +146,11 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
+#ifdef TARGET_OSX
     if(ofGetKeyPressed(OF_KEY_COMMAND)){
+#else
+    if(ofGetKeyPressed(OF_KEY_CONTROL)){
+#endif
         if(key == 'p') container->savePersistent();
         else if(key == 'u') container->updatePersistent();
         else if(key == 'c') container->collapseGuis();
