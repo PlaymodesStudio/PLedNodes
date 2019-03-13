@@ -28,8 +28,6 @@ public:
         ofGetMainLoop()->setCurrentWindow(currentWin);
     }
     
-    void
-    
 private:
     void drawInExternalWindow(ofEventArgs &e) override{
         ofBackground(0);
