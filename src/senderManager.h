@@ -12,7 +12,7 @@
 #include "ofxOceanodeNodeModel.h"
 #ifdef TARGET_OSX
 #include "ofxSyphon.h"
-#else if TARGET_WIN64
+#elif TARGET_WIN64
 //#include "ofxSpout.h"
 #endif
 
@@ -21,7 +21,9 @@ public:
     
     senderManager();
     ~senderManager(){
+#ifdef TARGET_OSX
         delete syphonServer;
+#endif
     };
     void setname(string name){syphonName = name;};
     
