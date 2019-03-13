@@ -18,19 +18,19 @@ void colorApplier::setup(){
     parameters->add(colorRParam[0].set("Color 1 R", 255, 0, 255));
     parameters->add(colorGParam[0].set("Color 1 G", 255, 0, 255));
     parameters->add(colorBParam[0].set("Color 1 B", 255, 0, 255));
-    parameters->add(colorHParam[0].set("Color 1 Hue", 0, 0, 360));
+    addParameterToGroupAndInfo(colorHParam[0].set("Color 1 Hue", 0, 0, 360)).isSavePreset = false;
     
     parameters->add(colorPickerParam[1].set("Color 2", ofColor::white));
     parameters->add(colorRParam[1].set("Color 2 R", 0, 0, 255));
     parameters->add(colorGParam[1].set("Color 2 G", 0, 0, 255));
     parameters->add(colorBParam[1].set("Color 2 B", 0, 0, 255));
-    parameters->add(colorHParam[1].set("Color 2 Hue", 0, 0, 360));
+    addParameterToGroupAndInfo(colorHParam[1].set("Color 2 Hue", 0, 0, 360)).isSavePreset = false;
     parameters->add(colorDisplacement.set("Color Displacement", 0, 0, 1));
     
     //    parameters->add(randomColorStepsParam.set("Rnd Color Steps", 4, 0, 255));
     //    sharedResources::addDropdownToParameterGroupFromParameters(parameters, "Rnd ChangeTypes", {"no", "on presset", "onTrigger"}, randomizeTypeColorParam);
     
-    parameters->add(imageTextureFile.set("Img Tex File", ""));
+    parameters->add(textureImage.set("Texture Image", nullptr));
     
     parameters->add(modulationInfo[0].set("Mod in X", vector<float>(1, 0), vector<float>(1, 0), vector<float>(1, 1)));
     parameters->add(modulationInfo[1].set("Mod in Y", vector<float>(1, 0), vector<float>(1, 0), vector<float>(1, 1)));
@@ -55,9 +55,6 @@ void colorApplier::setup(){
     listeners.push(colorDisplacement.newListener(this, &colorApplier::colorDisplacementChanged));
     listeners.push(grayScaleIn.newListener(this, &colorApplier::applyColor));
     //    reloadShaderParam.newListener(this, &colorApplier::reloadShader);
-    
-    listeners.push(imageTextureFile.newListener(this, &colorApplier::imageFileChangedListener));
-    isImageLoaded = false;
     
     colorIsChanging = false;
     
@@ -137,30 +134,17 @@ void colorApplier::applyColor(ofTexture* &inputTex){
             colorDisplacementBuffer.setData(computeNewColorDisplacementVector(colorDisplacement),  GL_STREAM_DRAW);
         }
         
-        
-        if(isImageLoaded){
-            if(imageTexture.getWidth() == height && imageTexture.getHeight() == width){
-                imageTexture.rotate90(1);
-            }
-            else if(imageTexture.getWidth() == width && imageTexture.getHeight() == height){
-                
-            }
-            else{
-                isImageLoaded = false;
-            }
-        }
-        
-        
         outputFbo.begin();
         outputShader.begin();
         outputShader.setUniform1i("width", width);
         outputShader.setUniform1f("displacement", colorDisplacement);
-        outputShader.setUniform1i("useImage", isImageLoaded);
+        outputShader.setUniform1i("useTexture", textureImage.get() != nullptr);
         outputShader.setUniform3f("color1", colorRParam[0]/255., colorGParam[0]/255., colorBParam[0]/255.);
         outputShader.setUniform3f("color2", colorRParam[1]/255., colorGParam[1]/255., colorBParam[1]/255.);
         outputShader.setUniformTexture("inputTexture", *inputTex, infoTextureOutputShaderTextureLocation);
-        if(isImageLoaded)
-            outputShader.setUniformTexture("inputImage", imageTexture.getTexture(), imageTextureOutputShaderTextureLocation);
+        if(textureImage.get() != nullptr){
+            outputShader.setUniformTexture("inputImage", *textureImage, imageTextureOutputShaderTextureLocation);
+        }
         
         inputTex->draw(0, 0);
         outputShader.end();
@@ -172,12 +156,13 @@ void colorApplier::applyColor(ofTexture* &inputTex){
         previewShader.begin();
         previewShader.setUniform1i("width", width);
         previewShader.setUniform1f("displacement", colorDisplacement);
-        previewShader.setUniform1i("useImage", isImageLoaded);
+        previewShader.setUniform1i("useTexture", textureImage.get() != nullptr);
         previewShader.setUniform3f("color1", colorRParam[0]/255., colorGParam[0]/255., colorBParam[0]/255.);
         previewShader.setUniform3f("color2", colorRParam[1]/255., colorGParam[1]/255., colorBParam[1]/255.);
         previewShader.setUniformTexture("inputTexture", whiteFbo.getTexture(), infoTexturePreviewShaderTextureLocation);
-        if(isImageLoaded)
-            outputShader.setUniformTexture("inputImage", imageTexture.getTexture(), imageTexturePreviewShaderTextureLocation);
+        if(textureImage.get() != nullptr){
+            previewShader.setUniformTexture("inputImage", *textureImage, imageTextureOutputShaderTextureLocation);
+        }
         
         inputTex->draw(0, 0);
         previewShader.end();
@@ -248,11 +233,6 @@ void colorApplier::colorHueListener(int &i){
         }
         colorIsChanging = false;
     }
-}
-
-void colorApplier::imageFileChangedListener(string &s){
-    if(s != "")
-        isImageLoaded = imageTexture.load("colorTextures/" + s);
 }
 
 void colorApplier::modulationInfoListener(vector<float> &vf){

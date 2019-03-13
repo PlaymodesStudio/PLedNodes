@@ -3,7 +3,7 @@
 
 uniform int width;
 uniform float displacement;
-uniform int useImage;
+uniform int useTexture;
 
 //uniform vec2 size;
 uniform vec3 color1;
@@ -47,14 +47,11 @@ void main(){
         modulationValue = (xModulationValue + yModulationValue)/2;
     }
     
-    vec3 firstColor = vec3(0,0,0);
-    if(useImage == 1){
-        firstColor = texture(inputImage, vec2(xTex, yTex)).rgb;
+    if(useTexture == 1){
+        modulationValue = texture(inputImage, vec2(xTex, yTex)).r;
     }
-    else{
-        firstColor = color1;
-    }
-    vec3 finalColor = (((color2 * modulationValue) + (firstColor * (1-modulationValue))) + displacementValue)  * r_info.r;
+    
+    vec3 finalColor = (((color2 * modulationValue) + (color1 * (1-modulationValue))) + displacementValue)  * r_info.r;
         
     out_color = vec4(finalColor, 1.0);
 }
