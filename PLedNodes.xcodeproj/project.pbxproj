@@ -75,6 +75,7 @@
 		9BD777923C7E370A961526AC /* envelopeGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4655B54F461ED6D3FD64F179 /* envelopeGenerator.cpp */; };
 		9F18909321F11CB600617FB4 /* midiGateIn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F18909121F11CB500617FB4 /* midiGateIn.cpp */; };
 		9F18909621F11D1400617FB4 /* sequentialAnalyzer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F18909521F11D1400617FB4 /* sequentialAnalyzer.cpp */; };
+		9FA8CC6B221B2D3E0098ACDA /* delta.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FA8CC69221B2D3D0098ACDA /* delta.cpp */; };
 		9FB8AE6ABDA40CD0274A29BA /* oscillatorTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 123BA4F448ED422A2D4B94DC /* oscillatorTexture.cpp */; };
 		A7F232028F646FE8E4DFD621 /* ArtNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D6C050337BF5E7D15F7C63 /* ArtNode.cpp */; };
 		AA12BB979460264F7478443E /* valueEaser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D00378236FD73D5D8CF8C990 /* valueEaser.cpp */; };
@@ -291,6 +292,8 @@
 		9F18909521F11D1400617FB4 /* sequentialAnalyzer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sequentialAnalyzer.cpp; sourceTree = "<group>"; };
 		9F7986DC4EB05E75FCE2C777 /* ofxOscSender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxOscSender.h; path = ../../../addons/ofxOsc/src/ofxOscSender.h; sourceTree = SOURCE_ROOT; };
 		9FA2A0B2E964C498EBE3ACF4 /* oscillatorFragShader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = oscillatorFragShader.h; path = "src/ofxOceanode_modules-texture/oscillatorFragShader.h"; sourceTree = SOURCE_ROOT; };
+		9FA8CC69221B2D3D0098ACDA /* delta.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = delta.cpp; path = ../../Espills_controller/src/delta.cpp; sourceTree = "<group>"; };
+		9FA8CC6A221B2D3D0098ACDA /* delta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = delta.h; path = ../../Espills_controller/src/delta.h; sourceTree = "<group>"; };
 		A124F871683B22E8D97BECDE /* textureUnifier.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = textureUnifier.h; path = src/textureUnifier.h; sourceTree = SOURCE_ROOT; };
 		A13853A1B21F20177F44EE37 /* ofxDatGuiLabel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiLabel.h; path = ../../../addons/ofxDatGui_PM/src/components/ofxDatGuiLabel.h; sourceTree = SOURCE_ROOT; };
 		A2A156C2D14C4F39566F9478 /* exception_specification.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = exception_specification.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/dispatchkit/exception_specification.hpp"; sourceTree = SOURCE_ROOT; };
@@ -1490,6 +1493,8 @@
 				9F18909421F11D1300617FB4 /* sequentialAnalyzer.h */,
 				9F18909121F11CB500617FB4 /* midiGateIn.cpp */,
 				9F18909221F11CB600617FB4 /* midiGateIn.h */,
+				9FA8CC69221B2D3D0098ACDA /* delta.cpp */,
+				9FA8CC6A221B2D3D0098ACDA /* delta.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
@@ -1728,6 +1733,7 @@
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				6EE384C13C514F47DA1CA235 /* manualOscillatorBank.cpp in Sources */,
 				80C2077E2DE4E2436EE84D82 /* senderManager.cpp in Sources */,
+				9FA8CC6B221B2D3E0098ACDA /* delta.cpp in Sources */,
 				391C9CA5704E3EF6673ED176 /* texturePixelmap.cpp in Sources */,
 				9BD777923C7E370A961526AC /* envelopeGenerator.cpp in Sources */,
 				AA12BB979460264F7478443E /* valueEaser.cpp in Sources */,
