@@ -9,9 +9,9 @@
 #include "senderManager.h"
 
 senderManager::senderManager() : ofxOceanodeNodeModel("Sender Manager"){
-    parameters->add(enable.set("Enable", 0));
-    parameters->add(syphonName.set("Server Name", "Texture"));
-    parameters->add(masterFader.set("Master Fader", 1, 0, 1));
+    addParameterToGroupAndInfo(enable.set("Enable", 0)).isSavePreset = false;
+    addParameterToGroupAndInfo(syphonName.set("Server Name", "Texture")).isSavePreset = false;
+    addParameterToGroupAndInfo(masterFader.set("Master Fader", 1, 0, 1)).isSavePreset = false;
     parameters->add(textureIn.set("Texture In", nullptr));
     
     listeners.push(textureIn.newListener(this, &senderManager::sendTexture));
@@ -22,6 +22,7 @@ senderManager::senderManager() : ofxOceanodeNodeModel("Sender Manager"){
 
 
 void senderManager::sendTexture(ofTexture *&info){
+#ifdef TARGET_OSX
     if(syphonServer != NULL && enable && info != nullptr){
         if(colorFbo.getHeight() != info->getHeight() || colorFbo.getWidth() != info->getWidth()){
             colorFbo.allocate(info->getWidth(), info->getHeight(), GL_RGB);
@@ -35,11 +36,13 @@ void senderManager::sendTexture(ofTexture *&info){
         colorFbo.end();
         syphonServer->publishTexture(&colorFbo.getTexture());
     }
+#endif
 }
 
 
 #pragma mark -- Listeners --
 void senderManager::enableSyphonListener(bool &b){
+#ifdef TARGET_OSX
     if(b){
         syphonServer = new ofxSyphonServer;
         
@@ -50,8 +53,11 @@ void senderManager::enableSyphonListener(bool &b){
         listeners.unsubscribe(1);
         delete syphonServer;
     }
+#endif
 }
 
 void senderManager::syphonNameListener(string &s){
+#ifdef TARGET_OSX
     syphonServer->setName(syphonName);
+#endif
 }

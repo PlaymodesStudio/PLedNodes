@@ -10,7 +10,11 @@
 #define senderManager_h
 
 #include "ofxOceanodeNodeModel.h"
+#ifdef TARGET_OSX
 #include "ofxSyphon.h"
+#else if TARGET_WIN64
+//#include "ofxSpout.h"
+#endif
 
 class senderManager : public ofxOceanodeNodeModel{
 public:
@@ -27,7 +31,11 @@ public:
 private:
     void sendTexture(ofTexture *&info);
     
+#ifdef TARGET_OSX
     ofxSyphonServer*   syphonServer;
+#else
+    void* syphonServer;
+#endif
 
     ofParameter<bool>   enable;
     ofParameter<string> syphonName;
