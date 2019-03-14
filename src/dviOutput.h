@@ -41,6 +41,11 @@ private:
         }
     }
     
+    void keyPressed(ofKeyEventArgs &a){
+	if(a.key == 'f'){
+	    toggleFullscreen();
+	}
+    }
     
     ofParameter<ofTexture*> texture;
     ofParameter<float> masterFader;
