@@ -8,7 +8,7 @@
 class textureMixer : public ofxOceanodeNodeModel{
 public:
     textureMixer();
-    ~textureMixer(){};
+    ~textureMixer();
     void setup() override;
     
 private:
@@ -29,6 +29,7 @@ private:
     int                                 texture1Location;
 
     sharedResources*                    resources;
+    bool    isSetup;
 
 };
 

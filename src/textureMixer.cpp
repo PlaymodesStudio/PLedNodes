@@ -21,7 +21,13 @@ textureMixer::textureMixer() : ofxOceanodeNodeModel("Texture Mixer")
 
     parameters->add(output.set("Output", nullptr));
     
-    
+    isSetup = false;
+}
+textureMixer::~textureMixer(){
+    if(isSetup){
+        resources->makeTextureLocationAvailable(texture0Location);
+        resources->makeTextureLocationAvailable(texture1Location);
+    }
 }
 
 void textureMixer::setup()
@@ -158,7 +164,7 @@ void textureMixer::setup()
     mixerShader.bindDefaults();
     mixerShader.linkProgram();
     
-    
+    isSetup = true;
 }
 
 void textureMixer::computeOutput(ofTexture* &in)
@@ -198,6 +204,10 @@ void textureMixer::computeOutput(ofTexture* &in)
             output = &outputFbo.getTexture();
         }
     }
+    //GLenum err;
+    //while ((err = glGetError()) != GL_NO_ERROR) {
+    //    ofLog() << "OpenGL error: " << err;
+    //}
 }
 
 /*
