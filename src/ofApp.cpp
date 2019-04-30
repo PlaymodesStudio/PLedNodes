@@ -9,7 +9,6 @@
 #include "audioEngineController.h"
 #include "vector_op_registrator.h"
 #include "textureReader.h"
-#include "swarosky_custom_reindex.h"
 #include "valueEaser.h"
 #include "envelopeGenerator.h"
 #include "manualOscillatorBank.h"
@@ -105,7 +104,6 @@ void ofApp::setup(){
     reg->registerModel<textureUnifier>("LedNodes");
     reg->registerModel<audioEngineController>("Audio");
     reg->registerModel<textureReader>("LedNodes");
-    reg->registerModel<swarosky_custom_reindex>("Swarosky");
     reg->registerModel<valueEaser>("EASER");
     reg->registerModel<manualOscillatorBank>("Generators");
     reg->registerModel<envelopeGenerator>("Midi");

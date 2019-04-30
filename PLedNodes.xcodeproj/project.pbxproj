@@ -178,7 +178,6 @@
 		35BB9BB90DBABFD3B39F8DB6 /* ofxUDPManager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxUDPManager.cpp; path = ../../../addons/ofxNetwork/src/ofxUDPManager.cpp; sourceTree = SOURCE_ROOT; };
 		3795AFB8EAAD641D6CA88D4A /* ofxOceanodeTypesRegistry.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxOceanodeTypesRegistry.h; path = ../../../addons/ofxOceanode/src/Managers/ofxOceanodeTypesRegistry.h; sourceTree = SOURCE_ROOT; };
 		37B07AB58DA4B373D48DE469 /* chaiscript_stdlib.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = chaiscript_stdlib.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/chaiscript_stdlib.hpp"; sourceTree = SOURCE_ROOT; };
-		390CB0D2C92769CA1CF21D72 /* swarosky_custom_reindex.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = swarosky_custom_reindex.h; path = src/swarosky_custom_reindex.h; sourceTree = SOURCE_ROOT; };
 		395527EBC333EB07BC32D820 /* Art-NetOemCodes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = "Art-NetOemCodes.h"; path = "../../../addons/ofxArtNode/libs/ArtNode/src/Art-NetOemCodes.h"; sourceTree = SOURCE_ROOT; };
 		3ABE08620BD6533FF8DCF2BB /* waveScope.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = waveScope.h; path = "src/ofxOceanode_modules-texture/waveScope.h"; sourceTree = SOURCE_ROOT; };
 		3ADE4293B3C1FB698009CAD7 /* chaiscript_tracer.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = chaiscript_tracer.hpp; path = "src/ofxOceanode_modules-scripting/chaiscript/language/chaiscript_tracer.hpp"; sourceTree = SOURCE_ROOT; };
@@ -1500,7 +1499,6 @@
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				AD1723E2540DDC1702163C59 /* manualOscillatorBank.cpp */,
 				82E06F261743B1A265AA564A /* senderManager.cpp */,
-				390CB0D2C92769CA1CF21D72 /* swarosky_custom_reindex.h */,
 				EA8365184C16735CBDA4836C /* texturePixelmap.cpp */,
 				4655B54F461ED6D3FD64F179 /* envelopeGenerator.cpp */,
 				D00378236FD73D5D8CF8C990 /* valueEaser.cpp */,
