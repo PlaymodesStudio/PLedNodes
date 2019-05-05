@@ -19,6 +19,7 @@
 #include "midiGateIn.h"
 #include "sequentialAnalyzer.h"
 #include "delta.h"
+#include "SnowQueenTheFrameTextureRemapper.h"
 
 #include "ofxOceanodeBPMController.h"
 
@@ -114,6 +115,7 @@ void ofApp::setup(){
     reg->registerModel<midiGateIn>("Midi");
     reg->registerModel<sequentialAnalyzer>("Midi");
     reg->registerModel<delta>("OP");
+    reg->registerModel<SnowQueenTheFrameTextureRemapper>("LedNodes");
     
     registerVectorOp(reg);
     

@@ -289,6 +289,7 @@
 		9F18909221F11CB600617FB4 /* midiGateIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = midiGateIn.h; sourceTree = "<group>"; };
 		9F18909421F11D1300617FB4 /* sequentialAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sequentialAnalyzer.h; sourceTree = "<group>"; };
 		9F18909521F11D1400617FB4 /* sequentialAnalyzer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sequentialAnalyzer.cpp; sourceTree = "<group>"; };
+		9F753FB9227DFAD400EB3DC6 /* SnowQueenTheFrameTextureRemapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SnowQueenTheFrameTextureRemapper.h; sourceTree = "<group>"; };
 		9F7986DC4EB05E75FCE2C777 /* ofxOscSender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxOscSender.h; path = ../../../addons/ofxOsc/src/ofxOscSender.h; sourceTree = SOURCE_ROOT; };
 		9FA0773E223936AB0034CF90 /* delta.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = delta.cpp; sourceTree = "<group>"; };
 		9FA0773F223936AB0034CF90 /* delta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = delta.h; sourceTree = "<group>"; };
@@ -1524,6 +1525,7 @@
 				0EE517B339CA72A861445AE2 /* senderManager.h */,
 				8F0AFD597F39E0638FFCDA97 /* textureMixer.cpp */,
 				C2115534DAA5A686652FE55B /* ofxOceanode_modules-artnet */,
+				9F753FB9227DFAD400EB3DC6 /* SnowQueenTheFrameTextureRemapper.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
