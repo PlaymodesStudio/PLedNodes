@@ -26,6 +26,7 @@ private:
     ofParameter<int>    triggerTextureIndex;
     ofParameter<int>    spacing;
     vector<ofParameter<ofTexture*>>    inputs;
+    vector<ofParameter<string>> customPositions;
     ofParameter<ofTexture*>    output;
     
     ofFbo outputFbo;
