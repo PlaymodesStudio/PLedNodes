@@ -29,15 +29,15 @@ public:
             }
         });
         
-        addRemapingLine(355, 0);
-        addRemapingLine(322, 1);
-        addRemapingLine(293, 2);
-        addRemapingLine(284, 3);
-        addRemapingLine(258, 4);
-        addRemapingLine(235, 5);
-        addRemapingLine(230, 6);
-        addRemapingLine(211, 7);
-        addRemapingLine(195, 8);
+        addRemapingLine(354, 0);
+        addRemapingLine(321, 1);
+        addRemapingLine(291, 2);
+        addRemapingLine(283, 3);
+        addRemapingLine(257, 4);
+        addRemapingLine(234, 5);
+        addRemapingLine(229, 6);
+        addRemapingLine(210, 7);
+        addRemapingLine(193, 8);
         
 //        addSquareToMesh(ofRectangle(0, 0, 355, 1), ofRectangle(0, 0, 355, 1));
 //        addSquareToMesh(ofRectangle(355, 0, 355, 1), ofRectangle(0, 1, 355, 1));
@@ -47,7 +47,7 @@ public:
         
         
         ofFbo::Settings settings;
-        settings.width = 355;
+        settings.width = 354;
         settings.height = 36;
         settings.internalformat = GL_RGBA32F;
         settings.maxFilter = GL_NEAREST;
@@ -71,7 +71,7 @@ private:
     }
     
     void addSquareToMesh(ofRectangle inRect, ofRectangle outRect){
-        glm::vec3 dimensions(1420.0, 9.0, 1);
+        glm::vec3 dimensions(1416.0, 9.0, 1);
         mesh.addTexCoord(inRect.getTopLeft()/dimensions);
         mesh.addTexCoord(inRect.getTopRight()/dimensions);
         mesh.addTexCoord(inRect.getBottomRight()/dimensions);
