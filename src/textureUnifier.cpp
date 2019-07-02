@@ -8,15 +8,17 @@
 
 #include "textureUnifier.h"
 
+#define NUM_INPUTS 6
+
 textureUnifier::textureUnifier() : ofxOceanodeNodeModel("Texture Unifier"){
     
 }
 
 void textureUnifier::setup(){
-    parameters->add(triggerTextureIndex.set("Trigger Index", 0, 0, 5));
+    parameters->add(triggerTextureIndex.set("Trigger Index", 0, 0, NUM_INPUTS));
     parameters->add(spacing.set("Tex Spacing", 1, 0, 10));
-    inputs.resize(5);
-    customPositions.resize(5);
+    inputs.resize(NUM_INPUTS);
+    customPositions.resize(NUM_INPUTS);
     for(int i = 0; i < inputs.size() ; i++){
         parameters->add(inputs[i].set("Input " + ofToString(i), nullptr));
         parameters->add(customPositions[i].set("Custom Position " + ofToString(i), "0,0"));
