@@ -6,3 +6,4 @@ ofxNetwork
 ofxOceanode
 ofxOsc
 ofxSyphon
+ofxTextureRecorder
