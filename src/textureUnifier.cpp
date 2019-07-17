@@ -8,7 +8,7 @@
 
 #include "textureUnifier.h"
 
-#define NUM_INPUTS 6
+#define NUM_INPUTS 8
 
 textureUnifier::textureUnifier() : ofxOceanodeNodeModel("Texture Unifier"){
     
