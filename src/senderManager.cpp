@@ -9,7 +9,7 @@
 #include "senderManager.h"
 
 senderManager::senderManager() : ofxOceanodeNodeModel("Sender Manager"){
-    addParameterToGroupAndInfo(enable.set("Enable", 0)).isSavePreset = false;
+    addParameterToGroupAndInfo(enable.set("Enable", 1)).isSavePreset = false;
     addParameterToGroupAndInfo(syphonName.set("Server Name", "Texture")).isSavePreset = false;
     addParameterToGroupAndInfo(masterFader.set("Master Fader", 1, 0, 1)).isSavePreset = false;
     parameters->add(textureIn.set("Texture In", nullptr));
