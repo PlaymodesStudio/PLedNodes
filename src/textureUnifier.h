@@ -27,6 +27,7 @@ private:
     ofParameter<int>    spacing;
     vector<ofParameter<ofTexture*>>    inputs;
     vector<ofParameter<string>> customPositions;
+    vector<ofParameter<float>> opacities;
     ofParameter<ofTexture*>    output;
     
     ofFbo outputFbo;

@@ -19,9 +19,11 @@ void textureUnifier::setup(){
     parameters->add(spacing.set("Tex Spacing", 1, 0, 10));
     inputs.resize(NUM_INPUTS);
     customPositions.resize(NUM_INPUTS);
+    opacities.resize(NUM_INPUTS);
     for(int i = 0; i < inputs.size() ; i++){
         parameters->add(inputs[i].set("Input " + ofToString(i), nullptr));
         parameters->add(customPositions[i].set("Custom Position " + ofToString(i), "0,0"));
+        parameters->add(opacities[i].set("Opacity " + ofToString(i),1.0,0.0,1.0));
         listeners.push(customPositions[i].newListener([this, i](string &s){
             if(ofSplitString(s, ",").size() != 2){
                 customPositions[i] = "0,0";
@@ -79,6 +81,8 @@ void textureUnifier::computeOutput(ofTexture* &in){
             for(int i = 0; i < inputs.size(); i++){
                 auto &t = inputs[i];
                 if(t != nullptr){
+                    ofPushStyle();
+                    ofSetColor(255.0 * opacities[i]);
                     if(customPositions[i].get() == "0,0"){
                         t.get()->draw(0, currentLine);
                         currentLine += t.get()->getHeight() + spacing;
@@ -88,6 +92,7 @@ void textureUnifier::computeOutput(ofTexture* &in){
                         t.get()->draw(ofToInt(positionInfo[0]), ofToInt(positionInfo[1]));
                         currentLine = max(int(currentLine), int(ofToInt(positionInfo[1]) + t.get()->getHeight())) + spacing;
                     }
+                    ofPopStyle();
                 }
             }
             outputFbo.end();
