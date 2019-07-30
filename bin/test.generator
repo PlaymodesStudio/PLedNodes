@@ -1,7 +1,7 @@
 {
     "Name": "Example",
     "BPM": 120,
-    "FPS": 60,
+    "FPS":60,
     "Syphon": 1,
     "TextureUnifierNumber": 0,
     "TextureUnifierSpacing": 0,
