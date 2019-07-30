@@ -10,6 +10,7 @@
 #define textureRecorder_h
 
 #include "ofxOceanodeNodeModel.h"
+#include "ofxTextureRecorder.h"
 
 class textureRecorder : public ofxOceanodeNodeModel{
 public:
@@ -21,15 +22,23 @@ private:
     void inputListener(ofTexture* &texture);
     void recordListener(bool &b);
     
+    ofEventListeners listeners;
+    
     ofParameter<float>  phasorIn;
     ofParameter<bool>   record;
     ofParameter<bool>   autoRecLoop;
     ofParameter<string> filename;
     ofParameter<ofTexture*>    input;
     
+    ofxTextureRecorder *recorder;
+    int width, height;
+    bool recorderIsSetup;
+    
     float oldPhasor;
     int frameCounter;
     string initRecordingTimestamp;
+    
+    ofFbo fbo;
 };
 
 #endif /* textureRecorder_h */
