@@ -17,6 +17,11 @@ public:
     audioEngineController();
     ~audioEngineController(){};
     
+    void loadBeforeConnections(ofJson &json){
+        deserializeParameter(json, oscHost);
+        deserializeParameter(json, oscPort);
+    }
+    
 private:
     void oscHostAndPortListener(string &s);
     

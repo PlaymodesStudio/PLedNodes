@@ -9,8 +9,8 @@
 #include "audioEngineController.h"
 
 audioEngineController::audioEngineController() : ofxOceanodeNodeModel("Audio Controller"){
-    addParameterToGroupAndInfo(oscHost.set("Osc Host", "localhost")).isSavePreset = false;
-    addParameterToGroupAndInfo(oscPort.set("Osc Port", "11511")).isSavePreset = false;
+    addParameterToGroupAndInfo(oscHost.set("Osc Host", "localhost"));//.isSavePreset = false;
+    addParameterToGroupAndInfo(oscPort.set("Osc Port", "11511"));//.isSavePreset = false;
     parameters->add(presetNum.set("Preset Num", 0, 0, 100));
     parameters->add(param_a.set("Param a", {0}, {0}, {1}));
     parameters->add(param_b.set("Param b", {0}, {0}, {1}));
