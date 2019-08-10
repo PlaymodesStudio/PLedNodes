@@ -20,6 +20,12 @@
 #include "sequentialAnalyzer.h"
 #include "delta.h"
 #include "SnowQueenTheFrameTextureRemapper.h"
+#include "oscTextureSender.h"
+#include "euclideanGenerator.h"
+#include "arpeggiator.h"
+#include "vectorToTexture.h"
+#include "thresholdBang.h"
+#include "stepSequencer.h"
 
 #include "ofxOceanodeBPMController.h"
 
@@ -65,12 +71,12 @@ void ofApp::setup(){
 //
         auto mainPos = json["MainWindowPos"];
         if(mainPos.size() == 2){
-            ofSetWindowPosition(ofToInt(mainPos[0]), ofToInt(mainPos[1]));
+//            ofSetWindowPosition(ofToInt(mainPos[0]), ofToInt(mainPos[1]));
         }
 
         auto mainSize = json["MainWindowSize"];
         if(mainSize.size() == 2){
-            ofSetWindowShape(ofToInt(mainSize[0]), ofToInt(mainSize[1]));
+//            ofSetWindowShape(ofToInt(mainSize[0]), ofToInt(mainSize[1]));
         }
 
         auto prevPos = json["PrevWindowPos"];
@@ -116,6 +122,12 @@ void ofApp::setup(){
     reg->registerModel<sequentialAnalyzer>("Midi");
     reg->registerModel<delta>("OP");
     reg->registerModel<SnowQueenTheFrameTextureRemapper>("LedNodes");
+    reg->registerModel<oscTextureSender>("Audio");
+    reg->registerModel<euclideanGenerator>("Generators");
+    reg->registerModel<arpeggiator>("Modulator");
+    reg->registerModel<vectorToTexture>("LedNodes");
+    reg->registerModel<thresholdBang>("Modulator");
+    reg->registerModel<stepSequencer>("Generators");
     
     registerVectorOp(reg);
     
@@ -128,7 +140,7 @@ void ofApp::setup(){
     
     controls = make_shared<ofxOceanodeControls>(container);
     controls->get<ofxOceanodeBPMController>()->setBPM(bpm);
-    
+    container->loadPersistent();
     //container->loadPreset("Presets/Bank_2019-01-20-14-33-32-088/2--cyclo2");
 }
 
