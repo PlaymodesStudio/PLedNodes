@@ -22,7 +22,6 @@
 #include "SnowQueenTheFrameTextureRemapper.h"
 #include "oscTextureSender.h"
 #include "euclideanGenerator.h"
-#include "arpeggiator.h"
 #include "vectorToTexture.h"
 #include "thresholdBang.h"
 #include "stepSequencer.h"
@@ -124,7 +123,6 @@ void ofApp::setup(){
     reg->registerModel<SnowQueenTheFrameTextureRemapper>("LedNodes");
     reg->registerModel<oscTextureSender>("Audio");
     reg->registerModel<euclideanGenerator>("Generators");
-    reg->registerModel<arpeggiator>("Modulator");
     reg->registerModel<vectorToTexture>("LedNodes");
     reg->registerModel<thresholdBang>("Modulator");
     reg->registerModel<stepSequencer>("Generators");

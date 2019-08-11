@@ -78,7 +78,6 @@
 		9BD777923C7E370A961526AC /* envelopeGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4655B54F461ED6D3FD64F179 /* envelopeGenerator.cpp */; };
 		9F42EFE722F87C2000E14366 /* oscTextureSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F42EFE522F87C2000E14366 /* oscTextureSender.cpp */; };
 		9F42EFEC22FADFC300E14366 /* euclideanGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F42EFE822FADFBD00E14366 /* euclideanGenerator.cpp */; };
-		9F42EFED22FADFC300E14366 /* arpeggiator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F42EFEB22FADFC300E14366 /* arpeggiator.cpp */; };
 		9FA27BDF22CCCDAB00816EA1 /* ofxOceanodeNodeMacro.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FA27BDD22CCCDAB00816EA1 /* ofxOceanodeNodeMacro.cpp */; };
 		9FB8AE6ABDA40CD0274A29BA /* oscillatorTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 123BA4F448ED422A2D4B94DC /* oscillatorTexture.cpp */; };
 		A7F232028F646FE8E4DFD621 /* ArtNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08D6C050337BF5E7D15F7C63 /* ArtNode.cpp */; };
@@ -300,8 +299,6 @@
 		9F42EFE622F87C2000E14366 /* oscTextureSender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = oscTextureSender.h; sourceTree = "<group>"; };
 		9F42EFE822FADFBD00E14366 /* euclideanGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = euclideanGenerator.cpp; sourceTree = "<group>"; };
 		9F42EFE922FADFBF00E14366 /* euclideanGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = euclideanGenerator.h; sourceTree = "<group>"; };
-		9F42EFEA22FADFC100E14366 /* arpeggiator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = arpeggiator.h; sourceTree = "<group>"; };
-		9F42EFEB22FADFC300E14366 /* arpeggiator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = arpeggiator.cpp; sourceTree = "<group>"; };
 		9F42EFEF22FAEA9000E14366 /* vectorToTexture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vectorToTexture.h; sourceTree = "<group>"; };
 		9F42EFF122FB174300E14366 /* thresholdBang.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = thresholdBang.h; sourceTree = "<group>"; };
 		9F42EFF522FB1D8500E14366 /* stepSequencer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stepSequencer.h; sourceTree = "<group>"; };
@@ -1553,8 +1550,6 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				9F42EFEB22FADFC300E14366 /* arpeggiator.cpp */,
-				9F42EFEA22FADFC100E14366 /* arpeggiator.h */,
 				9F42EFE822FADFBD00E14366 /* euclideanGenerator.cpp */,
 				9F42EFE922FADFBF00E14366 /* euclideanGenerator.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
@@ -1812,7 +1807,6 @@
 				0AA13C54EE8C24EC793EA60E /* waveScope.cpp in Sources */,
 				9FB8AE6ABDA40CD0274A29BA /* oscillatorTexture.cpp in Sources */,
 				3B08BD13D76B507752129349 /* scriptModule.cpp in Sources */,
-				9F42EFED22FADFC300E14366 /* arpeggiator.cpp in Sources */,
 				1D172DCEF891221EE42D305F /* delta.cpp in Sources */,
 				B436E3388D17A3AA80557209 /* midiGateIn.cpp in Sources */,
 				1375FF8F6CBF4CC39E765E10 /* audioEngineController.cpp in Sources */,
