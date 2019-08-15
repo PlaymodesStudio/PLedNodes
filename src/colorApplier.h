@@ -23,7 +23,7 @@ public:
     ~colorApplier();
     
     void setup() override;
-    
+    void draw(ofEventArgs &a) override;
     
 private:
     void reloadShader(bool &b);
@@ -32,7 +32,7 @@ private:
     ofEventListeners listeners;
     
     void modulationInfoListener(vector<float> &vf);
-    void applyColor(ofTexture* &inputTex);
+//    void applyColor(ofTexture* &inputTex);
     void colorDisplacementChanged(float &f);
     void computeNewColorDisplacement(float f);
     
@@ -87,6 +87,10 @@ private:
     //TBOs
     ofTexture               colorDisplacementTexture;
     ofBufferObject          colorDisplacementBuffer;
+    
+    vector<float> modulationInfoXUpdated;
+    vector<float> modulationInfoYUpdated;
+    float colorDisplacementUpdated;
     
     bool isSetup;
 };

@@ -10,7 +10,7 @@
 #include "sharedResources.h"
 
 void colorApplier::setup(){
-    isSetup = true;
+    isSetup = false;
     resources = &sharedResources::getInstance();
     
     parameters->add(reloadShaderParam.set("Reload Shader", false));
@@ -53,30 +53,16 @@ void colorApplier::setup(){
     listeners.push(colorHParam[1].newListener(this, &colorApplier::colorHueListener));
     
     listeners.push(colorDisplacement.newListener(this, &colorApplier::colorDisplacementChanged));
-    listeners.push(grayScaleIn.newListener(this, &colorApplier::applyColor));
+//    listeners.push(grayScaleIn.newListener(this, &colorApplier::applyColor));
     //    reloadShaderParam.newListener(this, &colorApplier::reloadShader);
     
     colorIsChanging = false;
     
     oldColorDisplacement = colorDisplacement;
     
-    modulationInfoBuffer.allocate();
-    modulationInfoBuffer.bind(GL_TEXTURE_BUFFER);
-    modulationInfoBuffer.setData(vector<float>(1, -1), GL_STREAM_DRAW);
-    modulationInfoTexture.allocateAsBufferTexture(modulationInfoBuffer, GL_R32F);
-    
-    
-    colorDisplacementBuffer.allocate();
-    colorDisplacementBuffer.bind(GL_TEXTURE_BUFFER);
-    colorDisplacementBuffer.setData(vector<ofVec3f>(1, ofVec3f(-1, -1, -1)), GL_STREAM_DRAW);
-    colorDisplacementTexture.allocateAsBufferTexture(colorDisplacementBuffer, GL_RGB32F);
-    
-    bool sillyBool = true;
-    reloadShader(sillyBool);
-    
     listeners.push(modulationInfo[0].newListener(this, &colorApplier::modulationInfoListener));
     listeners.push(modulationInfo[1].newListener(this, &colorApplier::modulationInfoListener));
-    
+    colorDisplacementUpdated = -1;
 }
 
 colorApplier::~colorApplier(){
@@ -117,10 +103,46 @@ void colorApplier::reloadShader(bool &b){
     imageTexturePreviewShaderTextureLocation = resources->getNextAvailableShaderTextureLocation();
 }
 
-void colorApplier::applyColor(ofTexture* &inputTex){
-    if(inputTex != nullptr){
-        width = inputTex->getWidth();
-        height = inputTex->getHeight();
+void colorApplier::draw(ofEventArgs &a){
+    if(!isSetup){
+        modulationInfoBuffer.allocate();
+        modulationInfoBuffer.bind(GL_TEXTURE_BUFFER);
+        modulationInfoBuffer.setData(vector<float>(1, -1), GL_STREAM_DRAW);
+        modulationInfoTexture.allocateAsBufferTexture(modulationInfoBuffer, GL_R32F);
+        
+        
+        colorDisplacementBuffer.allocate();
+        colorDisplacementBuffer.bind(GL_TEXTURE_BUFFER);
+        colorDisplacementBuffer.setData(vector<ofVec3f>(1, ofVec3f(-1, -1, -1)), GL_STREAM_DRAW);
+        colorDisplacementTexture.allocateAsBufferTexture(colorDisplacementBuffer, GL_RGB32F);
+        
+        bool sillyBool = true;
+        reloadShader(sillyBool);
+        isSetup = true;
+    }
+    if(modulationInfoXUpdated.size() != 0){
+        if(modulationInfoXUpdated.size() == 1){
+            modulationInfoBuffer.updateData(0, vector<float>(width, -1));
+        }else if(modulationInfoXUpdated.size() == width){
+            modulationInfoBuffer.updateData(0, modulationInfoXUpdated);
+        }
+        modulationInfoXUpdated.clear();
+    }
+    if(modulationInfoYUpdated.size() != 0){
+        if(modulationInfoYUpdated.size() == 1){
+            modulationInfoBuffer.updateData(width*4, vector<float>(height, -1));
+        }else if(modulationInfoYUpdated.size() == height){
+            modulationInfoBuffer.updateData(width*4, modulationInfoYUpdated);
+        }
+        modulationInfoYUpdated.clear();
+    }
+    if(colorDisplacementUpdated != -1){
+        colorDisplacementBuffer.updateData(0, computeNewColorDisplacementVector(colorDisplacementUpdated));
+        colorDisplacementUpdated = -1;
+    }
+    if(grayScaleIn.get() != nullptr){
+        width = grayScaleIn.get()->getWidth();
+        height = grayScaleIn.get()->getHeight();
         if(outputFbo.getWidth() != width || outputFbo.getHeight() != height || !outputFbo.isAllocated()){
             outputFbo.allocate(width, height, GL_RGB);
             outputFbo.getTexture().setTextureMinMagFilter(GL_NEAREST, GL_NEAREST);
@@ -141,12 +163,12 @@ void colorApplier::applyColor(ofTexture* &inputTex){
         outputShader.setUniform1i("useTexture", textureImage.get() != nullptr);
         outputShader.setUniform3f("color1", colorRParam[0]/255., colorGParam[0]/255., colorBParam[0]/255.);
         outputShader.setUniform3f("color2", colorRParam[1]/255., colorGParam[1]/255., colorBParam[1]/255.);
-        outputShader.setUniformTexture("inputTexture", *inputTex, infoTextureOutputShaderTextureLocation);
+        outputShader.setUniformTexture("inputTexture", *grayScaleIn, infoTextureOutputShaderTextureLocation);
         if(textureImage.get() != nullptr){
             outputShader.setUniformTexture("inputImage", *textureImage, imageTextureOutputShaderTextureLocation);
         }
         
-        inputTex->draw(0, 0);
+        grayScaleIn.get()->draw(0, 0);
         outputShader.end();
         outputFbo.end();
         parameters->get("Output").cast<ofTexture*>() = &outputFbo.getTexture();
@@ -164,7 +186,7 @@ void colorApplier::applyColor(ofTexture* &inputTex){
             previewShader.setUniformTexture("inputImage", *textureImage, imageTextureOutputShaderTextureLocation);
         }
         
-        inputTex->draw(0, 0);
+        grayScaleIn.get()->draw(0, 0);
         previewShader.end();
         previewFbo.end();
         parameters->get("Gradient Preview").cast<ofTexture*>() = &previewFbo.getTexture();
@@ -182,18 +204,19 @@ vector<ofVec3f> colorApplier::computeNewColorDisplacementVector(float f){
 
 void colorApplier::colorDisplacementChanged(float &f){
     if(oldColorDisplacement != f){
-        colorDisplacementBuffer.updateData(0, computeNewColorDisplacementVector(f));
+        colorDisplacementUpdated = f;
+//        colorDisplacementBuffer.updateData(0, computeNewColorDisplacementVector(f));
     }
     oldColorDisplacement = f;
 }
 
 void colorApplier::computeNewColorDisplacement(float f){
-    ofPixels pix;
-    pix.allocate(colorDisplacementTexture.getWidth(), colorDisplacementTexture.getHeight(), 1);
-    for(int i = 0; i < pix.size(); i++){
-        pix[i] = ofRandom(-f, f);
-    }
-    colorDisplacementTexture.loadData(pix);
+//    ofPixels pix;
+//    pix.allocate(colorDisplacementTexture.getWidth(), colorDisplacementTexture.getHeight(), 1);
+//    for(int i = 0; i < pix.size(); i++){
+//        pix[i] = ofRandom(-f, f);
+//    }
+//    colorDisplacementTexture.loadData(pix);
 }
 
 void colorApplier::colorListener(ofColor &c){
@@ -237,18 +260,10 @@ void colorApplier::colorHueListener(int &i){
 
 void colorApplier::modulationInfoListener(vector<float> &vf){
     if(&vf == &modulationInfo[0].get()){
-        if(vf.size() == 1){
-            modulationInfoBuffer.updateData(0, vector<float>(width, -1));
-        }else if(vf.size() == width){
-            modulationInfoBuffer.updateData(0, vf);
-        }
+        modulationInfoXUpdated = vf;
     }
-    if(&vf == &modulationInfo[1].get()){
-        if(vf.size() == 1){
-            modulationInfoBuffer.updateData(width*4, vector<float>(height, -1));
-        }else if(vf.size() == height){
-            modulationInfoBuffer.updateData(width*4, vf);
-        }
+    else if(&vf == &modulationInfo[1].get()){
+        modulationInfoYUpdated = vf;
     }
 }
 
