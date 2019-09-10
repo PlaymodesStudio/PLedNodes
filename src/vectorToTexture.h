@@ -20,15 +20,19 @@ public:
         addParameterToGroupAndInfo(output.set("Output Tex", nullptr));
         
         listener = size.newListener([this](string &s){
-            vector<string> dimensions = ofSplitString(size, "x");
-            fbo.allocate(ofToInt(dimensions[0]), ofToInt(dimensions[1]), GL_RGBA);
-            fbo.getTexture().setTextureMinMagFilter(GL_NEAREST, GL_NEAREST);
+            changedSize = true;
         });
         
-        size = "32x4";
+        changedSize = true;
     }
     
     void draw(ofEventArgs &a){
+        if(changedSize){
+            vector<string> dimensions = ofSplitString(size, "x");
+            fbo.allocate(ofToInt(dimensions[0]), ofToInt(dimensions[1]), GL_RGBA);
+            fbo.getTexture().setTextureMinMagFilter(GL_NEAREST, GL_NEAREST);
+            changedSize = false;
+        }
         vector<float> rgbInput(input->size()*3, 0);
         for(int i = 0; i < input->size(); i++){
             rgbInput[(i*3)] = input->at(i);
@@ -53,6 +57,8 @@ private:
     ofParameter<ofTexture*> output;
     ofParameter<string> size;
     ofFbo fbo;
+    
+    bool changedSize;
     
     ofEventListener listener;
 };
