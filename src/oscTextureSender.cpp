@@ -13,6 +13,7 @@ oscTextureSender::oscTextureSender() : ofxOceanodeNodeModel("Texture Sender"){
     addParameterToGroupAndInfo(address.set("Osc Address", "/texture")).isSavePreset = true;
     addParameterToGroupAndInfo(resample.set("Resample", 80, 1, 240));//.isSavePreset = false;
     addParameterToGroupAndInfo(createDropdownAbstractParameter("Method", {"Min", "Max", "Sum", "Mean"}, resampleMethod));
+    addParameterToGroupAndInfo(fader.set("Master Fader", 1, 0, 1));
     addParameterToGroupAndInfo(texture.set("Texture", nullptr));
     oscSender.setup(oscHost, ofToInt(oscPort));
     resampleMethod = 1;
@@ -68,7 +69,7 @@ void oscTextureSender::draw(ofEventArgs &a){
                     message.setAddress(address.get() + "/" + ofToString(i));
                 
                 for(auto f : tempOutput){
-                    message.addFloatArg(f);
+                    message.addFloatArg(f * fader);
                 }
                 oscSender.sendMessage(message);
             }
@@ -102,7 +103,7 @@ void oscTextureSender::draw(ofEventArgs &a){
             ofxOscMessage message;
             message.setAddress(address.get());
             for(auto f : tempOutput){
-                message.addFloatArg(f);
+                message.addFloatArg(f*fader);
             }
             oscSender.sendMessage(message);
         }

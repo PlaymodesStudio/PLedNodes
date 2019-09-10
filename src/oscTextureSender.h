@@ -25,6 +25,7 @@ private:
     ofParameter<string> address;
     ofParameter<int> resample;
     ofParameter<int> resampleMethod;
+    ofParameter<float> fader;
     ofParameter<ofTexture*> texture;
     
     ofEventListeners listeners;
