@@ -17,6 +17,8 @@ public:
     textureRecorder();
     ~textureRecorder(){};
     
+    void draw(ofEventArgs &a);
+    
 private:
     void phasorInListener(float &f);
     void inputListener(ofTexture* &texture);
