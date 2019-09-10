@@ -48,7 +48,12 @@ void main(){
     }
     
     if(useTexture == 1){
-        modulationValue = texture(inputImage, vec2(xTex, yTex)).r;
+        if(xModulationValue == -1 && yModulationValue == -1){
+            modulationValue = texture(inputImage, vec2(xTex, yTex)).r;
+        }
+        else{
+            modulationValue = modulationValue * texture(inputImage, vec2(xTex, yTex)).r;
+        }
     }
     
     vec3 finalColor = (((color2 * modulationValue) + (color1 * (1-modulationValue))) + displacementValue)  * r_info.r;

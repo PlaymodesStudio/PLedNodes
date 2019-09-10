@@ -97,14 +97,16 @@ void colorApplier::reloadShader(bool &b){
     previewShader.setUniformTexture("displacementInfo", colorDisplacementTexture, shaderLocations[3]);
     previewShader.end();
     
-    infoTextureOutputShaderTextureLocation = resources->getNextAvailableShaderTextureLocation();
-    imageTextureOutputShaderTextureLocation = resources->getNextAvailableShaderTextureLocation();
-    infoTexturePreviewShaderTextureLocation = resources->getNextAvailableShaderTextureLocation();
-    imageTexturePreviewShaderTextureLocation = resources->getNextAvailableShaderTextureLocation();
+    
 }
 
 void colorApplier::draw(ofEventArgs &a){
     if(!isSetup){
+        infoTextureOutputShaderTextureLocation = resources->getNextAvailableShaderTextureLocation();
+        imageTextureOutputShaderTextureLocation = resources->getNextAvailableShaderTextureLocation();
+        infoTexturePreviewShaderTextureLocation = resources->getNextAvailableShaderTextureLocation();
+        imageTexturePreviewShaderTextureLocation = resources->getNextAvailableShaderTextureLocation();
+        
         modulationInfoBuffer.allocate();
         modulationInfoBuffer.bind(GL_TEXTURE_BUFFER);
         modulationInfoBuffer.setData(vector<float>(1, -1), GL_STREAM_DRAW);
@@ -140,9 +142,19 @@ void colorApplier::draw(ofEventArgs &a){
         colorDisplacementBuffer.updateData(0, computeNewColorDisplacementVector(colorDisplacementUpdated));
         colorDisplacementUpdated = -1;
     }
+    
     if(grayScaleIn.get() != nullptr){
         width = grayScaleIn.get()->getWidth();
         height = grayScaleIn.get()->getHeight();
+    }
+    else if(textureImage.get() != nullptr){
+        width = textureImage.get()->getWidth();
+        height = textureImage.get()->getHeight();
+    }else{
+        width = -1;
+        height = -1;
+    }
+    if(width != -1 && height != -1){
         if(outputFbo.getWidth() != width || outputFbo.getHeight() != height || !outputFbo.isAllocated()){
             outputFbo.allocate(width, height, GL_RGB);
             outputFbo.getTexture().setTextureMinMagFilter(GL_NEAREST, GL_NEAREST);
@@ -163,12 +175,24 @@ void colorApplier::draw(ofEventArgs &a){
         outputShader.setUniform1i("useTexture", textureImage.get() != nullptr);
         outputShader.setUniform3f("color1", colorRParam[0]/255., colorGParam[0]/255., colorBParam[0]/255.);
         outputShader.setUniform3f("color2", colorRParam[1]/255., colorGParam[1]/255., colorBParam[1]/255.);
-        outputShader.setUniformTexture("inputTexture", *grayScaleIn, infoTextureOutputShaderTextureLocation);
+        if(grayScaleIn.get() != nullptr){
+            outputShader.setUniformTexture("inputTexture", *grayScaleIn, infoTextureOutputShaderTextureLocation);
+        }else{
+            outputShader.setUniformTexture("inputTexture", whiteFbo.getTexture(), infoTexturePreviewShaderTextureLocation);
+        }
         if(textureImage.get() != nullptr){
             outputShader.setUniformTexture("inputImage", *textureImage, imageTextureOutputShaderTextureLocation);
         }
         
-        grayScaleIn.get()->draw(0, 0);
+        if(grayScaleIn.get() != nullptr){
+            grayScaleIn.get()->draw(0, 0);
+        }
+        else{
+            ofPushStyle();
+            ofSetColor(255);
+            ofDrawRectangle(0, 0, width, height);
+            ofPopStyle();
+        }
         outputShader.end();
         outputFbo.end();
         parameters->get("Output").cast<ofTexture*>() = &outputFbo.getTexture();
@@ -186,7 +210,10 @@ void colorApplier::draw(ofEventArgs &a){
             previewShader.setUniformTexture("inputImage", *textureImage, imageTextureOutputShaderTextureLocation);
         }
         
-        grayScaleIn.get()->draw(0, 0);
+        ofPushStyle();
+        ofSetColor(255);
+        ofDrawRectangle(0, 0, width, height);
+        ofPopStyle();
         previewShader.end();
         previewFbo.end();
         parameters->get("Gradient Preview").cast<ofTexture*>() = &previewFbo.getTexture();
