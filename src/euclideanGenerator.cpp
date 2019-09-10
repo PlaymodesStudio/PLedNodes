@@ -22,6 +22,8 @@ euclideanGenerator::euclideanGenerator() : ofxOceanodeNodeModel("Euclidean Gener
     listeners.push(input.newListener(this, &euclideanGenerator::computeOutput));
     listeners.push(onsets.newListener(this, &euclideanGenerator::computeAlgorithm));
     listeners.push(divisions.newListener(this, &euclideanGenerator::computeAlgorithm));
+    int i = 0;
+    computeAlgorithm(i);
 }
 
 void euclideanGenerator::computeOutput(float &f){
