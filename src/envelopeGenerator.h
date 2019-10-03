@@ -48,11 +48,13 @@ private:
     ofParameter<vector<float>> output;
     
     vector<float> lastInput;
-    vector<float> lastChangedValue;
     vector<float> phasorValueOnValueChange;
     vector<float> lastPhase;
     vector<bool> reachedMax;
     vector<int> envelopeStage;
+    vector<float> maxValue;
+    vector<float> initialPhase;
+    vector<float> lastSustainValue;
     
     vector<string> easeStringFuncs;
     
