@@ -26,6 +26,7 @@
 #include "thresholdBang.h"
 #include "stepSequencer.h"
 
+#include "ofxOceanodeMidiController.h"
 #include "ofxOceanodeBPMController.h"
 
 //--------------------------------------------------------------
@@ -57,7 +58,7 @@ void ofApp::setup(){
         bpm = json["BPM"];
         int frameRate = json["FPS"];
         ofSetFrameRate(frameRate);
-		if (frameRate == 60) ofSetVerticalSync(true);
+//        if (frameRate == 60) ofSetVerticalSync(true);
         
         int syphonSenders = json["Syphon"];
         
@@ -151,6 +152,11 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    if(controls->get<ofxOceanodeMidiController>()->getIsMidiLearn()){
+        ofSetBackgroundColor(150, 200, 150);
+    }else{
+        ofSetBackgroundColor(127, 127, 127);
+    }
     ofDrawBitmapString(ofGetFrameRate(), 10, 10);
 }
 
@@ -163,10 +169,11 @@ void ofApp::keyPressed(int key){
 #endif
         if(key == 'p') container->savePersistent();
         else if(key == 'u') container->updatePersistent();
-        else if(key == 'c') container->collapseGuis();
+        else if(key == 'k') container->collapseGuis();
         else if(key == 'e') container->expandGuis();
         else if(key == 's') container->saveCurrentPreset();
         else if(key == 'r') container->resetPhase();
+        else if(key == 'l') controls->get<ofxOceanodeMidiController>()->setIsMidiLearn(!controls->get<ofxOceanodeMidiController>()->getIsMidiLearn());
     }else if(key == 'l'){
         //container->loadPreset("Presets/Bank_2019-01-20-14-33-32-088/1--cyclo");
     }
