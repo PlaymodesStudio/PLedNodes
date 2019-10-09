@@ -34,84 +34,60 @@ void textureRecorder::phasorInListener(float &f){
 }
 
 void textureRecorder::draw(ofEventArgs &a){
-        if(input != nullptr){
-            if(!recorderIsSetup || input.get()->getWidth() != width || input.get()->getHeight() != height){
-                width = input.get()->getWidth();
-                height = input.get()->getHeight();
-                fbo.allocate(width, height, GL_RGB);
-                ofxTextureRecorder::Settings settings(fbo.getTexture());
-                settings.imageFormat = OF_IMAGE_FORMAT_PNG;
-                settings.textureInternalFormat = GL_RGB32F;
-                settings.numThreads = 4;
-                settings.maxMemoryUsage = 9000000000;
-                settings.folderPath = "recordings/" + filename.get() +  "_" + initRecordingTimestamp + "/";
-                if(recorder != nullptr){
-                    delete recorder;
-                }
-                recorder = new ofxTextureRecorder();
-                recorder->setup(settings);
-                recorderIsSetup = true;
-            }
-            if(record){
-                if(input != nullptr){
-    //                            ofImage img;
-    //                            texture->readToPixels(img.getPixels());
-    //                            img.save("recordings/" + filename.get() +  "_" + initRecordingTimestamp + "/" + filename.get() + "_" + ofToString(frameCounter, 4, '0') + ".png");
-                    fbo.begin();
-                    input.get()->draw(0,0);
-                    fbo.end();
-                    recorder->save(fbo.getTexture(), frameCounter);
-    //
-//                    recorder->save(*input, frameCounter);
-                }
-                frameCounter++;
-            }
-        }
 
 }
 
 void textureRecorder::inputListener(ofTexture* &texture){
-//    if(texture != nullptr){
-//        if(!recorderIsSetup || texture->getWidth() != width || texture->getHeight() != height){
-//            width = texture->getWidth();
-//            height = texture->getHeight();
-//            fbo.allocate(width, height, GL_RGB);
-//            ofxTextureRecorder::Settings settings(fbo.getTexture());
-//            settings.imageFormat = OF_IMAGE_FORMAT_PNG;
-//            settings.textureInternalFormat = GL_RGB32F;
+    if(input != nullptr){
+        if(!recorderIsSetup || input.get()->getWidth() != width || input.get()->getHeight() != height){
+            width = input.get()->getWidth();
+            height = input.get()->getHeight();
+            fbo.allocate(width, height, GL_RGB);
+            fbo.begin();
+            ofClear(0);
+            input.get()->draw(0,0);
+            fbo.end();
+            ofxTextureRecorder::Settings settings(fbo.getTexture());
+            settings.imageFormat = OF_IMAGE_FORMAT_PNG;
+            settings.textureInternalFormat = GL_RGB32F;
 //            settings.numThreads = 4;
-//            settings.maxMemoryUsage = 9000000000;
-//            settings.folderPath = "recordings/" + filename.get() +  "_" + initRecordingTimestamp + "/";
-//            if(recorder != nullptr){
-//                delete recorder;
-//            }
-//            recorder = new ofxTextureRecorder();
-//            recorder->setup(settings);
-//            recorderIsSetup = true;
-//        }
-//        if(record){
-//            if(texture != nullptr){
-////                            ofImage img;
-////                            texture->readToPixels(img.getPixels());
-////                            img.save("recordings/" + filename.get() +  "_" + initRecordingTimestamp + "/" + filename.get() + "_" + ofToString(frameCounter, 4, '0') + ".png");
-//                fbo.begin();
-//                texture->draw(0,0);
-//                fbo.end();
-//                recorder->save(fbo.getTexture(), frameCounter);
-////
-//                //recorder->save(*texture, frameCounter);
-//            }
-//            frameCounter++;
-//        }
-//    }
+            settings.maxMemoryUsage = 9000000000;
+            settings.folderPath = "recordings/" + filename.get() +  "_" + initRecordingTimestamp + "/" + filename.get() + "_";
+            if(recorder != nullptr){
+                delete recorder;
+            }
+            recorder = new ofxTextureRecorder();
+            recorder->setup(settings);
+            recorderIsSetup = true;
+        }
+        if(record){
+            if(input != nullptr){
+                //                            ofImage img;
+                //                            texture->readToPixels(img.getPixels());
+                //                            img.save("recordings/" + filename.get() +  "_" + initRecordingTimestamp + "/" + filename.get() + "_" + ofToString(frameCounter, 4, '0') + ".png");
+                fbo.begin();
+                input.get()->draw(0,0);
+                fbo.end();
+                recorder->save(fbo.getTexture(), frameCounter);
+                //
+                //                    recorder->save(*input, frameCounter);
+            }
+            frameCounter++;
+        }
+    }
 }
 
 void textureRecorder::recordListener(bool &b){
     if(b){
-        recorder->setFolderPath("recordings/" + filename.get() +  "_" + ofGetTimestampString() + "/");
+        if(recorder == nullptr){
+            record = false;
+            return;
+        }
+        recorder->setFolderPath("recordings/" + filename.get() +  "_" + ofGetTimestampString() + "/" + filename.get() + "_");
         initRecordingTimestamp = ofGetTimestampString();
         frameCounter = 0;
     }else{
         parameters->getBool("Auto Rec Loop") = false;
+        recorderIsSetup = false;
     }
 }
