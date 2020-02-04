@@ -35,6 +35,7 @@ private:
     ofxTextureRecorder *recorder;
     int width, height;
     bool recorderIsSetup;
+    bool lastFrame;
     
     float oldPhasor;
     int frameCounter;

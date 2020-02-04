@@ -22,12 +22,14 @@ textureRecorder::textureRecorder() : ofxOceanodeNodeModel("Texture Recorder"){
     frameCounter = 0;
     recorderIsSetup = false;
     recorder = nullptr;
+    lastFrame = false;
 }
 
 void textureRecorder::phasorInListener(float &f){
     if(autoRecLoop){
         if(f < oldPhasor){
-            record = !record;
+            if(!record) record = true;
+            else lastFrame = true;
         }
     }
     oldPhasor = f;
@@ -62,17 +64,16 @@ void textureRecorder::inputListener(ofTexture* &texture){
         }
         if(record){
             if(input != nullptr){
-                //                            ofImage img;
-                //                            texture->readToPixels(img.getPixels());
-                //                            img.save("recordings/" + filename.get() +  "_" + initRecordingTimestamp + "/" + filename.get() + "_" + ofToString(frameCounter, 4, '0') + ".png");
                 fbo.begin();
                 input.get()->draw(0,0);
                 fbo.end();
                 recorder->save(fbo.getTexture(), frameCounter);
-                //
-                //                    recorder->save(*input, frameCounter);
             }
             frameCounter++;
+            if(lastFrame){
+                record = false;
+                lastFrame = false;
+            }
         }
     }
 }
