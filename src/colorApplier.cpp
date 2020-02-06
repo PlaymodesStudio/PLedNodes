@@ -122,27 +122,6 @@ void colorApplier::draw(ofEventArgs &a){
         reloadShader(sillyBool);
         isSetup = true;
     }
-    if(modulationInfoXUpdated.size() != 0){
-        if(modulationInfoXUpdated.size() == 1){
-            modulationInfoBuffer.updateData(0, vector<float>(width, -1));
-        }else if(modulationInfoXUpdated.size() == width){
-            modulationInfoBuffer.updateData(0, modulationInfoXUpdated);
-        }
-        modulationInfoXUpdated.clear();
-    }
-    if(modulationInfoYUpdated.size() != 0){
-        if(modulationInfoYUpdated.size() == 1){
-            modulationInfoBuffer.updateData(width*4, vector<float>(height, -1));
-        }else if(modulationInfoYUpdated.size() == height){
-            modulationInfoBuffer.updateData(width*4, modulationInfoYUpdated);
-        }
-        modulationInfoYUpdated.clear();
-    }
-    if(colorDisplacementUpdated != -1){
-        colorDisplacementBuffer.updateData(0, computeNewColorDisplacementVector(colorDisplacementUpdated));
-        colorDisplacementUpdated = -1;
-    }
-    
     if(grayScaleIn.get() != nullptr){
         width = grayScaleIn.get()->getWidth();
         height = grayScaleIn.get()->getHeight();
@@ -155,6 +134,27 @@ void colorApplier::draw(ofEventArgs &a){
         height = -1;
     }
     if(width != -1 && height != -1){
+        if(modulationInfoXUpdated.size() != 0){
+            if(modulationInfoXUpdated.size() == 1){
+                modulationInfoBuffer.updateData(0, vector<float>(width, -1));
+            }else if(modulationInfoXUpdated.size() == width){
+                modulationInfoBuffer.updateData(0, modulationInfoXUpdated);
+            }
+            modulationInfoXUpdated.clear();
+        }
+        if(modulationInfoYUpdated.size() != 0){
+            if(modulationInfoYUpdated.size() == 1){
+                modulationInfoBuffer.updateData(width*4, vector<float>(height, -1));
+            }else if(modulationInfoYUpdated.size() == height){
+                modulationInfoBuffer.updateData(width*4, modulationInfoYUpdated);
+            }
+            modulationInfoYUpdated.clear();
+        }
+        if(colorDisplacementUpdated != -1){
+            colorDisplacementBuffer.updateData(0, computeNewColorDisplacementVector(colorDisplacementUpdated));
+            colorDisplacementUpdated = -1;
+        }
+        
         if(outputFbo.getWidth() != width || outputFbo.getHeight() != height || !outputFbo.isAllocated()){
             outputFbo.allocate(width, height, GL_RGB);
             outputFbo.getTexture().setTextureMinMagFilter(GL_NEAREST, GL_NEAREST);
