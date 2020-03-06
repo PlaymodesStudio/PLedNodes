@@ -25,6 +25,8 @@
 #include "vectorToTexture.h"
 #include "thresholdBang.h"
 #include "stepSequencer.h"
+#include "indexerTexture.h"
+#include "chaoticOscillatorTexture.h"
 
 #include "ofxOceanodeMidiController.h"
 #include "ofxOceanodeBPMController.h"
@@ -127,6 +129,8 @@ void ofApp::setup(){
     reg->registerModel<vectorToTexture>("LedNodes");
     reg->registerModel<thresholdBang>("Modulator");
     reg->registerModel<stepSequencer>("Generators");
+    reg->registerModel<indexerTexture>("LedNodes");
+    reg->registerModel<chaoticOscillatorTexture>("LedNodes");
     
     registerVectorOp(reg);
     
