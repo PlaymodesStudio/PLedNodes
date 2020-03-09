@@ -23,10 +23,15 @@ private:
     ofParameter<string> oscHost;
     ofParameter<string> oscPort;
     ofParameter<string> address;
-    ofParameter<int> resample;
-    ofParameter<int> resampleMethod;
+    ofParameter<bool> flip;
+    ofParameter<int> resampleX;
+    ofParameter<int> resampleY;
+    ofParameter<int> resampleXMethod;
+    ofParameter<int> resampleYMethod;
     ofParameter<float> fader;
     ofParameter<ofTexture*> texture;
+    
+    glm::vec2 lastSize;
     
     ofEventListeners listeners;
     
