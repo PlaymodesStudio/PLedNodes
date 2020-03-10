@@ -29,6 +29,7 @@ private:
     void param_aSender(vector<float> &vf);
     void param_bSender(vector<float> &vf);
     void param_cSender(vector<float> &vf);
+    void param_dSender(vector<float> &vf);
         
     ofParameter<string> oscHost;
     ofParameter<string> oscPort;
@@ -36,6 +37,7 @@ private:
     ofParameter<vector<float>>  param_a;
     ofParameter<vector<float>>  param_b;
     ofParameter<vector<float>>  param_c;
+    ofParameter<vector<float>>  param_d;
     
     ofxOscSender oscSender;
 };

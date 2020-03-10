@@ -13,13 +13,13 @@
 #include "envelopeGenerator.h"
 #include "manualOscillatorBank.h"
 #include "textureMixer.h"
-#include "artnetSender.h"
-#include "texturePixelmap.h"
-#include "dviOutput.h"
+//#include "artnetSender.h"
+//#include "texturePixelmap.h"
+//#include "dviOutput.h"
 #include "midiGateIn.h"
 #include "sequentialAnalyzer.h"
 #include "delta.h"
-#include "SnowQueenTheFrameTextureRemapper.h"
+//#include "SnowQueenTheFrameTextureRemapper.h"
 #include "oscTextureSender.h"
 #include "euclideanGenerator.h"
 #include "vectorToTexture.h"
@@ -27,6 +27,8 @@
 #include "stepSequencer.h"
 #include "indexerTexture.h"
 #include "chaoticOscillatorTexture.h"
+#include "textureResize.h"
+#include "dummySliders.h"
 
 #include "ofxOceanodeMidiController.h"
 #include "ofxOceanodeBPMController.h"
@@ -117,13 +119,13 @@ void ofApp::setup(){
     reg->registerModel<manualOscillatorBank>("Generators");
     reg->registerModel<envelopeGenerator>("Midi");
     reg->registerModel<textureMixer>("LedNodes");
-    reg->registerModel<artnetSender>("ARTNET");
-    reg->registerModel<texturePixelmap>("ARTNET");
-    reg->registerModel<dviOutput>("OUTPUT");
+    //reg->registerModel<artnetSender>("ARTNET");
+    //reg->registerModel<texturePixelmap>("ARTNET");
+//    reg->registerModel<dviOutput>("OUTPUT");
     reg->registerModel<midiGateIn>("Midi");
     reg->registerModel<sequentialAnalyzer>("Midi");
     reg->registerModel<delta>("OP");
-    reg->registerModel<SnowQueenTheFrameTextureRemapper>("LedNodes");
+    //reg->registerModel<SnowQueenTheFrameTextureRemapper>("LedNodes");
     reg->registerModel<oscTextureSender>("Audio");
     reg->registerModel<euclideanGenerator>("Generators");
     reg->registerModel<vectorToTexture>("LedNodes");
@@ -131,6 +133,8 @@ void ofApp::setup(){
     reg->registerModel<stepSequencer>("Generators");
     reg->registerModel<indexerTexture>("LedNodes");
     reg->registerModel<chaoticOscillatorTexture>("LedNodes");
+    reg->registerModel<textureResize>("LedNodes");
+    reg->registerModel<dummySliders>();
     
     registerVectorOp(reg);
     
