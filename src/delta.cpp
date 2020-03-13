@@ -11,19 +11,16 @@
 delta::delta() : ofxOceanodeNodeModel("Delta"){
     parameters->add(gain.set("Gain", 1, 0, 100));
     parameters->add(invert.set("Invert", false));
-    parameters->add(smooth.set("Smooth", 0, 0, 1));
     parameters->add(input.set("Input", {0}, {0}, {1}));
     parameters->add(output.set("Output", {0}, {0}, {1}));
     parameters->add(outputPositive.set("Output +", {0}, {0}, {1}));
     parameters->add(outputNegative.set("Output -", {0}, {0}, {1}));
     
     listener = input.newListener(this, &delta::computeOutput);
+    color = ofColor::green;
 }
 
 void delta::computeOutput(vector<float> &in){
-    if(outputStore.size() != in.size()){
-        outputStore.resize(in.size(), 0);
-    }
     if(inputStore.size() != in.size()){
         inputStore = in;
     }
@@ -35,10 +32,8 @@ void delta::computeOutput(vector<float> &in){
             tempOutP[i] = ofClamp((in[i] - inputStore[i])*gain, 0, 1);
             tempOutN[i] = ofClamp((inputStore[i] - in[i])*gain, 0, 1);
             tempOut[i] = tempOutP[i] + tempOutN[i];
-            tempOut[i] = (smooth*outputStore[i]) + ((1-smooth)*tempOut[i]);
         }
         inputStore = in;
-        outputStore = tempOut;
         output = tempOut;
         outputPositive = tempOutP;
         outputNegative = tempOutN;
