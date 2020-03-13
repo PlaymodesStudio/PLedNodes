@@ -29,6 +29,7 @@
 #include "chaoticOscillatorTexture.h"
 #include "textureResize.h"
 #include "dummySliders.h"
+#include "sharedInfo.h"
 
 #include "ofxOceanodeMidiController.h"
 #include "ofxOceanodeBPMController.h"
@@ -52,7 +53,6 @@ void ofApp::setup(){
     if(ofSplitString(path, ".").back() != "generator"){
         ofExit();
     }
-    
     float bpm = 120;
     
     ofJson json = ofLoadJson(path);
@@ -62,17 +62,11 @@ void ofApp::setup(){
         bpm = json["BPM"];
         int frameRate = json["FPS"];
         ofSetFrameRate(frameRate);
-//        if (frameRate == 60) ofSetVerticalSync(true);
+        if (frameRate == 60) ofSetVerticalSync(true);
         
-        int syphonSenders = json["Syphon"];
         
-//            int numSyphonServers = xml.getIntValue("SyphonSenders");
-//            for(int i = 0; i < numSyphonServers; i++){
-//                bool invert = xml.getBoolValue("SyphonSender"+ ofToString(i+1) + "InvertTexture");
-//                string syphonName = xml.getValue("SyphonSender"+ ofToString(i+1) + "Name");
-//                senderModules.push_back(new senderManager(i+1, invert, syphonName));
-//            }
-//
+        
+        
         auto mainPos = json["MainWindowPos"];
         if(mainPos.size() == 2){
 //            ofSetWindowPosition(ofToInt(mainPos[0]), ofToInt(mainPos[1]));
@@ -101,6 +95,14 @@ void ofApp::setup(){
         
         if(json["TextureRecorder"]){
             //                new dataRecorder();
+        }
+        
+        if(json.count("IP")){
+            string ip = json["IP"];
+            sharedInfo::getInstance().setString("IP", ip);
+        }else{
+            string ip = "127.0.0.1";
+            sharedInfo::getInstance().setString("IP", ip);
         }
     }
     
