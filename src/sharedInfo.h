@@ -22,6 +22,7 @@
 //public:
 //    T var;
 //};
+#include "ofRectangle.h"
 
 class sharedInfo{
 public:
@@ -52,9 +53,18 @@ public:
         return stringMap[name];
     }
     
+    void setRect(string name, ofRectangle val){
+        rectMap[name] = val;
+    }
+    
+    ofRectangle getRect(string name){
+        return rectMap[name];
+    }
+    
 private:
 //    map<string, abstractType> typedMap;
     map<string, string> stringMap;
+    map<string, ofRectangle> rectMap;
 };
 
 #endif /* sharedInfo_h */

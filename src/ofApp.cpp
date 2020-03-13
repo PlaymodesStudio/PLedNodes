@@ -42,6 +42,7 @@ void ofApp::setup(){
     ofSetVerticalSync(false);
     ofSetEscapeQuitsApp(false);
     
+    openedJson = "";
     ofFile file;
     string path;
     if(file.doesFileExist(ofToDataPath("../GIANT.generator"))) {
@@ -56,7 +57,11 @@ void ofApp::setup(){
     float bpm = 120;
     
     ofJson json = ofLoadJson(path);
+    
+    ofRectangle controlsWindowRect(0,0,0,0);
     if(!json.empty()){
+        openedJson = path;
+        
         string name = json["Name"];
         ofSetWindowTitle(name);
         bpm = json["BPM"];
@@ -64,38 +69,67 @@ void ofApp::setup(){
         ofSetFrameRate(frameRate);
         if (frameRate == 60) ofSetVerticalSync(true);
         
+        ofJson windowJson = json["Window"];
+        //Main Window
+        ofRectangle mainWindowRect(0,0,0,0);
+        if(windowJson.count("MainWindowX") == 1){
+            mainWindowRect.x = windowJson["MainWindowX"];
+        }
+        if(windowJson.count("MainWindowY") == 1){
+            mainWindowRect.y = windowJson["MainWindowY"];
+        }
+        if(windowJson.count("MainWindowWidth") == 1){
+            mainWindowRect.width = windowJson["MainWindowWidth"];
+        }
+        if(windowJson.count("MainWindowHeight") == 1){
+            mainWindowRect.height = windowJson["MainWindowHeight"];
+        }
+        if(mainWindowRect.width != 0 && mainWindowRect.height != 0){
+            ofSetWindowPosition(mainWindowRect.x, mainWindowRect.y);
+            ofSetWindowShape(mainWindowRect.width, mainWindowRect.height);
+        }
         
+        //Controls Window
+        if(windowJson.count("ControlsWindowX") == 1){
+            controlsWindowRect.x = windowJson["ControlsWindowX"];
+        }
+        if(windowJson.count("ControlsWindowY") == 1){
+            controlsWindowRect.y = windowJson["ControlsWindowY"];
+        }
+        if(windowJson.count("ControlsWindowWidth") == 1){
+            controlsWindowRect.width = windowJson["ControlsWindowWidth"];
+        }
+        if(windowJson.count("ControlsWindowHeight") == 1){
+            controlsWindowRect.height = windowJson["ControlsWindowHeight"];
+        }
         
-        
-        auto mainPos = json["MainWindowPos"];
-        if(mainPos.size() == 2){
-//            ofSetWindowPosition(ofToInt(mainPos[0]), ofToInt(mainPos[1]));
+        //Scope Window
+        ofRectangle scopeWindowRect(0,0,0,0);
+        if(windowJson.count("ScopeWindowX") == 1){
+            scopeWindowRect.x = windowJson["ScopeWindowX"];
+        }
+        if(windowJson.count("ScopeWindowY") == 1){
+            scopeWindowRect.y = windowJson["ScopeWindowY"];
+        }
+        if(windowJson.count("ScopeWindowWidth") == 1){
+            scopeWindowRect.width = windowJson["ScopeWindowWidth"];
+        }
+        if(windowJson.count("ScopeWindowHeight") == 1){
+            scopeWindowRect.height = windowJson["ScopeWindowHeight"];
+        }
+        if(scopeWindowRect.width != 0 && scopeWindowRect.height != 0){
+            sharedInfo::getInstance().setRect("ScopeWindowRect", scopeWindowRect);
         }
 
-        auto mainSize = json["MainWindowSize"];
-        if(mainSize.size() == 2){
-//            ofSetWindowShape(ofToInt(mainSize[0]), ofToInt(mainSize[1]));
-        }
-
-        auto prevPos = json["PrevWindowPos"];
-        if(prevPos.size() == 2){
-//            prevWinRect.setPosition(ofToInt(prevPos[0]), ofToInt(prevPos[1]));
-        }
-        
-        auto prevSize = json["PrevWindowSize"];
-        if(prevSize.size() == 2){
-//            prevWinRect.setSize(ofToInt(prevSize[0]), ofToInt(prevSize[1]));
-        }
-
-        int unifierNum = json["TextureUnifierNumber"];
-        int unifierSpacing = json["TextureUnifierSpacing"];
+//        int unifierNum = json["TextureUnifierNumber"];
+//        int unifierSpacing = json["TextureUnifierSpacing"];
 //            if(unifierNum > 0){
 //                new textureUnifier(unifierNum, unifierSpacing);
 //            }
         
-        if(json["TextureRecorder"]){
+//        if(json["TextureRecorder"]){
             //                new dataRecorder();
-        }
+//        }
         
         if(json.count("IP")){
             string ip = json["IP"];
@@ -151,6 +185,10 @@ void ofApp::setup(){
     controls->get<ofxOceanodeBPMController>()->setBPM(bpm);
     container->loadPersistent();
     //container->loadPreset("Presets/Bank_2019-01-20-14-33-32-088/2--cyclo2");
+    
+    if(controlsWindowRect.width != 0 && controlsWindowRect.height != 0){
+        controls->setWindowRect(controlsWindowRect);
+    }
 }
 
 //--------------------------------------------------------------
@@ -168,6 +206,40 @@ void ofApp::draw(){
         ofSetBackgroundColor(127, 127, 127);
     }
     ofDrawBitmapString(ofGetFrameRate(), 10, 10);
+}
+
+void ofApp::exit(){
+    container->clearContainer();
+    if(openedJson != ""){
+        auto &sharedInfoInstance = sharedInfo::getInstance();
+        ofJson json = ofLoadJson(openedJson);
+        ofJson windowJson;
+        //Main Window
+        ofRectangle mainWinRect = ofGetWindowRect();
+        mainWinRect.setPosition(ofGetWindowPositionX(), ofGetWindowPositionY());
+        windowJson["MainWindowX"] = mainWinRect.x;
+        windowJson["MainWindowY"] = mainWinRect.y;
+        windowJson["MainWindowWidth"] = mainWinRect.width;
+        windowJson["MainWindowHeight"] = mainWinRect.height;
+        
+        //Controls Window
+        ofRectangle controlsWinRect = controls->getWindowRect();
+        windowJson["ControlsWindowX"] = controlsWinRect.x;
+        windowJson["ControlsWindowY"] = controlsWinRect.y;
+        windowJson["ControlsWindowWidth"] = controlsWinRect.width;
+        windowJson["ControlsWindowHeight"] = controlsWinRect.height;
+        
+        //Texture Scope 1
+        ofRectangle scopeWinRect = sharedInfoInstance.getRect("ScopeWindowRect");
+        windowJson["ScopeWindowX"] = scopeWinRect.x;
+        windowJson["ScopeWindowY"] = scopeWinRect.y;
+        windowJson["ScopeWindowWidth"] = scopeWinRect.width;
+        windowJson["ScopeWindowHeight"] = scopeWinRect.height;
+        
+        json["Window"] = windowJson;
+        
+        ofSavePrettyJson(openedJson, json);
+    }
 }
 
 //--------------------------------------------------------------
