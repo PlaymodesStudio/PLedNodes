@@ -7,9 +7,10 @@
 //
 
 #include "audioEngineController.h"
+#include "sharedInfo.h"
 
 audioEngineController::audioEngineController() : ofxOceanodeNodeModel("Audio Controller"){
-    addParameterToGroupAndInfo(oscHost.set("Osc Host", "localhost"));//.isSavePreset = false;
+    addParameterToGroupAndInfo(oscHost.set("Osc Host", "localhost")).isSavePreset = false;
     addParameterToGroupAndInfo(oscPort.set("Osc Port", "11511"));//.isSavePreset = false;
     parameters->add(presetNum.set("Preset Num", 0, 0, 100));
     parameters->add(param_a.set("Param a", {0}, {0}, {1}));
@@ -27,6 +28,9 @@ audioEngineController::audioEngineController() : ofxOceanodeNodeModel("Audio Con
     param_b.addListener(this, &audioEngineController::param_bSender);
     param_c.addListener(this, &audioEngineController::param_cSender);
     param_d.addListener(this, &audioEngineController::param_dSender);
+    
+    color = ofColor::violet;
+    oscHost = sharedInfo::getInstance().getString("IP");
 }
 
 void audioEngineController::oscHostAndPortListener(string &s){

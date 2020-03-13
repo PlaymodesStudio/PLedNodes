@@ -6,9 +6,10 @@
 //
 
 #include "oscTextureSender.h"
+#include "sharedInfo.h"
 
 oscTextureSender::oscTextureSender() : ofxOceanodeNodeModel("Texture Sender"){
-    addParameterToGroupAndInfo(oscHost.set("Osc Host", "localhost"));//.isSavePreset = false;
+    addParameterToGroupAndInfo(oscHost.set("Osc Host", "localhost")).isSavePreset = false;
     addParameterToGroupAndInfo(oscPort.set("Osc Port", "11511"));//.isSavePreset = false;
     addParameterToGroupAndInfo(address.set("Osc Address", "/texture")).isSavePreset = true;
     addParameterToGroupAndInfo(resampleX.set("Resample X", 100, 1, 100));//.isSavePreset = false;
@@ -26,6 +27,9 @@ oscTextureSender::oscTextureSender() : ofxOceanodeNodeModel("Texture Sender"){
     
     listeners.push(oscHost.newListener(this, &oscTextureSender::oscHostAndPortListener));
     listeners.push(oscPort.newListener(this, &oscTextureSender::oscHostAndPortListener));
+    
+    color = ofColor::violet;
+    oscHost = sharedInfo::getInstance().getString("IP");
 }
 
 void oscTextureSender::oscHostAndPortListener(string &s){

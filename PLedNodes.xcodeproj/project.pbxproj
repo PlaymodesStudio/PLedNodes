@@ -318,6 +318,7 @@
 		9F42EFF522FB1D8500E14366 /* stepSequencer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stepSequencer.h; sourceTree = "<group>"; };
 		9F4F427624179AFF00A0C06F /* textureResize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = textureResize.h; sourceTree = "<group>"; };
 		9F4F427724179F3000A0C06F /* dummySliders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dummySliders.h; sourceTree = "<group>"; };
+		9F4F4278241B90C200A0C06F /* sharedInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sharedInfo.h; sourceTree = "<group>"; };
 		9F7986DC4EB05E75FCE2C777 /* ofxOscSender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxOscSender.h; path = ../../../addons/ofxOsc/src/ofxOscSender.h; sourceTree = SOURCE_ROOT; };
 		9FA27BDD22CCCDAB00816EA1 /* ofxOceanodeNodeMacro.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxOceanodeNodeMacro.cpp; path = ../../../addons/ofxOceanode/src/Nodes/ofxOceanodeNodeMacro.cpp; sourceTree = "<group>"; };
 		9FA27BDE22CCCDAB00816EA1 /* ofxOceanodeNodeMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxOceanodeNodeMacro.h; path = ../../../addons/ofxOceanode/src/Nodes/ofxOceanodeNodeMacro.h; sourceTree = "<group>"; };
@@ -1620,6 +1621,7 @@
 				9F42EFF522FB1D8500E14366 /* stepSequencer.h */,
 				9F4F427624179AFF00A0C06F /* textureResize.h */,
 				9F4F427724179F3000A0C06F /* dummySliders.h */,
+				9F4F4278241B90C200A0C06F /* sharedInfo.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
