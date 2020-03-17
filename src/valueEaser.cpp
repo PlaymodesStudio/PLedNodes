@@ -10,7 +10,11 @@
 valueEaser::valueEaser() : ofxOceanodeNodeModel("Value Easer"){
     parameters->add(phasor.set("Phasor In", {0}, {0}, {1}));
     parameters->add(input.set("Input", {0}, {0}, {1}));
+    parameters->add(pow.set("In-Out", {0}, {-1}, {1}));
+    parameters->add(bipow.set("InOut Amout", {0}, {-1}, {1}));
     parameters->add(output.set("Output", {0}, {0}, {1}));
+    
+    color = ofColor::green;
     
     listener = phasor.newListener([this](vector<float> &vf){
         if(input.get().size() != lastInput.size() || input.get().size() != phasorValueOnValueChange.size()){
@@ -34,17 +38,43 @@ valueEaser::valueEaser() : ofxOceanodeNodeModel("Value Easer"){
             for(int i = 0; i < inputSize; i++){
                 float phase = ((vf.size() < inputSize) ? vf[0] : vf[i]) - phasorValueOnValueChange[i];
                 if(phase < 0) phase = 1+phase;
+                if(getValueForPosition(pow, i) != 0){
+                    customPow(phase, getValueForPosition(pow, i));
+                }
+                if(getValueForPosition(bipow, i) != 0){
+                    phase = (phase*2) - 1;
+                    customPow(phase, getValueForPosition(bipow, i));
+                    phase = (phase + 1) / 2.0;
+                }
                 if(phase < lastPhase[i]) reachedMax[i] = true;
                 else lastPhase[i] = phase;
                 if(!reachedMax[i]){
-                    tempOutput[i] = ofxeasing::map(phase, 0, 1, lastChangedValue[i], input.get()[i], ofxeasing::quad::easeInOut);
+                    tempOutput[i] = smoothinterpolate(lastChangedValue[i], input.get()[i], phase);
                 }else{
                     tempOutput[i] = input.get()[i];
                 }
             }
             lastInput = input;
             output = tempOutput;
-            //ofLog() << "LastChangedVal = " << lastChangedValue[0] << "  LastInput = " << lastInput[0] << "  Input = " << input.get()[0];
         }
     });
+}
+
+void valueEaser::customPow(float & value, float pow){
+    float k1 = 2*pow*0.99999;
+    float k2 = (k1/((-pow*0.999999)+1));
+    float k3 = k2 * abs(value) + 1;
+    value = value * (k2+1) / k3;
+}
+
+float valueEaser::smoothinterpolate(float start, float end, float pos){
+    float oldRandom = start;
+    float pastRandom = start;
+    float newRandom = end;
+    float futureRandom  = end;
+    float L0 = (newRandom - pastRandom) * 0.5;
+    float L1 = L0 + (oldRandom-newRandom);
+    float L2 = L1 + ((futureRandom - oldRandom)*0.5) + (oldRandom - newRandom);
+    return oldRandom + (pos * (L0 + (pos * ((pos * L2) - (L1 + L2)))));
+    
 }

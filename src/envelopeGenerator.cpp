@@ -20,15 +20,41 @@ envelopeGenerator::envelopeGenerator() : ofxOceanodeNodeModel("Envelope Generato
     parameters->add(sustain.set("Sustain", {1}, {0}, {1}));
     parameters->add(release.set("Release", {0}, {0}, {1}));
 
-    parameters->add(createDropdownAbstractParameter("Attack Ease", easeStringFuncs, attackCurve));
-    parameters->add(createDropdownAbstractParameter("Decay Ease", easeStringFuncs, decayCurve));
-    parameters->add(createDropdownAbstractParameter("Release Ease", easeStringFuncs, releaseCurve));
+    ofParameter<char> alabel("Attack Controls", ' ');
+    parameters->add(alabel);
+    parameters->add(attackPow.set("A In<->Out", {0}, {-1}, {1}));
+    parameters->add(attackBiPow.set("A InOut", {0}, {-1}, {1}));
+    
+    ofParameter<char> dlabel("Decay Controls", ' ');
+    parameters->add(dlabel);
+    parameters->add(decayPow.set("D In<->Out", {0}, {-1}, {1}));
+    parameters->add(decayBiPow.set("D InOut", {0}, {-1}, {1}));
+    
+    ofParameter<char> rlabel("Release Controls", ' ');
+    parameters->add(rlabel);
+    parameters->add(releasePow.set("R In<->Out", {0}, {-1}, {1}));
+    parameters->add(releaseBiPow.set("R InOut", {0}, {-1}, {1}));
+    
+    parameters->add(curvePreview.set("Curve Preview", {0}, {0}, {1}));
     parameters->add(output.set("Output", {0}, {0}, {1}));
     oldGateIn = {0};
     
     outputComputeVec = {0};
     
     listener  = phasor.newListener(this, &envelopeGenerator::phasorListener);
+    
+    curvePreviewListeners.push(hold.newListener([this](vector<float> &vf){recalculatePreviewCurve();}));
+    curvePreviewListeners.push(attack.newListener([this](vector<float> &vf){recalculatePreviewCurve();}));
+    curvePreviewListeners.push(decay.newListener([this](vector<float> &vf){recalculatePreviewCurve();}));
+    curvePreviewListeners.push(sustain.newListener([this](vector<float> &vf){recalculatePreviewCurve();}));
+    curvePreviewListeners.push(release.newListener([this](vector<float> &vf){recalculatePreviewCurve();}));
+    curvePreviewListeners.push(attackPow.newListener([this](vector<float> &vf){recalculatePreviewCurve();}));
+    curvePreviewListeners.push(attackBiPow.newListener([this](vector<float> &vf){recalculatePreviewCurve();}));
+    curvePreviewListeners.push(decayPow.newListener([this](vector<float> &vf){recalculatePreviewCurve();}));
+    curvePreviewListeners.push(decayBiPow.newListener([this](vector<float> &vf){recalculatePreviewCurve();}));
+    curvePreviewListeners.push(releasePow.newListener([this](vector<float> &vf){recalculatePreviewCurve();}));
+    curvePreviewListeners.push(releaseBiPow.newListener([this](vector<float> &vf){recalculatePreviewCurve();}));
+    recalculatePreviewCurve();
     
     lastGateInSize = -1;
 }
@@ -115,7 +141,16 @@ void envelopeGenerator::phasorListener(vector<float> &vf){
                     lastPhase[i] = 0;
                     phase = 0;
                 }else{
-                    tempOutput[i] = ofxeasing::map(phase, 0, getValueForIndex(attack, i), 0, 1, easingFromString(easeStringFuncs[attackCurve]));
+                    phase = ofMap(phase, 0, getValueForIndex(attack, i), 0, 1, true);
+                    if(getValueForIndex(attackPow, i) != 0){
+                        customPow(phase, getValueForIndex(attackPow, i));
+                    }
+                    if(getValueForIndex(attackBiPow, i) != 0){
+                        phase = (phase*2) - 1;
+                        customPow(phase, getValueForIndex(attackBiPow, i));
+                        phase = (phase + 1) / 2.0;
+                    }
+                    tempOutput[i] = smoothinterpolate(0, 1, phase);
                     if(phase != 0){
                         lastSustainValue[i] = tempOutput[i];
                     }
@@ -129,7 +164,16 @@ void envelopeGenerator::phasorListener(vector<float> &vf){
                     lastPhase[i] = 0;
                     phase = 0;
                 }else{
-                    tempOutput[i] = ofxeasing::map(phase, 0, getValueForIndex(decay, i), 1, getValueForIndex(sustain, i) * maxValue[i], easingFromString(easeStringFuncs[decayCurve]));
+                    phase = ofMap(phase, 0, getValueForIndex(decay, i), 0, 1, true);
+                    if(getValueForIndex(decayPow, i) != 0){
+                        customPow(phase, getValueForIndex(decayPow, i));
+                    }
+                    if(getValueForIndex(decayBiPow, i) != 0){
+                        phase = (phase*2) - 1;
+                        customPow(phase, getValueForIndex(decayBiPow, i));
+                        phase = (phase + 1) / 2.0;
+                    }
+                    tempOutput[i] = smoothinterpolate(1, getValueForIndex(sustain, i) * maxValue[i], phase);
                     lastSustainValue[i] = tempOutput[i];
                 }
             }
@@ -145,7 +189,16 @@ void envelopeGenerator::phasorListener(vector<float> &vf){
                     lastPhase[i] = 0;
                     phase = 0;
                 }else{
-                    tempOutput[i] = ofxeasing::map(phase, 0, getValueForIndex(release, i), lastSustainValue[i], 0, easingFromString(easeStringFuncs[releaseCurve]));
+                    phase = ofMap(phase, 0, getValueForIndex(release, i), 0, 1, true);
+                    if(getValueForIndex(releasePow, i) != 0){
+                        customPow(phase, getValueForIndex(releasePow, i));
+                    }
+                    if(getValueForIndex(releaseBiPow, i) != 0){
+                        phase = (phase*2) - 1;
+                        customPow(phase, getValueForIndex(releaseBiPow, i));
+                        phase = (phase + 1) / 2.0;
+                    }
+                    tempOutput[i] = smoothinterpolate(lastSustainValue[i], 0, phase);
                 }
             }
             if(envelopeStage[i] == envelopeEnd){
@@ -157,47 +210,89 @@ void envelopeGenerator::phasorListener(vector<float> &vf){
     }
 }
 
-
-ofxeasing::function envelopeGenerator::easingFromString(string easing){
-    ofxeasing::Function easingFunc;
-    ofxeasing::Type easingType;
-//    {"EASE_LINEAR", " EASE_IN_QUAD", " EASE_OUT_QUAD", " EASE_IN_OUT_QUAD", " EASE_IN_CUBIC", " EASE_OUT_CUBIC", " EASE_IN_OUT_CUBIC", " EASE_IN_QUART", " EASE_OUT_QUART", " EASE_IN_OUT_QUART", " EASE_IN_QUINT", " EASE_OUT_QUINT", " EASE_IN_OUT_QUINT", " EASE_IN_SINE", " EASE_OUT_SINE", " EASE_IN_OUT_SINE", " EASE_IN_EXPO", " EASE_OUT_EXPO", " EASE_IN_OUT_EXPO", " EASE_IN_CIRC", " EASE_OUT_CIRC", "EASE_IN_OUT_CIRC"};
-    //Type
-    if(ofStringTimesInString(easing, "EASE_IN") == 1){
-        easingType = ofxeasing::Type::In;
-    }
-    else if(ofStringTimesInString(easing, "EASE_IN_OUT") == 1){
-        easingType = ofxeasing::Type::InOut;
-    }
-    else if(ofStringTimesInString(easing, "EASE_OUT") == 1){
-        easingType = ofxeasing::Type::Out;
-    }
-    
-    //Function
-    if(ofStringTimesInString(easing, "LINEAR") == 1){
-        return ofxeasing::linear::easeNone;
-    }
-    else if(ofStringTimesInString(easing, "QUAD") == 1){
-        easingFunc = ofxeasing::Function::Quadratic;
-    }
-    else if(ofStringTimesInString(easing, "CUBIC") == 1){
-        easingFunc = ofxeasing::Function::Cubic;
-    }
-    else if(ofStringTimesInString(easing, "QUART") == 1){
-        easingFunc = ofxeasing::Function::Quartic;
-    }
-    else if(ofStringTimesInString(easing, "QUINT") == 1){
-        easingFunc = ofxeasing::Function::Quintic;
-    }
-    else if(ofStringTimesInString(easing, "SINE") == 1){
-        easingFunc = ofxeasing::Function::Sine;
-    }
-    else if(ofStringTimesInString(easing, "EXPO") == 1){
-        easingFunc = ofxeasing::Function::Exponential;
-    }
-    else if(ofStringTimesInString(easing, "CIRC") == 1){
-        easingFunc = ofxeasing::Function::Circular;
-    }
-    return ofxeasing::easing(easingFunc, easingType);
+void envelopeGenerator::customPow(float & value, float pow){
+    float k1 = 2*pow*0.99999;
+    float k2 = (k1/((-pow*0.999999)+1));
+    float k3 = k2 * abs(value) + 1;
+    value = value * (k2+1) / k3;
 }
 
+float envelopeGenerator::smoothinterpolate(float start, float end, float pos){
+    float oldRandom = start;
+    float pastRandom = start;
+    float newRandom = end;
+    float futureRandom  = end;
+    float L0 = (newRandom - pastRandom) * 0.5;
+    float L1 = L0 + (oldRandom-newRandom);
+    float L2 = L1 + ((futureRandom - oldRandom)*0.5) + (oldRandom - newRandom);
+    return oldRandom + (pos * (L0 + (pos * ((pos * L2) - (L1 + L2)))));
+    
+}
+
+void envelopeGenerator::recalculatePreviewCurve(){
+    int maxSize = 100;
+    vector<float> tempOutput;
+    //attack
+    int attackSize = attack->at(0)*maxSize;
+    tempOutput.resize(attackSize);
+    for(int i = 0; i < attackSize; i++){
+        float phase = float(i) / float(attackSize);
+        if(attackPow->at(0) != 0){
+            customPow(phase, attackPow->at(0));
+        }
+        if(attackBiPow->at(0) != 0){
+            phase = (phase*2) - 1;
+            customPow(phase, attackBiPow->at(0));
+            phase = (phase + 1) / 2.0;
+        }
+        tempOutput[i] = smoothinterpolate(0, 1, phase);
+    }
+    
+//    //Hold
+//    int holdSize = hold->at(0)*maxSize;
+//    int holdPos = tempOutput.size();
+//    tempOutput.resize(holdPos + holdSize);
+//    fill(tempOutput.begin()+holdPos, tempOutput.end(), 1);
+//
+    //Decay
+    int decaySize = decay->at(0)*maxSize;
+    int decayPos = tempOutput.size();
+    tempOutput.resize(decayPos + decaySize);
+    for(int i = 0; i < decaySize; i++){
+        float phase = float(i) / float(decaySize);
+        if(decayPow->at(0) != 0){
+            customPow(phase, decayPow->at(0));
+        }
+        if(decayBiPow->at(0) != 0){
+            phase = (phase*2) - 1;
+            customPow(phase, decayBiPow->at(0));
+            phase = (phase + 1) / 2.0;
+        }
+        tempOutput[decayPos + i] = smoothinterpolate(1, sustain->at(0), phase);
+    }
+    
+    //Sustain
+    int sustainSize = maxSize/2;
+    int sustainPos = tempOutput.size();
+    tempOutput.resize(sustainPos + sustainSize);
+    fill(tempOutput.begin()+sustainPos, tempOutput.end(), sustain->at(0));
+    
+    //Release
+    int releaseSize = release->at(0)*maxSize;
+    int releasePos = tempOutput.size();
+    tempOutput.resize(releasePos + releaseSize);
+    for(int i = 0; i < releaseSize; i++){
+        float phase = float(i) / float(releaseSize);
+        if(releasePow->at(0) != 0){
+            customPow(phase, releasePow->at(0));
+        }
+        if(releaseBiPow->at(0) != 0){
+            phase = (phase*2) - 1;
+            customPow(phase, releaseBiPow->at(0));
+            phase = (phase + 1) / 2.0;
+        }
+        tempOutput[releasePos + i] = smoothinterpolate(sustain->at(0), 0, phase);
+    }
+    
+    curvePreview = tempOutput;
+}

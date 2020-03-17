@@ -10,7 +10,6 @@
 #define envelopeGenerator_h
 
 #include "ofxOceanodeNodeModel.h"
-#include "ofxEasing.h"
 
 enum envelopeStages{
     envelopeAttack = 0,
@@ -35,10 +34,14 @@ private:
         }
     }
     
+    void customPow(float & value, float pow);
+    float smoothinterpolate(float start, float end, float pos);
+    
     void phasorListener(vector<float> &vf);
     void gateInChanged(vector<float> &vf);
     void attackEnd(float *f);
-    ofxeasing::function easingFromString(string easing);
+    
+    void recalculatePreviewCurve();
     
     ofEventListener listener;
     
@@ -49,9 +52,19 @@ private:
     ofParameter<vector<float>>  sustain;
     ofParameter<vector<float>>  release;
     
-    ofParameter<int>  attackCurve;
-    ofParameter<int>  decayCurve;
-    ofParameter<int>  releaseCurve;
+    
+    ofParameter<vector<float>>  attackPow;
+    ofParameter<vector<float>>  decayPow;
+    ofParameter<vector<float>>  releasePow;
+    ofParameter<vector<float>>  attackBiPow;
+    ofParameter<vector<float>>  decayBiPow;
+    ofParameter<vector<float>>  releaseBiPow;
+    
+    ofParameter<vector<float>>  curvePreview;
+    
+    
+    ofEventListeners curvePreviewListeners;
+    
     
     ofParameter<vector<float>> gateIn;
     ofParameter<vector<float>> output;

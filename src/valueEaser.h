@@ -9,7 +9,6 @@
 #define valueEaser_h
 
 #include "ofxOceanodeNodeModel.h"
-#include "ofxEasing.h"
 
 class valueEaser : public ofxOceanodeNodeModel{
 public:
@@ -17,9 +16,22 @@ public:
     ~valueEaser(){};
     
 private:
+    void customPow(float & value, float pow);
+    float smoothinterpolate(float start, float end, float pos);
+    
+    auto getValueForPosition(const vector<float> &param, int index) -> float{
+        if(param.size() == 1 || param.size() <= index){
+            return param[0];
+        }
+        else{
+            return param[index];
+        }
+    };
+    
     ofParameter<vector<float>> input;
     ofParameter<vector<float>> phasor;
-    ofParameter<int> easingType;
+    ofParameter<vector<float>> pow;
+    ofParameter<vector<float>> bipow;
     ofParameter<vector<float>> output;
     
     ofEventListener listener;
