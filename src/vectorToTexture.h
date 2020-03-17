@@ -29,7 +29,9 @@ public:
     void draw(ofEventArgs &a){
         if(changedSize){
             vector<string> dimensions = ofSplitString(size, "x");
-            fbo.allocate(ofToInt(dimensions[0]), ofToInt(dimensions[1]), GL_RGBA);
+            width = ofToInt(dimensions[0]);
+            height = ofToInt(dimensions[1]);
+            fbo.allocate(width, height, GL_RGBA);
             fbo.getTexture().setTextureMinMagFilter(GL_NEAREST, GL_NEAREST);
             changedSize = false;
         }
@@ -40,10 +42,10 @@ public:
             rgbInput[(i*3)+2] = input->at(i);
         }
         ofTexture tex;
-        tex.loadData(rgbInput.data(), input->size(), 1, GL_RGB);
+        tex.loadData(rgbInput.data(), width, height, GL_RGB);
         tex.setTextureMinMagFilter(GL_NEAREST, GL_NEAREST);
         fbo.begin();
-        tex.draw(0, 0, fbo.getWidth(), fbo.getHeight());
+        tex.draw(0, 0, width, height);
         fbo.end();
         output = &fbo.getTexture();
     }
@@ -57,6 +59,8 @@ private:
     ofParameter<ofTexture*> output;
     ofParameter<string> size;
     ofFbo fbo;
+    int width;
+    int height;
     
     bool changedSize;
     
