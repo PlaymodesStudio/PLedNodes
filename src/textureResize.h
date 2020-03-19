@@ -9,6 +9,7 @@
 #define textureResize_h
 
 #include "ofxOceanodeNodeModel.h"
+#define STRINGIFY(x) #x
 
 class textureResize : public ofxOceanodeNodeModel {
 public:
@@ -33,9 +34,10 @@ public:
                 }
                 fbo.begin();
                 if(interpolate){
-                    input.get()->bind();
+                    shader.begin();
+                    shader.setUniformTexture("textureIn", *input.get(), 0);
                     mesh.draw();
-                    input.get()->unbind();
+                    shader.end();
                 }else{
                     input.get()->draw(0,0, width, height);
                 }
@@ -44,9 +46,9 @@ public:
             }
         });
         
-        
         inputSize = glm::vec2(0,0);
         resizeFbo();
+        setupShader();
     }
 private:
     
@@ -70,36 +72,21 @@ private:
     }
     
     void resizeMesh(){
-//        auto rect = ofRectangle(0, 0, 1, 1);
-//        auto scaledRect = ofRectangle(0, 0, width, height);
-//        mesh.addTexCoord(rect.getTopLeft());
-//        mesh.addTexCoord(rect.getTopRight());
-//        mesh.addTexCoord(rect.getBottomRight());
-//        mesh.addTexCoord(rect.getTopLeft());
-//        mesh.addTexCoord(rect.getBottomRight());
-//        mesh.addTexCoord(rect.getBottomLeft());
-//
-//        mesh.addVertex(scaledRect.getTopLeft());
-//        mesh.addVertex(scaledRect.getTopRight());
-//        mesh.addVertex(scaledRect.getBottomRight());
-//        mesh.addVertex(scaledRect.getTopLeft());
-//        mesh.addVertex(scaledRect.getBottomRight());
-//        mesh.addVertex(scaledRect.getBottomLeft());
-        
-        int itemW = width / (inputSize.x-1);
-        int itemH = height / inputSize.y;
+        float itemW = width / (inputSize.x);
+        float itemH = height / inputSize.y;
         ofLog() << itemW << " " << itemH;
-        //for(int i = 0 ; i < inputSize.y; i++){
+        for(int i = 0 ; i < inputSize.y; i++){
+            float y = i*itemH;
+            float yy = (i+0.5)/inputSize.y;
+            addSquareToMesh(ofRectangle(0.5/inputSize.x, yy, 0, 0), ofRectangle(0, y, itemW/2, itemH));
             for(int j = 0; j < inputSize.x-1 ; j++){
-                int x = j*itemW;
-//                int y = i*itemH;
-
+                float x = (j+0.5)*itemW;
                 float xx = (j+0.5)/inputSize.x;
-//                float yy = (i+0.5)/inputSize.y;
                 
-                addSquareToMesh(ofRectangle(xx, 0, 1/float(inputSize.x), 1), ofRectangle(x, 0, itemW, height));
+                addSquareToMesh(ofRectangle(xx, yy, 1/float(inputSize.x), 0), ofRectangle(x, y, itemW, itemH));
             }
-//        }
+            addSquareToMesh(ofRectangle(1-(0.5/inputSize.x), yy, 0, 0), ofRectangle(width-(itemW/2), y, itemW/2, itemH));
+        }
     }
     
     void addSquareToMesh(ofRectangle inRect, ofRectangle outRect){
@@ -118,6 +105,50 @@ private:
         mesh.addVertex(outRect.getBottomLeft());
     }
     
+    void setupShader(){
+        const string vertSource=R"(#version 410
+        
+        uniform mat4 projectionMatrix;
+        uniform mat4 modelViewMatrix;
+        uniform mat4 modelViewProjectionMatrix;
+        uniform mat4 textureMatrix;
+        
+        layout(location = 0) in vec4  position;
+        layout(location = 1) in vec4  color;
+        layout(location = 2) in vec3  normal;
+        layout(location = 3) in vec2  texcoord;
+        
+        uniform sampler2D textureIn;
+        
+        noperspective out vec4 vertexColor;
+        
+        void main(){
+            gl_Position = modelViewProjectionMatrix * position;
+            vertexColor = texture(textureIn, vec2(texcoord.x, texcoord.y));
+        }
+        
+        )";
+        
+        const string fragSource=R"(#version 410
+        
+        //flat in vec4 vertexColor;
+        //smooth in vec4 vertexColor;
+        noperspective in vec4 vertexColor;
+        
+        out vec4 out_Color;
+        
+        void main()
+        {
+            out_Color = vertexColor;
+        }
+        )";
+        
+        shader.setupShaderFromSource(GL_VERTEX_SHADER, vertSource);
+        shader.setupShaderFromSource(GL_FRAGMENT_SHADER, fragSource);
+        shader.bindDefaults();
+        shader.linkProgram();
+    }
+    
     ofParameter<ofTexture*> input;
     ofParameter<bool> interpolate;
     ofParameter<int> width;
@@ -130,6 +161,7 @@ private:
     
     ofVboMesh mesh;
     glm::vec2 inputSize;
+    ofShader shader;
 };
 
 #endif /* textureResize_h */
