@@ -1,9 +1,8 @@
-ofxArtNode
-ofxDatGui_PM
-ofxEasing
+ofxImGuiSimple
 ofxMidi
-ofxNetwork
 ofxOceanode
+ofxOceanodeMidi
 ofxOsc
+ofxOceanodeOsc
 ofxSyphon
 ofxTextureRecorder

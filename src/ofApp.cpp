@@ -40,155 +40,159 @@ void ofApp::setup(){
     
     ofDisableArbTex();
     ofSetVerticalSync(false);
-    ofSetEscapeQuitsApp(false);
     
-    openedJson = "";
-    ofFile file;
-    string path;
-    if(file.doesFileExist(ofToDataPath("../GIANT.generator"))) {
-        path = ofToDataPath("../GIANT.generator");
-    }else{
-        auto result = ofSystemLoadDialog("Select Generator File", false, ofToDataPath("../"));
-        path = result.getPath();
-    }
-    if(ofSplitString(path, ".").back() != "generator"){
-        ofExit();
-    }
-    float bpm = 120;
-    
-    ofJson json = ofLoadJson(path);
-    
-    ofRectangle controlsWindowRect(0,0,0,0);
-    if(!json.empty()){
-        openedJson = path;
-        
-        string name = json["Name"];
-        ofSetWindowTitle(name);
-        bpm = json["BPM"];
-        int frameRate = json["FPS"];
-        ofSetFrameRate(frameRate);
-        if (frameRate == 60) ofSetVerticalSync(true);
-        
-        ofJson windowJson = json["Window"];
-        //Main Window
-        ofRectangle mainWindowRect(0,0,0,0);
-        if(windowJson.count("MainWindowX") == 1){
-            mainWindowRect.x = windowJson["MainWindowX"];
-        }
-        if(windowJson.count("MainWindowY") == 1){
-            mainWindowRect.y = windowJson["MainWindowY"];
-        }
-        if(windowJson.count("MainWindowWidth") == 1){
-            mainWindowRect.width = windowJson["MainWindowWidth"];
-        }
-        if(windowJson.count("MainWindowHeight") == 1){
-            mainWindowRect.height = windowJson["MainWindowHeight"];
-        }
-        if(mainWindowRect.width != 0 && mainWindowRect.height != 0){
-            ofSetWindowPosition(mainWindowRect.x, mainWindowRect.y);
-            ofSetWindowShape(mainWindowRect.width, mainWindowRect.height);
-        }
-        
-        //Controls Window
-        if(windowJson.count("ControlsWindowX") == 1){
-            controlsWindowRect.x = windowJson["ControlsWindowX"];
-        }
-        if(windowJson.count("ControlsWindowY") == 1){
-            controlsWindowRect.y = windowJson["ControlsWindowY"];
-        }
-        if(windowJson.count("ControlsWindowWidth") == 1){
-            controlsWindowRect.width = windowJson["ControlsWindowWidth"];
-        }
-        if(windowJson.count("ControlsWindowHeight") == 1){
-            controlsWindowRect.height = windowJson["ControlsWindowHeight"];
-        }
-        
-        //Scope Window
-        ofRectangle scopeWindowRect(0,0,0,0);
-        if(windowJson.count("ScopeWindowX") == 1){
-            scopeWindowRect.x = windowJson["ScopeWindowX"];
-        }
-        if(windowJson.count("ScopeWindowY") == 1){
-            scopeWindowRect.y = windowJson["ScopeWindowY"];
-        }
-        if(windowJson.count("ScopeWindowWidth") == 1){
-            scopeWindowRect.width = windowJson["ScopeWindowWidth"];
-        }
-        if(windowJson.count("ScopeWindowHeight") == 1){
-            scopeWindowRect.height = windowJson["ScopeWindowHeight"];
-        }
-        if(scopeWindowRect.width != 0 && scopeWindowRect.height != 0){
-            sharedInfo::getInstance().setRect("ScopeWindowRect", scopeWindowRect);
-        }
-
-//        int unifierNum = json["TextureUnifierNumber"];
-//        int unifierSpacing = json["TextureUnifierSpacing"];
-//            if(unifierNum > 0){
-//                new textureUnifier(unifierNum, unifierSpacing);
-//            }
-        
-//        if(json["TextureRecorder"]){
-            //                new dataRecorder();
+//    openedJson = "";
+//    ofFile file;
+//    string path;
+//    if(file.doesFileExist(ofToDataPath("../GIANT.generator"))) {
+//        path = ofToDataPath("../GIANT.generator");
+//    }else{
+//        auto result = ofSystemLoadDialog("Select Generator File", false, ofToDataPath("../"));
+//        path = result.getPath();
+//    }
+//    if(ofSplitString(path, ".").back() != "generator"){
+//        ofExit();
+//    }
+//    float bpm = 120;
+//
+//    ofJson json = ofLoadJson(path);
+//
+//    ofRectangle controlsWindowRect(0,0,0,0);
+//    if(!json.empty()){
+//        openedJson = path;
+//
+//        string name = json["Name"];
+//        ofSetWindowTitle(name);
+//        bpm = json["BPM"];
+//        int frameRate = json["FPS"];
+//        ofSetFrameRate(frameRate);
+//        if (frameRate == 60) ofSetVerticalSync(true);
+//
+//        ofJson windowJson = json["Window"];
+//        //Main Window
+//        ofRectangle mainWindowRect(0,0,0,0);
+//        if(windowJson.count("MainWindowX") == 1){
+//            mainWindowRect.x = windowJson["MainWindowX"];
 //        }
-        
-        if(json.count("IP")){
-            string ip = json["IP"];
-            sharedInfo::getInstance().setString("IP", ip);
-        }else{
-            string ip = "127.0.0.1";
-            sharedInfo::getInstance().setString("IP", ip);
-        }
-    }
+//        if(windowJson.count("MainWindowY") == 1){
+//            mainWindowRect.y = windowJson["MainWindowY"];
+//        }
+//        if(windowJson.count("MainWindowWidth") == 1){
+//            mainWindowRect.width = windowJson["MainWindowWidth"];
+//        }
+//        if(windowJson.count("MainWindowHeight") == 1){
+//            mainWindowRect.height = windowJson["MainWindowHeight"];
+//        }
+//        if(mainWindowRect.width != 0 && mainWindowRect.height != 0){
+//            ofSetWindowPosition(mainWindowRect.x, mainWindowRect.y);
+//            ofSetWindowShape(mainWindowRect.width, mainWindowRect.height);
+//        }
+//
+//        //Controls Window
+//        if(windowJson.count("ControlsWindowX") == 1){
+//            controlsWindowRect.x = windowJson["ControlsWindowX"];
+//        }
+//        if(windowJson.count("ControlsWindowY") == 1){
+//            controlsWindowRect.y = windowJson["ControlsWindowY"];
+//        }
+//        if(windowJson.count("ControlsWindowWidth") == 1){
+//            controlsWindowRect.width = windowJson["ControlsWindowWidth"];
+//        }
+//        if(windowJson.count("ControlsWindowHeight") == 1){
+//            controlsWindowRect.height = windowJson["ControlsWindowHeight"];
+//        }
+//
+//        //Scope Window
+//        ofRectangle scopeWindowRect(0,0,0,0);
+//        if(windowJson.count("ScopeWindowX") == 1){
+//            scopeWindowRect.x = windowJson["ScopeWindowX"];
+//        }
+//        if(windowJson.count("ScopeWindowY") == 1){
+//            scopeWindowRect.y = windowJson["ScopeWindowY"];
+//        }
+//        if(windowJson.count("ScopeWindowWidth") == 1){
+//            scopeWindowRect.width = windowJson["ScopeWindowWidth"];
+//        }
+//        if(windowJson.count("ScopeWindowHeight") == 1){
+//            scopeWindowRect.height = windowJson["ScopeWindowHeight"];
+//        }
+//        if(scopeWindowRect.width != 0 && scopeWindowRect.height != 0){
+//            sharedInfo::getInstance().setRect("ScopeWindowRect", scopeWindowRect);
+//        }
+//
+////        int unifierNum = json["TextureUnifierNumber"];
+////        int unifierSpacing = json["TextureUnifierSpacing"];
+////            if(unifierNum > 0){
+////                new textureUnifier(unifierNum, unifierSpacing);
+////            }
+//
+////        if(json["TextureRecorder"]){
+//            //                new dataRecorder();
+////        }
+//
+//        if(json.count("IP")){
+//            string ip = json["IP"];
+//            sharedInfo::getInstance().setString("IP", ip);
+//        }else{
+//            string ip = "127.0.0.1";
+//            sharedInfo::getInstance().setString("IP", ip);
+//        }
+//    }
+    sharedInfo::getInstance().setString("IP", "127.0.0.1");
     
-    auto reg = make_shared<ofxOceanodeNodeRegistry>();
-    auto treg = make_shared<ofxOceanodeTypesRegistry>();
-    reg->registerModel<oscillatorTexture>("LedNodes");
-    reg->registerModel<waveScope>("LedNodes");
-    reg->registerModel<senderManager>("LedNodes");
-    reg->registerModel<colorApplier>("LedNodes");
-    reg->registerModel<textureRecorder>("LedNodes");
-    reg->registerModel<scriptModule>("Scripting");
-    reg->registerModel<textureUnifier>("LedNodes");
-    reg->registerModel<audioEngineController>("Audio");
-    reg->registerModel<textureReader>("LedNodes");
-    reg->registerModel<valueEaser>("EASER");
-    reg->registerModel<manualOscillatorBank>("Generators");
-    reg->registerModel<envelopeGenerator>("Midi");
-    reg->registerModel<textureMixer>("LedNodes");
-    //reg->registerModel<artnetSender>("ARTNET");
-    //reg->registerModel<texturePixelmap>("ARTNET");
-//    reg->registerModel<dviOutput>("OUTPUT");
-    reg->registerModel<midiGateIn>("Midi");
-    reg->registerModel<sequentialAnalyzer>("Midi");
-    reg->registerModel<delta>("OP");
-    //reg->registerModel<SnowQueenTheFrameTextureRemapper>("LedNodes");
-    reg->registerModel<oscTextureSender>("Audio");
-    reg->registerModel<euclideanGenerator>("Generators");
-    reg->registerModel<vectorToTexture>("LedNodes");
-    reg->registerModel<thresholdBang>("Modulator");
-    reg->registerModel<stepSequencer>("Generators");
-    reg->registerModel<indexerTexture>("LedNodes");
-    reg->registerModel<chaoticOscillatorTexture>("LedNodes");
-    reg->registerModel<textureResize>("LedNodes");
-    reg->registerModel<dummySliders>();
+    oceanode.registerModel<oscillatorTexture>("LedNodes");
+    oceanode.registerModel<waveScope>("LedNodes");
+    oceanode.registerModel<senderManager>("LedNodes");
+    oceanode.registerModel<colorApplier>("LedNodes");
+    oceanode.registerModel<textureRecorder>("LedNodes");
+    oceanode.registerModel<scriptModule>("Scripting");
+    oceanode.registerModel<textureUnifier>("LedNodes");
+    oceanode.registerModel<audioEngineController>("Audio");
+    oceanode.registerModel<textureReader>("LedNodes");
+    oceanode.registerModel<valueEaser>("EASER");
+    oceanode.registerModel<manualOscillatorBank>("Generators");
+    oceanode.registerModel<envelopeGenerator>("Midi");
+    oceanode.registerModel<textureMixer>("LedNodes");
+    //oceanode.registerModel<artnetSender>("ARTNET");
+    //oceanode.registerModel<texturePixelmap>("ARTNET");
+//    oceanode.registerModel<dviOutput>("OUTPUT");
+    oceanode.registerModel<midiGateIn>("Midi");
+    oceanode.registerModel<sequentialAnalyzer>("Midi");
+    oceanode.registerModel<delta>("OP");
+    //oceanode.registerModel<SnowQueenTheFrameTextureRemapper>("LedNodes");
+    oceanode.registerModel<oscTextureSender>("Audio");
+    oceanode.registerModel<euclideanGenerator>("Generators");
+    oceanode.registerModel<vectorToTexture>("LedNodes");
+    oceanode.registerModel<thresholdBang>("Modulator");
+    oceanode.registerModel<stepSequencer>("Generators");
+    oceanode.registerModel<indexerTexture>("LedNodes");
+    oceanode.registerModel<chaoticOscillatorTexture>("LedNodes");
+    oceanode.registerModel<textureResize>("LedNodes");
+    oceanode.registerModel<dummySliders>("Sliders");
     
-    registerVectorOp(reg);
+    oceanode.registerModel<subDimensionCombinator>("Vector Operations");
+    oceanode.registerModel<vectorChain>("Vector Operations");
+    oceanode.registerModel<vectorGetter>("Vector Operations");
+    oceanode.registerModel<vectorOperations>("Vector Operations");
+    oceanode.registerModel<vectorItemOperations>("Vector Operations");
     
-    treg->registerType<ofTexture*>();
+    
+    oceanode.registerType<ofTexture*>();
     
     
-    container = make_shared<ofxOceanodeContainer>(reg, treg);
-    canvas.setContainer(container);
-    canvas.setup();
-    
-    controls = make_shared<ofxOceanodeControls>(container);
-    controls->get<ofxOceanodeBPMController>()->setBPM(bpm);
-    container->loadPersistent();
+//    container = make_shared<ofxOceanodeContainer>(reg, treg);
+//    canvas.setContainer(container);
+//    canvas.setup();
+//
+//    controls = make_shared<ofxOceanodeControls>(container);
+//    controls->get<ofxOceanodeBPMController>()->setBPM(bpm);
+//    container->loadPersistent();
     //container->loadPreset("Presets/Bank_2019-01-20-14-33-32-088/2--cyclo2");
     
-    if(controlsWindowRect.width != 0 && controlsWindowRect.height != 0){
-        controls->setWindowRect(controlsWindowRect);
-    }
+//    if(controlsWindowRect.width != 0 && controlsWindowRect.height != 0){
+//        controls->setWindowRect(controlsWindowRect);
+//    }
+    oceanode.setup();
 }
 
 //--------------------------------------------------------------
@@ -196,54 +200,57 @@ void ofApp::update(){
     if(ofGetFrameNum() > 200 && ofGetFrameRate() < 10){
         //ofExit();
     }
+    oceanode.update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    if(controls->get<ofxOceanodeMidiController>()->getIsMidiLearn()){
-        ofSetBackgroundColor(150, 200, 150);
-    }else{
-        ofSetBackgroundColor(127, 127, 127);
-    }
+//    if(controls->get<ofxOceanodeMidiController>()->getIsMidiLearn()){
+//        ofSetBackgroundColor(150, 200, 150);
+//    }else{
+//        ofSetBackgroundColor(127, 127, 127);
+//    }
     ofDrawBitmapString(ofGetFrameRate(), 10, 10);
+    oceanode.draw();
 }
 
 void ofApp::exit(){
-    container->clearContainer();
-    if(openedJson != ""){
-        auto &sharedInfoInstance = sharedInfo::getInstance();
-        ofJson json = ofLoadJson(openedJson);
-        ofJson windowJson;
-        //Main Window
-        ofRectangle mainWinRect = ofGetWindowRect();
-        mainWinRect.setPosition(ofGetWindowPositionX(), ofGetWindowPositionY());
-        windowJson["MainWindowX"] = mainWinRect.x;
-        windowJson["MainWindowY"] = mainWinRect.y;
-        windowJson["MainWindowWidth"] = mainWinRect.width;
-        windowJson["MainWindowHeight"] = mainWinRect.height;
-        
-        //Controls Window
-        ofRectangle controlsWinRect = controls->getWindowRect();
-        windowJson["ControlsWindowX"] = controlsWinRect.x;
-        windowJson["ControlsWindowY"] = controlsWinRect.y;
-        windowJson["ControlsWindowWidth"] = controlsWinRect.width;
-        windowJson["ControlsWindowHeight"] = controlsWinRect.height;
-        
-        //Texture Scope 1
-        ofRectangle scopeWinRect = sharedInfoInstance.getRect("ScopeWindowRect");
-        windowJson["ScopeWindowX"] = scopeWinRect.x;
-        windowJson["ScopeWindowY"] = scopeWinRect.y;
-        windowJson["ScopeWindowWidth"] = scopeWinRect.width;
-        windowJson["ScopeWindowHeight"] = scopeWinRect.height;
-        
-        json["Window"] = windowJson;
-        
-        ofSavePrettyJson(openedJson, json);
-    }
+    //container->clearContainer();
+//    if(openedJson != ""){
+//        auto &sharedInfoInstance = sharedInfo::getInstance();
+//        ofJson json = ofLoadJson(openedJson);
+//        ofJson windowJson;
+//        //Main Window
+//        ofRectangle mainWinRect = ofGetWindowRect();
+//        mainWinRect.setPosition(ofGetWindowPositionX(), ofGetWindowPositionY());
+//        windowJson["MainWindowX"] = mainWinRect.x;
+//        windowJson["MainWindowY"] = mainWinRect.y;
+//        windowJson["MainWindowWidth"] = mainWinRect.width;
+//        windowJson["MainWindowHeight"] = mainWinRect.height;
+//
+//        //Controls Window
+////        ofRectangle controlsWinRect = controls->getWindowRect();
+////        windowJson["ControlsWindowX"] = controlsWinRect.x;
+////        windowJson["ControlsWindowY"] = controlsWinRect.y;
+////        windowJson["ControlsWindowWidth"] = controlsWinRect.width;
+////        windowJson["ControlsWindowHeight"] = controlsWinRect.height;
+//
+//        //Texture Scope 1
+//        ofRectangle scopeWinRect = sharedInfoInstance.getRect("ScopeWindowRect");
+//        windowJson["ScopeWindowX"] = scopeWinRect.x;
+//        windowJson["ScopeWindowY"] = scopeWinRect.y;
+//        windowJson["ScopeWindowWidth"] = scopeWinRect.width;
+//        windowJson["ScopeWindowHeight"] = scopeWinRect.height;
+//
+//        json["Window"] = windowJson;
+//
+//        ofSavePrettyJson(openedJson, json);
+//    }
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
+    /*
 #ifdef TARGET_OSX
     if(ofGetKeyPressed(OF_KEY_COMMAND)){
 #else
@@ -251,14 +258,15 @@ void ofApp::keyPressed(int key){
 #endif
         if(key == 'p') container->savePersistent();
         else if(key == 'u') container->updatePersistent();
-        else if(key == 'k') container->collapseGuis();
-        else if(key == 'e') container->expandGuis();
+//        else if(key == 'k') container->collapseGuis();
+//        else if(key == 'e') container->expandGuis();
         else if(key == 's') container->saveCurrentPreset();
         else if(key == 'r') container->resetPhase();
-        else if(key == 'l') controls->get<ofxOceanodeMidiController>()->setIsMidiLearn(!controls->get<ofxOceanodeMidiController>()->getIsMidiLearn());
+//        else if(key == 'l') controls->get<ofxOceanodeMidiController>()->setIsMidiLearn(!controls->get<ofxOceanodeMidiController>()->getIsMidiLearn());
     }else if(key == 'l'){
         //container->loadPreset("Presets/Bank_2019-01-20-14-33-32-088/1--cyclo");
     }
+        */
 }
 
 //--------------------------------------------------------------

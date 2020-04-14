@@ -23,8 +23,5 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
-    ofxOceanodeCanvas canvas;
-    shared_ptr<ofxOceanodeContainer> container;
-    shared_ptr<ofxOceanodeControls> controls;
-    string openedJson;
+    ofxOceanode oceanode;
 };
