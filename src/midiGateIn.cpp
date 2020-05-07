@@ -20,11 +20,11 @@ void midiGateIn::setup(){
     for(int i = 0; i < midiIn->getNumInPorts(); i++){
         ports[i+1] = midiIn->getInPortList()[i];
     }
-    parameters->add(createDropdownAbstractParameter("Midi Device", ports, midiDevice));
-    parameters->add(midiChannel.set("Midi Channel", 0, 0, 16));
-    parameters->add(noteOnStart.set("Note Begin", 0, 0, 127));
-    parameters->add(noteOnEnd.set("Note End", 127, 0, 127));
-    parameters->add(output.set("Output", {0}, {0}, {1}));
+    addParameterDropdown(midiDevice, "Midi Device", 0, ports);
+    addParameter(midiChannel.set("Midi Channel", 0, 0, 16));
+    addParameter(noteOnStart.set("Note Begin", 0, 0, 127));
+    addParameter(noteOnEnd.set("Note End", 127, 0, 127));
+    addParameter(output.set("Output", {0}, {0}, {1}));
     
     outputStore.resize(noteOnEnd - noteOnStart + 1, 0);
     listeners.push(noteOnStart.newListener(this, &midiGateIn::noteRangeChanged));
@@ -34,7 +34,7 @@ void midiGateIn::setup(){
 
 void midiGateIn::update(ofEventArgs &e){
     if(mutex.try_lock()){
-        parameters->get("Output").cast<vector<float>>() = outputStore;
+        output = outputStore;
         activatedNotes.clear();
         for(auto &n : toShutNotes){
             outputStore[n] = 0;

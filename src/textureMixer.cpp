@@ -9,17 +9,17 @@ textureMixer::textureMixer() : ofxOceanodeNodeModel("Texture Mixer")
 
     mixModeName = {"FADE","MIN","MAX","ADD","MULTIPLY","DIFFERENCE","TEST"};
     
-    parameters->add(triggerTextureIndex.set("Trigger Index", 0, 0, 1));
+    addParameter(triggerTextureIndex.set("Trigger Index", 0, 0, 1));
     inputs.resize(2);
     for(int i = 0; i < inputs.size() ; i++){
-        parameters->add(inputs[i].set("Input " + ofToString(i), nullptr));
+        addParameter(inputs[i].set("Input " + ofToString(i), nullptr));
         inputs[i].addListener(this, &textureMixer::computeOutput);
     }
-//    parameters->add(mixMode.set("Mix Mode",0,0,6));
-    parameters->add(createDropdownAbstractParameter("Mix Function", mixModeName, mixMode));
-    parameters->add(crossFader.set("Crossfader",0,0.0,1.0));
+//    addParameter(mixMode.set("Mix Mode",0,0,6));
+    addParameterDropdown(mixMode, "Mix Function", 0, mixModeName);
+    addParameter(crossFader.set("Crossfader",0,0.0,1.0));
 
-    parameters->add(output.set("Output", nullptr));
+    addParameter(output.set("Output", nullptr));
     
     isSetup = false;
 }

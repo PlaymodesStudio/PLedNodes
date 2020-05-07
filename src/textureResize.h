@@ -17,11 +17,11 @@ public:
     ~textureResize(){};
     
     void setup() override{
-        parameters->add(input.set("Input", nullptr));
-        parameters->add(width.set("Width", 100, 1, 5120));
-        parameters->add(height.set("Height", 100, 1, 2880));
-        parameters->add(interpolate.set("Interpolate", false));
-        parameters->add(output.set("Output", nullptr));
+        addParameter(input.set("Input", nullptr));
+        addParameter(width.set("Width", 100, 1, 5120));
+        addParameter(height.set("Height", 100, 1, 2880));
+        addParameter(interpolate.set("Interpolate", false));
+        addParameter(output.set("Output", nullptr));
         listener = input.newListener([this](ofTexture* &tex){
             if(input != nullptr){
                 if(inputSize.x != input.get()->getWidth() || inputSize.y != input.get()->getHeight()){

@@ -11,19 +11,19 @@
 #define NUM_INPUTS 8
 
 textureUnifier::textureUnifier() : ofxOceanodeNodeModel("Texture Unifier"){
-    
+    color = ofColor::lightGray;
 }
 
 void textureUnifier::setup(){
-    parameters->add(triggerTextureIndex.set("Trigger Index", 0, 0, NUM_INPUTS));
-    parameters->add(spacing.set("Tex Spacing", 1, 0, 10));
+    addParameter(triggerTextureIndex.set("Trigger Index", 0, 0, NUM_INPUTS));
+    addParameter(spacing.set("Tex Spacing", 1, 0, 10));
     inputs.resize(NUM_INPUTS);
     customPositions.resize(NUM_INPUTS);
     opacities.resize(NUM_INPUTS);
     for(int i = 0; i < inputs.size() ; i++){
-        parameters->add(inputs[i].set("Input " + ofToString(i), nullptr));
-        parameters->add(customPositions[i].set("Custom Position " + ofToString(i), "0,0"));
-        parameters->add(opacities[i].set("Opacity " + ofToString(i),1.0,0.0,1.0));
+        addParameter(inputs[i].set("Input " + ofToString(i), nullptr));
+        addParameter(customPositions[i].set("Custom Position " + ofToString(i), "0,0"));
+        addParameter(opacities[i].set("Opacity " + ofToString(i),1.0,0.0,1.0));
         listeners.push(customPositions[i].newListener([this, i](string &s){
             if(ofSplitString(s, ",").size() != 2){
                 customPositions[i] = "0,0";
@@ -31,7 +31,7 @@ void textureUnifier::setup(){
         }));
         listeners.push(inputs[i].newListener(this, &textureUnifier::computeOutput));
     }
-    parameters->add(output.set("Output", nullptr));
+    addParameter(output.set("Output", nullptr));
 }
 
 void textureUnifier::computeOutput(ofTexture* &in){

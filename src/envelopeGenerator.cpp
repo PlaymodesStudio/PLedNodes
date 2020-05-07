@@ -12,31 +12,31 @@ envelopeGenerator::envelopeGenerator() : ofxOceanodeNodeModel("Envelope Generato
 {
     easeStringFuncs = {"EASE_LINEAR", " EASE_IN_QUAD", " EASE_OUT_QUAD", " EASE_IN_OUT_QUAD", " EASE_IN_CUBIC", " EASE_OUT_CUBIC", " EASE_IN_OUT_CUBIC", " EASE_IN_QUART", " EASE_OUT_QUART", " EASE_IN_OUT_QUART", " EASE_IN_QUINT", " EASE_OUT_QUINT", " EASE_IN_OUT_QUINT", " EASE_IN_SINE", " EASE_OUT_SINE", " EASE_IN_OUT_SINE", " EASE_IN_EXPO", " EASE_OUT_EXPO", " EASE_IN_OUT_EXPO", " EASE_IN_CIRC", " EASE_OUT_CIRC", "EASE_IN_OUT_CIRC"};
     
-    parameters->add(phasor.set("Phasor In", {0}, {0}, {1}));
-    parameters->add(gateIn.set("Gate In", {0}, {0}, {1}));
-    parameters->add(hold.set("Hold", {0}, {0}, {1}));
-    parameters->add(attack.set("Attack", {0}, {0}, {1}));
-    parameters->add(decay.set("Decay", {0}, {0}, {1}));
-    parameters->add(sustain.set("Sustain", {1}, {0}, {1}));
-    parameters->add(release.set("Release", {0}, {0}, {1}));
+    addParameter(phasor.set("Phasor In", {0}, {0}, {1}));
+    addParameter(gateIn.set("Gate In", {0}, {0}, {1}));
+    addParameter(hold.set("Hold", {0}, {0}, {1}));
+    addParameter(attack.set("Attack", {0}, {0}, {1}));
+    addParameter(decay.set("Decay", {0}, {0}, {1}));
+    addParameter(sustain.set("Sustain", {1}, {0}, {1}));
+    addParameter(release.set("Release", {0}, {0}, {1}));
 
     ofParameter<char> alabel("Attack Controls", ' ');
-    parameters->add(alabel);
-    parameters->add(attackPow.set("A In<->Out", {0}, {-1}, {1}));
-    parameters->add(attackBiPow.set("A InOut", {0}, {-1}, {1}));
+    addParameter(alabel);
+    addParameter(attackPow.set("A In<->Out", {0}, {-1}, {1}));
+    addParameter(attackBiPow.set("A InOut", {0}, {-1}, {1}));
     
     ofParameter<char> dlabel("Decay Controls", ' ');
-    parameters->add(dlabel);
-    parameters->add(decayPow.set("D In<->Out", {0}, {-1}, {1}));
-    parameters->add(decayBiPow.set("D InOut", {0}, {-1}, {1}));
+    addParameter(dlabel);
+    addParameter(decayPow.set("D In<->Out", {0}, {-1}, {1}));
+    addParameter(decayBiPow.set("D InOut", {0}, {-1}, {1}));
     
     ofParameter<char> rlabel("Release Controls", ' ');
-    parameters->add(rlabel);
-    parameters->add(releasePow.set("R In<->Out", {0}, {-1}, {1}));
-    parameters->add(releaseBiPow.set("R InOut", {0}, {-1}, {1}));
+    addParameter(rlabel);
+    addParameter(releasePow.set("R In<->Out", {0}, {-1}, {1}));
+    addParameter(releaseBiPow.set("R InOut", {0}, {-1}, {1}));
     
-    parameters->add(curvePreview.set("Curve Preview", {0}, {0}, {1}));
-    parameters->add(output.set("Output", {0}, {0}, {1}));
+    addParameter(curvePreview.set("Curve Preview", {0}, {0}, {1}));
+    addParameter(output.set("Output", {0}, {0}, {1}));
     oldGateIn = {0};
     
     outputComputeVec = {0};

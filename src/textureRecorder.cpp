@@ -9,11 +9,11 @@
 #include "textureRecorder.h"
 
 textureRecorder::textureRecorder() : ofxOceanodeNodeModel("Texture Recorder"){
-    parameters->add(phasorIn.set("Phasor In", 0, 0, 1));
-    parameters->add(record.set("Record", false));
-    parameters->add(autoRecLoop.set("Auto Rec Loop", false));
-    parameters->add(filename.set("Filename", "recTest"));
-    parameters->add(input.set("Input", nullptr));
+    addParameter(phasorIn.set("Phasor In", 0, 0, 1));
+    addParameter(record.set("Record", false));
+    addParameter(autoRecLoop.set("Auto Rec Loop", false));
+    addParameter(filename.set("Filename", "recTest"));
+    addParameter(input.set("Input", nullptr));
     
     listeners.push(phasorIn.newListener(this, &textureRecorder::phasorInListener));
     listeners.push(record.newListener(this, &textureRecorder::recordListener));
@@ -88,7 +88,7 @@ void textureRecorder::recordListener(bool &b){
         initRecordingTimestamp = ofGetTimestampString();
         frameCounter = 0;
     }else{
-        parameters->getBool("Auto Rec Loop") = false;
+        autoRecLoop = false;
         recorderIsSetup = false;
     }
 }

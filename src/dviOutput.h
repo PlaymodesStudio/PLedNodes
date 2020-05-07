@@ -16,8 +16,8 @@ public:
     ~dviOutput(){};
     
     void setup() override{
-        parameters->add(texture.set("Texture", nullptr));
-        addParameterToGroupAndInfo(masterFader.set("Master Fader", 1, 0, 1)).isSavePreset = false;
+        addParameter(texture.set("Texture", nullptr));
+        addParameter(masterFader.set("Master Fader", 1, 0, 1), ofxOceanodeParameterFlags_DisablePresetSave);
     };
     
     void presetHasLoaded() override{

@@ -9,15 +9,16 @@
 #include "senderManager.h"
 
 senderManager::senderManager() : ofxOceanodeNodeModel("Sender Manager"){
-    addParameterToGroupAndInfo(enable.set("Enable", 1)).isSavePreset = false;
-    addParameterToGroupAndInfo(syphonName.set("Server Name", "Texture")).isSavePreset = false;
-    addParameterToGroupAndInfo(masterFader.set("Master Fader", 1, 0, 1)).isSavePreset = false;
-    parameters->add(textureIn.set("Texture In", nullptr));
+    addParameter(enable.set("Enable", 1), ofxOceanodeParameterFlags_DisableSavePreset);
+    addParameter(syphonName.set("Server Name", "Texture"), ofxOceanodeParameterFlags_DisableSavePreset);
+    addParameter(masterFader.set("Master Fader", 1, 0, 1), ofxOceanodeParameterFlags_DisableSavePreset);
+    addParameter(textureIn.set("Texture In", nullptr));
     
     listeners.push(textureIn.newListener(this, &senderManager::sendTexture));
     
     bool tempEnable = true;
     enableSyphonListener(tempEnable);
+    color = ofColor::lightGray;
 }
 
 

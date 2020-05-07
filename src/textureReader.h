@@ -13,8 +13,8 @@
 class textureReader : public ofxOceanodeNodeModel{
 public:
     textureReader() : ofxOceanodeNodeModel("Texture Reader"){
-        parameters->add(input.set("Input", nullptr));
-        parameters->add(output.set("Output", {0}, {0}, {1}));
+        addParameter(input.set("Input", nullptr));
+        addParameter(output.set("Output", {0}, {0}, {1}));
         listener = input.newListener([this](ofTexture* &tex){
             if(tex != nullptr){
                 if(tempOutput.size() != tex->getWidth() * tex->getHeight()){

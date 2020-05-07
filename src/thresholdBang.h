@@ -15,10 +15,10 @@ public:
     thresholdBang() : ofxOceanodeNodeModel("Threshold Bang"){};
     
     void setup(){
-        addParameterToGroupAndInfo(input.set("Input", {0}, {0}, {1}));
-        addParameterToGroupAndInfo(threshold.set("Threshold", {1}, {0}, {1}));
-        addParameterToGroupAndInfo(frameMode.set("Frame Mode", false));
-        addParameterToGroupAndInfo(output.set("Output", {0}, {0}, {1}));
+        addParameter(input.set("Input", {0}, {0}, {1}));
+        addParameter(threshold.set("Threshold", {1}, {0}, {1}));
+        addParameter(frameMode.set("Frame Mode", false));
+        addParameter(output.set("Output", {0}, {0}, {1}));
         
         listener = input.newListener([this](vector<float> &vf){
             if(vf.size() != lastVal.size()){

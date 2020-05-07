@@ -16,11 +16,11 @@ public:
     ~sequentialAnalyzer(){};
     
     void setup() override{
-        parameters->add(input.set("Input", {0}, {0}, {1}));
-        parameters->add(threshold.set("Threshold", {0.5}, {0}, {1}));
-        parameters->add(outputSize.set("Output Size", 1, 1, 100));
-        parameters->add(floatOutput.set("Float Output", 0, 0, 1));
-        parameters->add(pulseOutput.set("Pulse Output", {0}, {0}, {1}));
+        addParameter(input.set("Input", {0}, {0}, {1}));
+        addParameter(threshold.set("Threshold", {0.5}, {0}, {1}));
+        addParameter(outputSize.set("Output Size", 1, 1, 100));
+        addParameter(floatOutput.set("Float Output", 0, 0, 1));
+        addParameter(pulseOutput.set("Pulse Output", {0}, {0}, {1}));
         
         currentPosition = 0;
         

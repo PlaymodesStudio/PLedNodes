@@ -29,9 +29,9 @@ public:
         int numSliders = 16;
         sliders.resize(numSliders);
         for(int i = 0; i < numSliders; i++){
-            parameters->add(sliders[i].set(ofToString(i), {0}, {0}, {1}));
+            addParameter(sliders[i].set(ofToString(i), {0}, {0}, {1}));
         }
-        parameters->add(chain.set("Chain", {0}, {0}, {1}));
+        addParameter(chain.set("Chain", {0}, {0}, {1}));
     }
     
     

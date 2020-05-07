@@ -15,9 +15,9 @@ public:
     vectorToTexture() : ofxOceanodeNodeModel("Vector to Texture"){};
     
     void setup(){
-        addParameterToGroupAndInfo(input.set("Input", {0}, {0}, {1}));
-        addParameterToGroupAndInfo(size.set("Size", "32x4"));
-        addParameterToGroupAndInfo(output.set("Output Tex", nullptr));
+        addParameter(input.set("Input", {0}, {0}, {1}));
+        addParameter(size.set("Size", "32x4"));
+        addParameter(output.set("Output Tex", nullptr));
         
         listener = size.newListener([this](string &s){
             changedSize = true;

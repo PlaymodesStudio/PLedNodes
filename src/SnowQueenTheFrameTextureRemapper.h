@@ -16,8 +16,8 @@ public:
     ~SnowQueenTheFrameTextureRemapper(){};
     
     void setup() override{
-        parameters->add(input.set("Input", nullptr));
-        parameters->add(output.set("Output", nullptr));
+        addParameter(input.set("Input", nullptr));
+        addParameter(output.set("Output", nullptr));
         listener = input.newListener([this](ofTexture* &tex){
             if(input != nullptr){
                 fbo.begin();

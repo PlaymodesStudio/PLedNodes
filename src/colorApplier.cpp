@@ -13,31 +13,31 @@ void colorApplier::setup(){
     isSetup = false;
     resources = &sharedResources::getInstance();
     
-    parameters->add(reloadShaderParam.set("Reload Shader", false));
-    parameters->add(colorPickerParam[0].set("Color 1", ofColor::white));
-    parameters->add(colorRParam[0].set("Color 1 R", 255, 0, 255));
-    parameters->add(colorGParam[0].set("Color 1 G", 255, 0, 255));
-    parameters->add(colorBParam[0].set("Color 1 B", 255, 0, 255));
-    addParameterToGroupAndInfo(colorHParam[0].set("Color 1 Hue", 0, 0, 360)).isSavePreset = false;
+    addParameter(reloadShaderParam.set("Reload Shader", false));
+    addParameter(colorPickerParam[0].set("Color 1", ofColor::white));
+    addParameter(colorRParam[0].set("Color 1 R", 255, 0, 255));
+    addParameter(colorGParam[0].set("Color 1 G", 255, 0, 255));
+    addParameter(colorBParam[0].set("Color 1 B", 255, 0, 255));
+    addParameter(colorHParam[0].set("Color 1 Hue", 0, 0, 360), ofxOceanodeParameterFlags_DisableSavePreset);
     
-    parameters->add(colorPickerParam[1].set("Color 2", ofColor::white));
-    parameters->add(colorRParam[1].set("Color 2 R", 0, 0, 255));
-    parameters->add(colorGParam[1].set("Color 2 G", 0, 0, 255));
-    parameters->add(colorBParam[1].set("Color 2 B", 0, 0, 255));
-    addParameterToGroupAndInfo(colorHParam[1].set("Color 2 Hue", 0, 0, 360)).isSavePreset = false;
-    parameters->add(colorDisplacement.set("Color Displacement", 0, 0, 1));
+    addParameter(colorPickerParam[1].set("Color 2", ofColor::white));
+    addParameter(colorRParam[1].set("Color 2 R", 0, 0, 255));
+    addParameter(colorGParam[1].set("Color 2 G", 0, 0, 255));
+    addParameter(colorBParam[1].set("Color 2 B", 0, 0, 255));
+    addParameter(colorHParam[1].set("Color 2 Hue", 0, 0, 360), ofxOceanodeParameterFlags_DisableSavePreset);
+    addParameter(colorDisplacement.set("Color Displacement", 0, 0, 1));
     
-    //    parameters->add(randomColorStepsParam.set("Rnd Color Steps", 4, 0, 255));
+    //    addParameter(randomColorStepsParam.set("Rnd Color Steps", 4, 0, 255));
     //    sharedResources::addDropdownToParameterGroupFromParameters(parameters, "Rnd ChangeTypes", {"no", "on presset", "onTrigger"}, randomizeTypeColorParam);
     
-    parameters->add(textureImage.set("Texture Image", nullptr));
+    addParameter(textureImage.set("Texture Image", nullptr));
     
-    parameters->add(modulationInfo[0].set("Mod in X", vector<float>(1, 0), vector<float>(1, 0), vector<float>(1, 1)));
-    parameters->add(modulationInfo[1].set("Mod in Y", vector<float>(1, 0), vector<float>(1, 0), vector<float>(1, 1)));
+    addParameter(modulationInfo[0].set("Mod in X", vector<float>(1, 0), vector<float>(1, 0), vector<float>(1, 1)));
+    addParameter(modulationInfo[1].set("Mod in Y", vector<float>(1, 0), vector<float>(1, 0), vector<float>(1, 1)));
     
-    parameters->add(grayScaleIn.set("Input", nullptr));
-    parameters->add(gradientPreview.set("Gradient Preview", nullptr));
-    parameters->add(colorizedValues.set("Output", nullptr));
+    addParameter(grayScaleIn.set("Input", nullptr));
+    addParameter(gradientPreview.set("Gradient Preview", nullptr));
+    addParameter(colorizedValues.set("Output", nullptr));
     
 //    listeners.push(colorPickerParam[0].newListener(this, &colorApplier::colorListener));
     listeners.push(colorRParam[0].newListener(this, &colorApplier::colorSliderListener));
@@ -195,7 +195,7 @@ void colorApplier::draw(ofEventArgs &a){
         }
         outputShader.end();
         outputFbo.end();
-        parameters->get("Output").cast<ofTexture*>() = &outputFbo.getTexture();
+        colorizedValues = &outputFbo.getTexture();
         
         
         previewFbo.begin();
@@ -216,7 +216,7 @@ void colorApplier::draw(ofEventArgs &a){
         ofPopStyle();
         previewShader.end();
         previewFbo.end();
-        parameters->get("Gradient Preview").cast<ofTexture*>() = &previewFbo.getTexture();
+        gradientPreview = &previewFbo.getTexture();
     }
 }
 

@@ -9,12 +9,12 @@
 #include "delta.h"
 
 delta::delta() : ofxOceanodeNodeModel("Delta"){
-    parameters->add(gain.set("Gain", 1, 0, 100));
-    parameters->add(invert.set("Invert", false));
-    parameters->add(input.set("Input", {0}, {0}, {1}));
-    parameters->add(output.set("Output", {0}, {0}, {1}));
-    parameters->add(outputPositive.set("Output +", {0}, {0}, {1}));
-    parameters->add(outputNegative.set("Output -", {0}, {0}, {1}));
+    addParameter(gain.set("Gain", 1, 0, 100));
+    addParameter(invert.set("Invert", false));
+    addParameter(input.set("Input", {0}, {0}, {1}));
+    addParameter(output.set("Output", {0}, {0}, {1}));
+    addParameter(outputPositive.set("Output +", {0}, {0}, {1}));
+    addParameter(outputNegative.set("Output -", {0}, {0}, {1}));
     
     listener = input.newListener(this, &delta::computeOutput);
     color = ofColor::green;

@@ -14,18 +14,18 @@ public:
     ~stepSequencer(){};
     
     void setup(){
-        addParameterToGroupAndInfo(numSteps.set("Num Steps", 1, 1, 100));
-        addParameterToGroupAndInfo(index.set("Index", 0, 0, 1));
+        addParameter(numSteps.set("Num Steps", 1, 1, 100));
+        addParameter(index.set("Index", 0, 0, 1));
         lastNumSteps = 0;
         
-        addParameterToGroupAndInfo(output.set("Output", {0}, {0}, {1}));
-        addParameterToGroupAndInfo(stepsVec.set("Steps Vec", {0}, {0}, {1}));
+        addParameter(output.set("Output", {0}, {0}, {1}));
+        addParameter(stepsVec.set("Steps Vec", {0}, {0}, {1}));
         
         numStepsListener = numSteps.newListener([this](int &nsteps){
             if(lastNumSteps == nsteps) return;
             else if(lastNumSteps > nsteps){
                 for(int i = nsteps ; i < lastNumSteps; i++){
-                    parameters->remove(steps[i]);
+                    getParameterGroup().remove(steps[i]);
                     sliderListeners.unsubscribe(i);
                 }
                 steps.resize(nsteps);
@@ -42,7 +42,7 @@ public:
 //                parameters->remove(stepsVec);
                 
                 for(int i = lastNumSteps; i < numSteps; i++){
-                    addParameterToGroupAndInfo(steps[i].set("Step " + ofToString(i), 0, 0, 1));
+                    addParameter(steps[i].set("Step " + ofToString(i), 0, 0, 1));
                     sliderListeners.push(steps[i].newListener([this, i](float &f){
                         vector<float> tempOutput = stepsVec;
                         tempOutput[i] = f;
