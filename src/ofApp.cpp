@@ -34,6 +34,8 @@
 #include "ofxOceanodeMidiController.h"
 #include "ofxOceanodeBPMController.h"
 
+#include "ofxOceanodeScope.h"
+
 //--------------------------------------------------------------
 void ofApp::setup(){
 //    ofEnableGLDebugLog();
@@ -178,6 +180,24 @@ void ofApp::setup(){
     
     
     oceanode.registerType<ofTexture*>();
+    
+    
+    ofxOceanodeScope::getInstance()->addScopeFunc([](ofxOceanodeAbstractParameter *p, ImVec2 size) -> bool{
+        // Tex pointerr PARAM
+        if(p->valueType() == typeid(ofTexture*).name())
+        {
+            auto param = p->cast<ofTexture*>().getParameter();
+            auto size2 = ImGui::GetContentRegionAvail();
+
+            if(param.get() != nullptr){
+                ImTextureID textureID = (ImTextureID)(uintptr_t)param.get()->texData.textureID;
+                ImGui::Image(textureID, size2);
+            }
+            return true;
+        }
+
+        return false;
+    });
     
     
 //    container = make_shared<ofxOceanodeContainer>(reg, treg);
