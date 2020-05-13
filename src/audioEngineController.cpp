@@ -9,14 +9,14 @@
 #include "audioEngineController.h"
 #include "sharedInfo.h"
 
-audioEngineController::audioEngineController() : ofxOceanodeNodeModel("Audio Controller"){
-    addParameter(oscHost.set("Osc Host", "localhost"), ofxOceanodeParameterFlags_DisableSavePreset);
-    addParameter(oscPort.set("Osc Port", "11511"));//.isSavePreset = false;
-    addParameter(presetNum.set("Preset Num", 0, 0, 100));
-    addParameter(param_a.set("Param a", {0}, {0}, {1}));
-    addParameter(param_b.set("Param b", {0}, {0}, {1}));
-    addParameter(param_c.set("Param c", {0}, {0}, {1}));
-    addParameter(param_d.set("Param d", {0}, {0}, {1}));
+audioEngineController::audioEngineController() : ofxOceanodeNodeModel("OSC Audio Controller"){
+    addParameter(oscHost.set("Host", "localhost"), ofxOceanodeParameterFlags_DisableSavePreset);
+    addParameter(oscPort.set("Port", "11511"));//.isSavePreset = false;
+    addParameter(presetNum.set("Preset.N", 0, 0, 100));
+    addParameter(param_a.set("Param.A", {0}, {0}, {1}));
+    addParameter(param_b.set("Param.B", {0}, {0}, {1}));
+    addParameter(param_c.set("Param.C", {0}, {0}, {1}));
+    addParameter(param_d.set("Param.D", {0}, {0}, {1}));
     oscSender.setup(oscHost, ofToInt(oscPort));
     
     presetNum.addListener(this, &audioEngineController::presetNumSender);

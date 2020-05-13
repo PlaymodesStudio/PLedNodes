@@ -8,17 +8,17 @@
 #include "oscTextureSender.h"
 #include "sharedInfo.h"
 
-oscTextureSender::oscTextureSender() : ofxOceanodeNodeModel("Texture Sender"){
-    addParameter(oscHost.set("Osc Host", "localhost"), ofxOceanodeParameterFlags_DisableSavePreset);
-    addParameter(oscPort.set("Osc Port", "11511"));//.isSavePreset = false;
-    addParameter(address.set("Osc Address", "/texture"));
-    addParameter(resampleX.set("Resample X", 100, 1, 100));//.isSavePreset = false;
-    addParameterDropdown(resampleXMethod, "Method X", 0, {"Min", "Max", "Sum", "Mean"});
-    addParameter(resampleY.set("Resample Y", 100, 1, 100));//.isSavePreset = false;
-    addParameterDropdown(resampleYMethod, "Method Y", 0, {"Min", "Max", "Sum", "Mean"});
-    addParameter(flip.set("Flip Send", false));
-    addParameter(fader.set("Master Fader", 1, 0, 1));
-    addParameter(texture.set("Texture", nullptr));
+oscTextureSender::oscTextureSender() : ofxOceanodeNodeModel("OSC Texture Sender"){
+    addParameter(oscHost.set("Host", "localhost"), ofxOceanodeParameterFlags_DisableSavePreset);
+    addParameter(oscPort.set("Port", "11511"));//.isSavePreset = false;
+    addParameter(address.set("Address", "/texture"));
+    addParameter(resampleX.set("Resamp.X", 100, 1, 100));//.isSavePreset = false;
+    addParameterDropdown(resampleXMethod, "Func.X", 0, {"Min", "Max", "Sum", "Mean"});
+    addParameter(resampleY.set("Resamp.Y", 100, 1, 100));//.isSavePreset = false;
+    addParameterDropdown(resampleYMethod, "Func.Y", 0, {"Min", "Max", "Sum", "Mean"});
+    addParameter(flip.set("Flip", false));
+    addParameter(fader.set("Fader", 1, 0, 1));
+    addParameter(texture.set("In.Texture", nullptr));
     oscSender.setup(oscHost, ofToInt(oscPort));
     resampleXMethod = 1;
     resampleYMethod = 1;

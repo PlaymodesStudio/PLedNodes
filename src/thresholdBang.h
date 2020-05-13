@@ -16,8 +16,8 @@ public:
     
     void setup(){
         addParameter(input.set("Input", {0}, {0}, {1}));
-        addParameter(threshold.set("Threshold", {1}, {0}, {1}));
-        addParameter(frameMode.set("Frame Mode", false));
+        addParameter(threshold.set("Thrs.", {1}, {0}, {1}));
+        addParameter(frameMode.set("Frame", false));
         addParameter(output.set("Output", {0}, {0}, {1}));
         
         listener = input.newListener([this](vector<float> &vf){

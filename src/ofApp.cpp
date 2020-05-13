@@ -183,7 +183,7 @@ void ofApp::setup(){
     
     
     ofxOceanodeScope::getInstance()->addScopeFunc([](ofxOceanodeAbstractParameter *p, ImVec2 size) -> bool{
-        // Tex pointerr PARAM
+        // Texture pointer PARAM
         if(p->valueType() == typeid(ofTexture*).name())
         {
             auto param = p->cast<ofTexture*>().getParameter();

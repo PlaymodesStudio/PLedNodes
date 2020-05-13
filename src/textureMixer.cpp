@@ -7,17 +7,17 @@
 textureMixer::textureMixer() : ofxOceanodeNodeModel("Texture Mixer")
 {
 
-    mixModeName = {"FADE","MIN","MAX","ADD","MULTIPLY","DIFFERENCE","TEST"};
+    mixModeName = {"FADE","MIN","MAX","ADD","SUBSTRACT","MULTIPLY","DIFFERENCE","TEST"};
     
-    addParameter(triggerTextureIndex.set("Trigger Index", 0, 0, 1));
+    addParameter(triggerTextureIndex.set("Trig.In", 0, 0, 1));
     inputs.resize(2);
     for(int i = 0; i < inputs.size() ; i++){
-        addParameter(inputs[i].set("Input " + ofToString(i), nullptr));
+        addParameter(inputs[i].set("Input." + ofToString(i), nullptr));
         inputs[i].addListener(this, &textureMixer::computeOutput);
     }
 //    addParameter(mixMode.set("Mix Mode",0,0,6));
-    addParameterDropdown(mixMode, "Mix Function", 0, mixModeName);
-    addParameter(crossFader.set("Crossfader",0,0.0,1.0));
+    addParameterDropdown(mixMode, "Mix.Func", 0, mixModeName);
+    addParameter(crossFader.set("Mix",0.5,0.0,1.0));
 
     addParameter(output.set("Output", nullptr));
     
@@ -77,8 +77,8 @@ void textureMixer::setup()
     
     void    main()
     {
-        vec4    texColor = texelFetch(tex0, ivec2(gl_FragCoord.x,gl_FragCoord.y),0);
-        vec4    texColor2 = texelFetch(tex1, ivec2(gl_FragCoord.x,gl_FragCoord.y),0);
+        vec4    texColor2 = texelFetch(tex0, ivec2(gl_FragCoord.x,gl_FragCoord.y),0);
+        vec4    texColor = texelFetch(tex1, ivec2(gl_FragCoord.x,gl_FragCoord.y),0);
         vec4    one = vec4(1.0,1.0,1.0,1.0);
 
         // FADE ALPHA
@@ -97,6 +97,7 @@ void textureMixer::setup()
             if(op2>1.0) op2 = 1.0;
             
             out_Color = min ((texColor*op1),(texColor2*op2));
+            
         }
 
         // MAX
@@ -119,18 +120,26 @@ void textureMixer::setup()
             
             out_Color = min((texColor*op1) + (texColor2*op2),1.0);
         }
-        // MULTIPLY
+        // SUBSTRACT
         else if(u_mixMode==4)
+        {
+            float op1 = u_crossfade;
+            float op2 = 1.0 - u_crossfade;
+
+            out_Color = (texColor2) - (texColor*op1);
+        }
+        // MULTIPLY
+        else if(u_mixMode==5)
         {
             float op1 = 0 + (1 - 0) * ((u_crossfade - 0) / (0.5 - 0));
             op1 = clamp(op1, 0, 1);
             float op2 = 1 + (0 - 1) * ((u_crossfade - 0.5) / (1 - 0.5));
             op2 = clamp(op2, 0, 1);
             
-            out_Color = (texColor*op2 + (1-op2)) * (texColor2*op1 + (1-op1));
+            out_Color = (texColor*op1 + (1-op1)) * (texColor2*op2 + (1-op2));
         }
         // DIFFERENCE
-        else if(u_mixMode==5)
+        else if(u_mixMode==6)
         {
             //abs(base - blend)
             vec3 outAux = abs(texColor2.xyz - texColor.xyz);
@@ -146,13 +155,13 @@ void textureMixer::setup()
 //        }
         // SUBSTRACT
         //max(base + blend - 1.0, 0.0)
-        else if(u_mixMode==6)
+        else if(u_mixMode==7)
         {
             //abs(base - blend)
             vec3 outAux = max(texColor2.xyz*u_crossfade + texColor.xyz*u_crossfade - one.xyz, 0.0);
             out_Color = vec4(outAux.xyz, 1.0);
         }
-
+        out_Color = vec4(out_Color.xyz, 1.0);
         
 
 

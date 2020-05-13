@@ -10,11 +10,11 @@
 
 manualOscillatorBank::manualOscillatorBank() : baseIndexer(100, "Manual Oscillator Bank"){
     
-    addParameter(phasorIn.set("Phasor In", 0, 0, 1));
+    addParameter(phasorIn.set("Phase", 0, 0, 1));
     putParametersInParametersGroup();
-    addParameter(manualInput.set("Manual In", 0, 0, 1));
-    addParameter(damping.set("Damping", 0, 0, 1));
-    addParameter(dampingPow.set("Damping Pow", 0, -40, 40));
+    addParameter(manualInput.set("Input", 0, 0, 1));
+    addParameter(damping.set("Damp.", 0, 0, 1));
+    addParameter(dampingPow.set("Damp.Pow", 0, -40, 40));
     addParameter(output.set("Output", {0}, {0}, {1}));
     
     phasorInEvent = phasorIn.newListener(this, &manualOscillatorBank::computeValues);

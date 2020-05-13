@@ -8,7 +8,7 @@
 
 #include "midiGateIn.h"
 
-midiGateIn::midiGateIn() : ofxOceanodeNodeModel("Midi Note In"){
+midiGateIn::midiGateIn() : ofxOceanodeNodeModel("MIDI Note In"){
     midiIn = nullptr;
 }
 
@@ -20,10 +20,12 @@ void midiGateIn::setup(){
     for(int i = 0; i < midiIn->getNumInPorts(); i++){
         ports[i+1] = midiIn->getInPortList()[i];
     }
-    addParameterDropdown(midiDevice, "Midi Device", 0, ports);
-    addParameter(midiChannel.set("Midi Channel", 0, 0, 16));
-    addParameter(noteOnStart.set("Note Begin", 0, 0, 127));
-    addParameter(noteOnEnd.set("Note End", 127, 0, 127));
+    addParameterDropdown(midiDevice, "Device", 0, ports);
+    addParameter(midiChannel.set("Channel", 0, 0, 16));
+    ofParameter<char> noteslabel("Notes", ' ');
+    addParameter(noteslabel);
+    addParameter(noteOnStart.set("Start", 0, 0, 127));
+    addParameter(noteOnEnd.set("End", 127, 0, 127));
     addParameter(output.set("Output", {0}, {0}, {1}));
     
     outputStore.resize(noteOnEnd - noteOnStart + 1, 0);

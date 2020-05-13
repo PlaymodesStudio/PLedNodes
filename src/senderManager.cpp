@@ -8,10 +8,10 @@
 
 #include "senderManager.h"
 
-senderManager::senderManager() : ofxOceanodeNodeModel("Sender Manager"){
+senderManager::senderManager() : ofxOceanodeNodeModel("Syphon Server"){
     addParameter(enable.set("Enable", 1), ofxOceanodeParameterFlags_DisableSavePreset);
-    addParameter(syphonName.set("Server Name", "Texture"), ofxOceanodeParameterFlags_DisableSavePreset);
-    addParameter(masterFader.set("Master Fader", 1, 0, 1), ofxOceanodeParameterFlags_DisableSavePreset);
+    addParameter(syphonName.set("Server", "Texture"), ofxOceanodeParameterFlags_DisableSavePreset);
+    addParameter(masterFader.set("Opacity", 1, 0, 1), ofxOceanodeParameterFlags_DisableSavePreset);
     addParameter(textureIn.set("Texture In", nullptr));
     
     listeners.push(textureIn.newListener(this, &senderManager::sendTexture));

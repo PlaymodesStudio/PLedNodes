@@ -14,12 +14,12 @@ public:
     ~stepSequencer(){};
     
     void setup(){
-        addParameter(numSteps.set("Num Steps", 1, 1, 100));
+        addParameter(numSteps.set("N.Steps", 1, 1, 100));
         addParameter(index.set("Index", 0, 0, 1));
         lastNumSteps = 0;
         
         addParameter(output.set("Output", {0}, {0}, {1}));
-        addParameter(stepsVec.set("Steps Vec", {0}, {0}, {1}));
+        addParameter(stepsVec.set("Steps[]", {0}, {0}, {1}));
         
         numStepsListener = numSteps.newListener([this](int &nsteps){
             if(lastNumSteps == nsteps) return;

@@ -13,19 +13,19 @@ void colorApplier::setup(){
     isSetup = false;
     resources = &sharedResources::getInstance();
     
-    addParameter(reloadShaderParam.set("Reload Shader", false));
-    addParameter(colorPickerParam[0].set("Color 1", ofColor::white));
-    addParameter(colorRParam[0].set("Color 1 R", 255, 0, 255));
-    addParameter(colorGParam[0].set("Color 1 G", 255, 0, 255));
-    addParameter(colorBParam[0].set("Color 1 B", 255, 0, 255));
-    addParameter(colorHParam[0].set("Color 1 Hue", 0, 0, 360), ofxOceanodeParameterFlags_DisableSavePreset);
+    addParameter(reloadShaderParam.set("Reload", false));
+    addParameter(colorPickerParam[0].set("-Color.A", ofColor::white));
+    addParameter(colorRParam[0].set("A.Red", 255, 0, 255));
+    addParameter(colorGParam[0].set("A.Green", 255, 0, 255));
+    addParameter(colorBParam[0].set("A.Blue", 255, 0, 255));
+    addParameter(colorHParam[0].set("A.Hue", 0, 0, 360), ofxOceanodeParameterFlags_DisableSavePreset);
     
-    addParameter(colorPickerParam[1].set("Color 2", ofColor::white));
-    addParameter(colorRParam[1].set("Color 2 R", 0, 0, 255));
-    addParameter(colorGParam[1].set("Color 2 G", 0, 0, 255));
-    addParameter(colorBParam[1].set("Color 2 B", 0, 0, 255));
-    addParameter(colorHParam[1].set("Color 2 Hue", 0, 0, 360), ofxOceanodeParameterFlags_DisableSavePreset);
-    addParameter(colorDisplacement.set("Color Displacement", 0, 0, 1));
+    addParameter(colorPickerParam[1].set("-Color.B", ofColor::white));
+    addParameter(colorRParam[1].set("B.Red", 0, 0, 255));
+    addParameter(colorGParam[1].set("B.Green", 0, 0, 255));
+    addParameter(colorBParam[1].set("B.Bluue", 0, 0, 255));
+    addParameter(colorHParam[1].set("B.Hue", 0, 0, 360), ofxOceanodeParameterFlags_DisableSavePreset);
+    addParameter(colorDisplacement.set("Displace", 0, 0, 1));
     
     //    addParameter(randomColorStepsParam.set("Rnd Color Steps", 4, 0, 255));
     //    sharedResources::addDropdownToParameterGroupFromParameters(parameters, "Rnd ChangeTypes", {"no", "on presset", "onTrigger"}, randomizeTypeColorParam);

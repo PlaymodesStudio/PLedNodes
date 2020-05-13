@@ -8,10 +8,10 @@
 #include "valueEaser.h"
 
 valueEaser::valueEaser() : ofxOceanodeNodeModel("Value Easer"){
-    addParameter(phasor.set("Phasor In", {0}, {0}, {1}));
+    addParameter(phasor.set("Phase", {0}, {0}, {1}));
     addParameter(input.set("Input", {0}, {0}, {1}));
-    addParameter(pow.set("In-Out", {0}, {-1}, {1}));
-    addParameter(bipow.set("InOut Amout", {0}, {-1}, {1}));
+    addParameter(pow.set("Pow", {0}, {-1}, {1}));
+    addParameter(bipow.set("BiPow", {0}, {-1}, {1}));
     addParameter(output.set("Output", {0}, {0}, {1}));
     
     color = ofColor::green;
